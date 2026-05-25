@@ -1,0 +1,9 @@
+exp_id: exp002_lgb_anchor_delta
+seed: 42
+model:
+  name: lightgbm
+features:
+  sets: [basic, anchor]
+target:
+  mode: delta_from_anchor
+status: planned

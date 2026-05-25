@@ -1,0 +1,9 @@
+exp_id: exp001_xgb_baseline
+seed: 42
+model:
+  name: xgboost
+features:
+  sets: [basic]
+target:
+  mode: direct
+status: planned

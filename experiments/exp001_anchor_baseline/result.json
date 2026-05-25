@@ -1,0 +1,14 @@
+{
+  "exp_id": "exp001_anchor_baseline",
+  "created_at": "2026-05-25T23:12:04.230250+09:00",
+  "status": "completed",
+  "model": "anchor_last_known_TVT",
+  "metric": "TVT_abs_RMSE",
+  "cv_rmse": 15.909852870734552,
+  "cv_mean": 15.887139283623842,
+  "cv_std": 0.8545568728346457,
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "target rows の TVT を last_known_TVT で予測する単純基準線。"
+}

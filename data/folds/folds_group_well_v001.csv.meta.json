@@ -1,0 +1,20 @@
+{
+  "strategy": "group_well",
+  "input": "data/processed/train_base_v001.parquet",
+  "output": "data/folds/folds_group_well_v001.csv",
+  "n_splits": 5,
+  "fold_target_rows": {
+    "0": 757738,
+    "1": 756650,
+    "2": 756255,
+    "3": 757101,
+    "4": 756245
+  },
+  "fold_wells": {
+    "0": 155,
+    "1": 155,
+    "2": 154,
+    "3": 155,
+    "4": 154
+  }
+}

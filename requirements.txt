@@ -1,0 +1,14 @@
+kaggle
+kagglehub
+python-dotenv
+numpy
+pandas
+pyarrow
+scikit-learn
+matplotlib
+seaborn
+pyyaml
+tqdm
+xgboost
+lightgbm
+catboost
