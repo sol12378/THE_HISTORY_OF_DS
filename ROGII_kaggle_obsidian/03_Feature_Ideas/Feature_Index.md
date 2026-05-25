@@ -1,4 +1,4 @@
-# Feature Index
+# 特徴量インデックス
 
 - [[Anchor_Features]]
 - [[Trajectory_Features]]

@@ -1,8 +1,8 @@
 # Raw to Processed Pipeline
 
-## Input
+## 入力
 
-Raw input paths:
+raw input paths:
 
 ```text
 data/raw/train/{well_id}__horizontal_well.csv
@@ -13,9 +13,9 @@ data/raw/test/{well_id}__typewell.csv
 data/raw/sample_submission.csv
 ```
 
-## Output
+## 出力
 
-Primary processed files:
+主要なprocessed files:
 
 ```text
 data/processed/train_base_v001.parquet
@@ -25,7 +25,7 @@ data/processed/typewell_test_base_v001.parquet
 data/folds/folds_group_well_v001.csv
 ```
 
-Optional feature tables:
+任意のfeature tables:
 
 ```text
 data/processed/features_anchor.parquet
@@ -34,7 +34,7 @@ data/processed/features_gr.parquet
 data/processed/features_typewell.parquet
 ```
 
-Prefer versioned feature tables:
+feature tablesはversion付きにする。
 
 ```text
 data/processed/features_anchor_v001.parquet
@@ -46,7 +46,7 @@ data/processed/features_alignment_v001.parquet
 
 ## Train Base Table
 
-Target schema:
+目標schema:
 
 ```text
 split
@@ -72,7 +72,7 @@ delta_Y_from_PS
 delta_Z_from_PS
 ```
 
-Recommended additional stable columns:
+追加推奨の安定列:
 
 ```text
 source_path
@@ -89,7 +89,7 @@ post_ps_step
 
 ## Test Base Table
 
-Target schema:
+目標schema:
 
 ```text
 split
@@ -115,7 +115,7 @@ delta_Y_from_PS
 delta_Z_from_PS
 ```
 
-Recommended additional stable columns:
+追加推奨の安定列:
 
 ```text
 source_path
@@ -130,9 +130,9 @@ row_frac
 post_ps_step
 ```
 
-## Why Base Tables Matter
+## なぜBase Tableが重要か
 
-Every experiment should start from identical base tables. This prevents hidden differences in:
+すべての実験は同じbase tableから始める。これにより以下の隠れた差分を防ぐ。
 
 - Prediction Start detection
 - row indexing
@@ -143,7 +143,7 @@ Every experiment should start from identical base tables. This prevents hidden d
 
 ## Build Order
 
-Recommended build order:
+推奨build order:
 
 1. `raw_inventory_v001.json`
 2. `horizontal_train_interim_v001.parquet`
@@ -158,10 +158,10 @@ Recommended build order:
 
 ## Submission Mapping Contract
 
-For test:
+testでは以下を保証する。
 
 ```text
 sample_submission.id == test_base[test_base.is_target].id
 ```
 
-This must be validated before every submission.
+これはすべてのsubmission前に検証する。

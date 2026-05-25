@@ -1,14 +1,14 @@
-# Missingness Analysis
+# 欠損分析
 
-Known facts:
+既知の事実:
 
-- `TVT_input` becomes missing as a contiguous tail for each train well.
-- Test submission rows exactly match missing `TVT_input` rows.
-- `GR` has substantial missingness and should be treated as signal plus uncertainty.
+- `TVT_input` は各train wellで連続したtailとして欠損する。
+- test submission rowsは `TVT_input` 欠損行と一致する。
+- `GR` は欠損が多く、信号であると同時に不確実性として扱う。
 
-Required checks:
+必要な確認:
 
-- missing rate by well
-- missing rate by pre-PS/post-PS region
-- missing streak length
-- relationship between GR missingness and OOF error
+- wellごとの欠損率
+- pre-PS / post-PS別の欠損率
+- 欠損連続長
+- GR欠損率とOOF errorの関係

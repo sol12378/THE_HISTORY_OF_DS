@@ -1,17 +1,17 @@
-# Domain Understanding
+# ドメイン理解
 
-The competition asks us to infer where the horizontal well is positioned within geological TVT space after the Prediction Start.
+このコンペでは、Prediction Start以降の水平井が地質的なTVT空間のどこにいるかを推定する。
 
-Key intuition:
+重要な直感:
 
-- `MD` increases along the well path.
-- `Z` describes physical vertical depth.
-- `TVT` describes position relative to geological layering.
-- `GR` behaves like a noisy geological fingerprint.
-- `typewell` provides the reference GR curve on the TVT axis.
+- `MD` は井戸に沿って増える距離。
+- `Z` は物理的な深さ方向の座標。
+- `TVT` は地層に対する位置を表す地質座標。
+- `GR` はノイズを含む地質の指紋として使える。
+- `typewell` はTVT軸上のGR参照曲線を与える。
 
-The core modeling question:
+中核となる問い:
 
 ```text
-After Prediction Start, is the well following the same layer, moving upward through layers, or moving downward through layers?
+Prediction Start以降、井戸は同じ層を走っているのか、上位層へ抜けているのか、下位層へ潜っているのか？
 ```

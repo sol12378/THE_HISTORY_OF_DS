@@ -1,10 +1,10 @@
 # Trajectory Features
 
-## Hypothesis
+## 仮説
 
-The well path direction and curvature explain whether TVT increases, decreases, or stays flat after Prediction Start.
+井戸の進行方向や曲率は、Prediction Start以降にTVTが増えるか、減るか、ほぼ一定かを説明する。
 
-## Candidate Features
+## 候補特徴量
 
 - `dX_dMD`
 - `dY_dMD`

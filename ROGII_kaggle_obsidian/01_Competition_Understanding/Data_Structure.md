@@ -1,13 +1,13 @@
-# Data Structure
+# データ構造
 
-Each well has paired files:
+各wellにはペアのファイルがある。
 
 ```text
 {well_id}__horizontal_well.csv
 {well_id}__typewell.csv
 ```
 
-Train also includes:
+trainにはさらに画像がある。
 
 ```text
 {well_id}.png

@@ -1,10 +1,10 @@
 # Typewell Features
 
-## Hypothesis
+## 仮説
 
-Typewell provides a reference GR curve in TVT space, enabling TVT inference from horizontal GR.
+TypewellはTVT空間上のGR参照曲線を与えるため、horizontal GRからTVTを推定する助けになる。
 
-## Candidate Features
+## 候補特徴量
 
 - typewell TVT min/max
 - typewell GR mean/std

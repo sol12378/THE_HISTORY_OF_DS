@@ -1,3 +1,3 @@
 # Submission Index
 
-Record every Kaggle submission here and link it to its source experiment.
+すべてのKaggle submissionをここに記録し、元になったexperimentへリンクする。

@@ -1,14 +1,14 @@
 # Alignment Features
 
-## Hypothesis
+## 仮説
 
-Matching horizontal GR windows to typewell GR windows can correct TVT drift after Prediction Start.
+horizontal GR window と typewell GR window を対応づけることで、Prediction Start以降のTVT driftを補正できる。
 
-## Candidate Features
+## 候補特徴量
 
 - best GR correlation shift
 - best matching TVT
 - correlation score
 - DTW distance
 - lag between anchor baseline and GR-matched TVT
-- local confidence based on GR variance and missingness
+- local confidence based on GR coverage

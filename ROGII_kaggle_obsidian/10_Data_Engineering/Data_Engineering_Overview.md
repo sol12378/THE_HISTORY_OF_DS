@@ -1,23 +1,23 @@
-# Data Engineering Overview
+# データエンジニアリング概要
 
-## Goal
+## 目的
 
-Build a repeatable, auditable data pipeline from raw Kaggle files to model-ready feature tables.
+raw Kaggle files から model-ready feature tables まで、再現可能で監査しやすいパイプラインを作る。
 
-The pipeline must make it easy to:
+このパイプラインが満たすべきこと:
 
-- reproduce experiments
-- avoid leakage
-- generate consistent train/test features
-- create reliable CV folds
-- save OOF and submission artifacts
-- inspect well-level failures
+- 実験を再現できる
+- リークを防げる
+- train/testで一貫した特徴量を作れる
+- 信頼できるCV foldを作れる
+- OOFとsubmission artifactを保存できる
+- well単位の失敗分析ができる
 
-## Core Principle
+## 中核原則
 
-Treat each well as a sequence first, and as tabular rows second.
+各wellはまずsequenceとして扱い、その後tabular rowsとして扱う。
 
-Raw files are organized by well. Models will often train on rows, but feature construction must preserve well-level context:
+raw filesはwell単位で整理されている。モデルは行単位で学習することが多いが、特徴量生成では以下のwell-level contextを保持する。
 
 - row order
 - Prediction Start position
@@ -27,26 +27,26 @@ Raw files are organized by well. Models will often train on rows, but feature co
 
 ## Data Layers
 
-Recommended layers:
+推奨レイヤー:
 
 ```text
 data/raw/
-  Immutable Kaggle files.
+  Kaggleから取得した不変ファイル。
 
 data/interim/
-  Parsed and lightly normalized per-well tables.
+  parse済み・軽く正規化したwell単位テーブル。
 
 data/processed/
-  Model-ready train/test base tables and feature tables.
+  model-readyなbase tableとfeature table。
 
 data/folds/
-  Fold assignment files.
+  fold assignment files。
 
 outputs/
-  Models, OOF, predictions, plots, diagnostics.
+  models, OOF, predictions, plots, diagnostics。
 
 experiments/
-  Per-experiment frozen configs and results.
+  実験ごとの凍結configと結果。
 ```
 
 ## Pipeline Stages
@@ -62,77 +62,75 @@ experiments/
 9. Model dataset export
 10. OOF/submission artifact validation
 
-## Non-Negotiables
+## 変更しないルール
 
-- Never modify `data/raw/`.
-- Never use future `TVT` when constructing test-time features.
-- Never row-random split.
-- Always save row identifiers: `well_id`, `row_idx`, and submission `id` where applicable.
-- Always keep enough metadata to trace any prediction back to a source CSV row.
+- `data/raw/` は絶対に変更しない。
+- test-time featureを作るときにfuture `TVT` を使わない。
+- row-random splitはしない。
+- `well_id`, `row_idx`, 必要に応じてsubmission `id` を必ず保存する。
+- どの予測もsource CSV rowへ辿れるmetadataを残す。
 
-## Freeze Decisions
+## 固定する設計判断
 
-These decisions should remain stable throughout the competition unless there is a documented migration:
+1. `well_id` と `row_idx` をcanonical row keysとする。
+2. 学習行は horizontal-well rows のうち `is_target=True` の行とする。
+3. ローカル評価は `is_target=True` に対する `TVT` RMSEとする。
+4. foldsは一度作ったら `data/folds/` でversion管理する。
+5. base tableは軽量で安定させ、実験固有の特徴量はfeature tableまたはfeature functionに置く。
+6. processed tableにはversion、作成時刻、raw data fingerprint、schema contractを持たせる。
+7. feature familyは独立にablationできるよう加算的に設計する。
+8. train-only geological marker columnsは、test parityを明示しない限りanalysis-onlyとする。
 
-1. `well_id` and `row_idx` are the canonical row keys.
-2. Model training rows are horizontal-well rows where `is_target=True`.
-3. Local evaluation uses `TVT` RMSE on `is_target=True` rows only.
-4. Folds are generated once and versioned in `data/folds/`.
-5. Base tables are feature-light and stable; experiment-specific features live in feature tables or feature functions.
-6. Every processed table has a version, creation timestamp, source raw-data fingerprint, and schema contract.
-7. Feature families are additive and can be ablated independently.
-8. Raw train-only geological marker columns are analysis-only unless an experiment explicitly documents how test parity is achieved.
+## 推奨データアーキテクチャ
 
-## Recommended Data Architecture
-
-Use a layered "bronze / silver / gold" mental model:
+bronze / silver / gold の考え方で分ける。
 
 ```text
 Bronze:
   data/raw/
-  Exact Kaggle files. Immutable.
+  Kaggle filesそのもの。不変。
 
 Silver:
   data/interim/
-  Parsed normalized tables with stable row IDs, source paths, and basic validation.
+  stable row IDs、source paths、basic validationを持つ正規化済みテーブル。
 
 Gold:
   data/processed/
-  Model-ready base tables, fold files, and feature tables.
+  model-ready base tables、fold files、feature tables。
 ```
 
-The gold layer should be the only default input for experiments.
+実験のデフォルト入力はGold layerだけにする。
 
-## Table Granularity
+## テーブル粒度
 
-Use three canonical granularities:
+canonical granularityは3つ。
 
 ```text
 well-row:
-  one row per horizontal well point
+  horizontal well pointごとに1行
   key = split, well_id, row_idx
 
 typewell-row:
-  one row per typewell TVT point
+  typewell TVT pointごとに1行
   key = split, well_id, typewell_row_idx
 
 well-level:
-  one row per well
+  wellごとに1行
   key = split, well_id
 ```
 
-Do not mix these granularities without an explicit join rule.
+明示的なjoin ruleなしに粒度を混ぜない。
 
 ## Metadata Requirements
 
-Every generated dataset should have a sidecar metadata file:
+生成datasetごとにsidecar metadata fileを持たせる。
 
 ```text
 data/processed/train_base_v001.parquet
 data/processed/train_base_v001.meta.json
 ```
 
-Metadata should include:
+metadataに含めるもの:
 
 - dataset name
 - version
@@ -149,10 +147,10 @@ Metadata should include:
 
 ## Change Policy
 
-If a base schema must change:
+base schemaを変える必要がある場合:
 
-1. Create a new version such as `train_base_v002.parquet`.
-2. Keep old versions until dependent experiments are archived.
-3. Write the migration reason in `Decision_Log.md`.
-4. Update `Schema_and_Contracts.md`.
-5. Never silently overwrite a base table used by previous experiments.
+1. `train_base_v002.parquet` のような新versionを作る。
+2. 依存実験がarchiveされるまで旧versionを残す。
+3. 変更理由を `Decision_Log.md` に書く。
+4. `Schema_and_Contracts.md` を更新する。
+5. 過去実験が使ったbase tableを黙って上書きしない。

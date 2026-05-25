@@ -1,6 +1,6 @@
-# OOF Analysis Guide
+# OOF分析ガイド
 
-Every experiment should save OOF with:
+すべての実験でOOFに以下を保存する。
 
 - `well_id`
 - `row_idx`
@@ -11,11 +11,11 @@ Every experiment should save OOF with:
 - `abs_error`
 - `TVT_input_isna`
 
-Required summaries:
+必須集計:
 
 - overall RMSE
 - fold RMSE
 - well RMSE
 - bias
-- error by distance from Prediction Start
-- error by GR missingness
+- Prediction Startからの距離別error
+- GR欠損率別error

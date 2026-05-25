@@ -1,18 +1,18 @@
-# Leakage and Risks
+# リークとリスク
 
-## Known Leakage Risk
+## 既知のリークリスク
 
-The current downloadable test wells are also present in train:
+現在ダウンロードできるtest wellsはtrainにも存在する。
 
 - `000d7d20`
 - `00bbac68`
 - `00e12e8b`
 
-The train files contain `TVT` for rows that appear in sample submission. Any direct lookup submission must be marked `leak_risk` and used only to verify submission mechanics.
+train filesにはsample submission対象行の `TVT` が含まれる。直接lookupするsubmissionは必ず `leak_risk` と明示し、提出形式確認用としてのみ扱う。
 
-## Train-Only Columns
+## Train-only columns
 
-These horizontal-well columns are train-only:
+以下のhorizontal well columnsはtrain-onlyである。
 
 - `ANCC`
 - `ASTNU`
@@ -22,4 +22,4 @@ These horizontal-well columns are train-only:
 - `BUDA`
 - `TVT`
 
-Do not use them as ordinary production features unless equivalent test-side values are generated without leakage.
+これらは通常の本番特徴量としては使わない。分析や補助目的で使う場合も、リーク懸念を明記する。

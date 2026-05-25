@@ -1,30 +1,30 @@
-# Long-Term Data Engineering Plan
+# 長期データエンジニアリング計画
 
-## Purpose
+## 目的
 
-This plan freezes the data engineering architecture before serious modeling begins. The goal is to avoid mid-competition schema churn and make every experiment reproducible.
+本格的なmodelingに入る前に、データエンジニアリング構成を固定する。目的は、コンペ中盤以降にschemaが揺れてCV比較が壊れることを防ぎ、すべての実験を再現可能にすることである。
 
-## Architecture Summary
+## アーキテクチャ概要
 
-Use four stable layers:
+以下の4層を安定したレイヤーとして使う。
 
 ```text
 raw
-  immutable Kaggle files
+  不変のKaggle files
 
 interim
-  parsed normalized tables
+  parse済み・正規化済みテーブル
 
 processed
-  versioned base tables and feature tables
+  version管理されたbase tableとfeature table
 
 experiment
   exact matrices, OOF, submissions, model artifacts
 ```
 
-## Stable Artifacts
+## 安定成果物
 
-The following artifacts should be treated as stable contracts:
+以下の成果物はstable contractとして扱う。
 
 ```text
 data/processed/train_base_v001.parquet
@@ -34,7 +34,7 @@ data/processed/typewell_test_base_v001.parquet
 data/folds/folds_group_well_v001.csv
 ```
 
-Feature artifacts should be independently versioned:
+Feature artifactsは独立にversion管理する。
 
 ```text
 data/processed/features_anchor_v001.parquet
@@ -44,9 +44,9 @@ data/processed/features_typewell_basic_v001.parquet
 data/processed/features_alignment_v001.parquet
 ```
 
-## What Should Be Frozen
+## 固定すべきもの
 
-Freeze:
+固定するもの:
 
 - canonical identifiers
 - base schema
@@ -57,7 +57,7 @@ Freeze:
 - artifact naming conventions
 - leakage policy
 
-Do not freeze:
+固定しないもの:
 
 - model type
 - feature versions
@@ -67,7 +67,7 @@ Do not freeze:
 
 ## Canonical Identifiers
 
-Every row-level table must carry:
+すべてのrow-level tableは以下を持つ。
 
 ```text
 split
@@ -75,17 +75,17 @@ well_id
 row_idx
 ```
 
-Test target rows also carry:
+test target rowsはさらに以下を持つ。
 
 ```text
 id = f"{well_id}_{row_idx}"
 ```
 
-These identifiers are the backbone for joins, OOF analysis, error slicing, and submission generation.
+これらのidentifierは、join、OOF analysis、error slicing、submission generationの背骨である。
 
 ## Base Tables vs Feature Tables
 
-Base tables should contain only stable, universally useful columns:
+Base tableには、安定していて全実験で使う列だけを入れる。
 
 - raw observable fields
 - row identity
@@ -93,7 +93,7 @@ Base tables should contain only stable, universally useful columns:
 - anchor metadata
 - target and mask columns
 
-Feature tables should contain derived experiment-oriented columns:
+Feature tableには、実験で変わりうる派生列を入れる。
 
 - rolling GR
 - trajectory curvature
@@ -101,20 +101,20 @@ Feature tables should contain derived experiment-oriented columns:
 - alignment scores
 - candidate TVT estimates
 
-This separation reduces the cost of changing feature logic while preserving stable experiment inputs.
+この分離により、実験入力の安定性を保ちながら、特徴量ロジックを安全に変えられる。
 
 ## Fold Strategy
 
-The default fold contract:
+default fold contract:
 
 ```text
 data/folds/folds_group_well_v001.csv
 columns: split, well_id, fold
 ```
 
-For row-level training, join folds by `well_id`.
+row-level trainingでは、`well_id` でfoldをjoinする。
 
-Additional fold files can be created:
+追加のfold fileを作る場合:
 
 ```text
 folds_group_typewell_v001.csv
@@ -122,11 +122,11 @@ folds_spatial_cluster_v001.csv
 folds_adversarial_public_v001.csv
 ```
 
-Never overwrite a fold file after experiments depend on it.
+実験が依存したfold fileは上書きしない。
 
 ## Quality Gates
 
-Every ETL run should fail fast if:
+ETL runは以下に該当したら即失敗させる。
 
 - raw file counts do not match expectations
 - sample submission IDs do not map to test target rows
@@ -136,7 +136,7 @@ Every ETL run should fail fast if:
 - any target-aware feature is generated before fold isolation
 - any experiment tries to use analysis-only columns by default
 
-## Recommended Implementation Modules
+## 推奨実装モジュール
 
 ```text
 src/rogii/data/raw_inventory.py
@@ -152,7 +152,7 @@ src/rogii/features/build_alignment.py
 src/rogii/training/build_matrix.py
 ```
 
-## Recommended Scripts
+## 推奨スクリプト
 
 ```text
 scripts/build_base_tables.py
@@ -165,7 +165,7 @@ scripts/run_exp.py
 
 ## Public Repository Safety
 
-Do not commit:
+commitしないもの:
 
 - `.env`
 - `.kaggle/`
@@ -176,7 +176,7 @@ Do not commit:
 - submissions
 - Obsidian workspace files
 
-Commit:
+commitしてよいもの:
 
 - ETL code
 - schema docs
@@ -187,7 +187,7 @@ Commit:
 
 ## Migration Policy
 
-If a design change is required:
+設計変更が必要な場合:
 
 1. create a new artifact version
 2. leave old artifacts untouched
@@ -196,6 +196,6 @@ If a design change is required:
 5. list impacted experiments
 6. do not compare CV across incompatible data versions without noting it
 
-## Final Principle
+## 最終原則
 
-The base data layer should be boring, stable, and traceable. Innovation belongs in feature versions and experiments, not in silent changes to row identity, masks, folds, or target definitions.
+base data layerは退屈なくらい安定し、追跡可能であるべき。新しい工夫はfeature versionsとexperimentsで行い、row identity、masks、folds、target definitionsを黙って変えてはいけない。

@@ -1,12 +1,12 @@
 # Raw Data Inventory
 
-Local raw data path:
+Raw data path:
 
 ```text
 data/raw/
 ```
 
-Current inventory:
+現在のinventory:
 
 - train horizontal wells: 773
 - train typewells: 773
@@ -18,5 +18,5 @@ Current inventory:
 Raw data rule:
 
 ```text
-Never edit files under data/raw/.
+data/raw/ 以下は絶対に編集しない。
 ```

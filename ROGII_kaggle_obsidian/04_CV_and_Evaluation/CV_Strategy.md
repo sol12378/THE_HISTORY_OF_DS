@@ -1,4 +1,4 @@
-# CV Strategy
+# CV戦略
 
 Primary validation:
 
@@ -12,11 +12,11 @@ Evaluation rows:
 TVT_input is NaN
 ```
 
-Reason:
+理由:
 
-- Adjacent rows in the same well are highly correlated.
-- Row-random CV leaks local continuity.
-- The test task predicts future missing tails, so local CV should mimic held-out wells.
+- 同じwell内の隣接行は非常に相関が高い。
+- row-random CVは局所的な連続性をリークする。
+- test taskはfuture missing tailを予測するため、local CVもheld-out wellsを模倣すべきである。
 
 Secondary checks:
 
@@ -25,46 +25,46 @@ Secondary checks:
 - GR missingness slices
 - hidden-length slices
 
-## Recommended v001 Fold
+## 推奨 v001 Fold
 
-Use a well-level split that balances target-row counts:
+評価対象行数のバランスを取ったwell-level splitを使う。
 
 ```text
 data/folds/folds_group_well_v001.csv
 columns: split, well_id, fold
 ```
 
-Implementation idea:
+実装案:
 
-- Build row-level records only for target rows.
-- Run `GroupKFold(n_splits=5)` with `groups=well_id`.
-- Collapse the resulting fold assignment back to one row per `well_id`.
-- Join folds to training rows by `well_id`.
+- target rowsだけのrow-level recordsを作る。
+- `GroupKFold(n_splits=5)` を `groups=well_id` で実行する。
+- 得られたfold assignmentをwell単位に戻す。
+- training rowsへ `well_id` でjoinする。
 
-This keeps all rows from a well in one fold while balancing the number of evaluated target rows per fold.
+これにより、同じwellの全行を同じfoldに保ちながら、評価対象target rows数もfold間で揃えられる。
 
-## Why Not Row Random
+## Row Randomを使わない理由
 
-Row-random split is invalid because:
+row-random splitは無効である。理由:
 
-- adjacent rows share nearly identical `MD`, `X`, `Y`, `Z`, `GR`
-- target `TVT` is smooth within many wells
-- train rows would be immediate neighbors of validation rows
-- the resulting score would measure interpolation, not unseen-well generalization
+- 隣接行はほぼ同じ `MD`, `X`, `Y`, `Z`, `GR` を持つ。
+- 多くのwellでtarget `TVT` は滑らかに変化する。
+- validation rowのすぐ隣がtrainに入る。
+- scoreが未見wellへの汎化ではなく、局所補間の評価になる。
 
-## Why Not Simple KFold by Well Count Only
+## Well数だけで単純KFoldしない理由
 
-Randomly splitting wells into equal counts is acceptable as a baseline, but fold target-row counts can drift because wells have different hidden lengths.
+well数を均等にrandom splitする方法もbaselineとしては使えるが、wellごとのhidden lengthが異なるためtarget rows数が偏る。
 
-For ROGII, target rows per well range widely, so balancing evaluation rows is preferred.
+ROGIIではwellごとのtarget rows数の幅が大きいため、評価行数をバランスさせる方が望ましい。
 
-## Evaluation Contract
+## 評価契約
 
-Every CV report should include:
+すべてのCV reportに含めるもの:
 
-- fold RMSE on target rows
-- number of wells per fold
-- number of target rows per fold
-- weighted overall RMSE over all OOF target rows
-- unweighted mean of well-level RMSE
+- target rowsに対するfold RMSE
+- foldごとのwell数
+- foldごとのtarget rows数
+- 全OOF target rowsに対するweighted overall RMSE
+- well-level RMSEのunweighted mean
 - bias: `mean(pred - TVT)`

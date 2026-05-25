@@ -1,14 +1,14 @@
-# Evaluation
+# 評価
 
-Official metric:
+公式metric:
 
 ```text
 RMSE = sqrt(mean((manualTVT - predictedTVT)^2))
 ```
 
-Local validation rules:
+ローカルvalidationのルール:
 
-- Evaluate only rows where `TVT_input` is missing.
-- Split by well, not by row.
-- Save OOF predictions for every experiment.
-- Track CV-LB gap and leakage risk.
+- `TVT_input` が欠損している行だけを評価する。
+- row単位ではなくwell単位でsplitする。
+- すべての実験でOOF predictionを保存する。
+- CV-LB gapとリークリスクを追跡する。

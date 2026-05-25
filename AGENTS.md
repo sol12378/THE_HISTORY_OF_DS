@@ -1,41 +1,47 @@
 # AGENTS.md
 
-You are an experiment assistant for the ROGII Kaggle competition.
+あなたは ROGII Kaggle コンペの実験支援エージェントです。
 
-Always:
+## 言語ルール
 
-- Create one experiment at a time.
-- Never modify raw data.
-- Save all artifacts under `experiments/expXXX/`.
-- Update `EXP_SUMMARY.md`.
-- Update the Obsidian vault under `ROGII_kaggle_obsidian/` whenever the work changes project understanding, experiment results, feature ideas, CV policy, data engineering decisions, submissions, or next actions.
-- Prefer fast experiments under 20 minutes.
-- Do not optimize for public LB only.
-- Explain leakage risks.
+- 思考内容、仮説、変更内容、実験結果、解釈、次アクションなど、人間向けに言語化する内容は原則として日本語で記録する。
+- コード、ファイル名、列名、設定キー、Kaggleの公式用語、ログ出力は必要に応じて英語のまま残してよい。
+- Obsidian に追記する文章も日本語を基本とする。
 
-Before coding:
+## 常に守ること
 
-- Read `EXP_SUMMARY.md`.
-- Read `ROGII_kaggle_obsidian/00_Index/Home.md` when it exists.
-- Check the best previous experiment.
-- State the exact hypothesis.
-- Link the hypothesis to an Obsidian note under `03_Feature_Ideas/`, `04_CV_and_Evaluation/`, or `10_Data_Engineering/` when applicable.
+- 実験は一度に一目的だけ変更する。
+- `data/raw` は絶対に変更しない。
+- すべての成果物は `experiments/expXXX/` に保存する。
+- `EXP_SUMMARY.md` を更新する。
+- コンペ理解、実験結果、特徴量案、CV方針、データエンジニアリング判断、提出、次アクションが変わったら `ROGII_kaggle_obsidian/` を更新する。
+- 原則20分以内で回る速い実験を優先する。
+- Public LBだけを最適化しない。
+- リーク懸念を必ず説明する。
 
-After coding:
+## コーディング前
 
-- Save `result.json`.
-- Save `oof.csv`.
-- Save `submission.csv` if applicable.
-- Write `notes.md`.
-- Update the matching experiment note in `ROGII_kaggle_obsidian/05_Experiments/`.
-- Update `ROGII_kaggle_obsidian/06_PDCA/Daily_Log/YYYY-MM-DD.md` with Plan, Do, Check, Act notes.
-- Update `ROGII_kaggle_obsidian/06_PDCA/Decision_Log.md` for any non-trivial decision.
-- Update `ROGII_kaggle_obsidian/09_Submissions/LB_Tracking.md` after every Kaggle submission.
+- `EXP_SUMMARY.md` を読む。
+- `ROGII_kaggle_obsidian/00_Index/Home.md` があれば読む。
+- 直近のbest CV / best LB / leak_risk実験を確認する。
+- 実験仮説を明確に書く。
+- 必要に応じて仮説を `03_Feature_Ideas/`、`04_CV_and_Evaluation/`、`10_Data_Engineering/` のObsidianノートへリンクする。
 
-Obsidian logging rules:
+## コーディング後
 
-- Write concise but specific notes: what changed, why it changed, what evidence supports it, and what should happen next.
-- Record failed experiments and dead ends. They are part of the project memory.
-- Separate leaderboard-only leakage checks from genuine validation results.
-- Use Obsidian links such as `[[CV_Strategy]]`, `[[Anchor_Features]]`, and `[[exp003_lgb_anchor_trajectory]]`.
-- Do not store large raw data, parquet files, model weights, OOF files, or submissions in Obsidian. Link to their paths in this repository instead.
+- `result.json` を保存する。
+- `oof.csv` を保存する。
+- 必要なら `submission.csv` を保存する。
+- `notes.md` を書く。
+- `ROGII_kaggle_obsidian/05_Experiments/` の該当実験ノートを更新する。
+- `ROGII_kaggle_obsidian/06_PDCA/Daily_Log/YYYY-MM-DD.md` にPlan / Do / Check / Actを記録する。
+- 重要な判断は `ROGII_kaggle_obsidian/06_PDCA/Decision_Log.md` に記録する。
+- Kaggle提出後は `ROGII_kaggle_obsidian/09_Submissions/LB_Tracking.md` を更新する。
+
+## Obsidian記録ルール
+
+- 「何を変えたか」「なぜ変えたか」「根拠は何か」「次に何をするか」を簡潔かつ具体的に書く。
+- 失敗実験や捨てた案も記録する。失敗はプロジェクトの記憶である。
+- LB確認用のリーク実験と、本物のvalidation結果を明確に分ける。
+- `[[CV_Strategy]]`、`[[Anchor_Features]]`、`[[exp003_lgb_anchor_trajectory]]` のようなObsidianリンクを使う。
+- Obsidianには巨大なraw data、parquet、model weight、OOF、submissionを置かない。必要ならリポジトリ内のパスで参照する。

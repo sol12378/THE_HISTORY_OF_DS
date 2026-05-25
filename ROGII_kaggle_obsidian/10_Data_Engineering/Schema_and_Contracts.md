@@ -2,7 +2,7 @@
 
 ## File-Level Contracts
 
-Each horizontal well file must satisfy:
+各horizontal well fileは以下を満たす。
 
 - has `MD`, `X`, `Y`, `Z`, `GR`, `TVT_input`
 - train additionally has `TVT`
@@ -10,7 +10,7 @@ Each horizontal well file must satisfy:
 - `row_idx` is the original zero-based CSV row index
 - `TVT_input` missing region should be a contiguous tail
 
-Each typewell file must satisfy:
+各typewell fileは以下を満たす。
 
 - has `TVT`
 - has `GR`
@@ -19,7 +19,7 @@ Each typewell file must satisfy:
 
 ## Identifier Contracts
 
-Canonical IDs:
+canonical IDs:
 
 ```text
 well_id = filename before "__"
@@ -27,17 +27,17 @@ row_idx = original integer row position within horizontal CSV
 submission_id = f"{well_id}_{row_idx}"
 ```
 
-Never drop `well_id` or `row_idx` from processed data.
+processed dataから `well_id` と `row_idx` を落とさない。
 
 ## Naming Contracts
 
-Use uppercase raw column names as-is:
+raw column namesは大文字のまま使う。
 
 ```text
 MD, X, Y, Z, GR, TVT, TVT_input
 ```
 
-Use snake_case for engineered columns:
+engineered columnsはsnake_caseを使う。
 
 ```text
 well_id
@@ -48,23 +48,23 @@ delta_MD_from_PS
 is_target
 ```
 
-Do not rename raw columns differently in separate scripts.
+scriptごとにraw columnsの名前を変えない。
 
 ## Target Contract
 
-Training target rows:
+training target rows:
 
 ```text
 is_target = TVT_input.isna()
 ```
 
-Evaluation must use only `is_target=True` rows.
+evaluationは `is_target=True` の行だけを使う。
 
 ## Feature Parity Contract
 
-Any feature used by a model must be computable for both train and test without seeing test target `TVT`.
+modelに使うfeatureは、test target `TVT` を見ずにtrain/test両方で計算できなければならない。
 
-Train-only columns:
+train-only columns:
 
 - `TVT`
 - `ANCC`
@@ -75,13 +75,13 @@ Train-only columns:
 - `BUDA`
 - train typewell `Geology`
 
-Use train-only columns for analysis or auxiliary targets only after explicitly documenting leakage risk.
+train-only columnsは、リークリスクを明記したうえで分析や補助target用途に限定して使う。
 
 ## Base Schema v001
 
-The first stable base schema is `v001`.
+最初のstable base schemaを `v001` とする。
 
-Required well-row columns:
+必須well-row columns:
 
 ```text
 split
@@ -116,7 +116,7 @@ post_ps_step
 row_frac
 ```
 
-Optional analysis-only columns:
+任意のanalysis-only columns:
 
 ```text
 ANCC
@@ -127,11 +127,11 @@ EGFDL
 BUDA
 ```
 
-If included in a base table, these must be prefixed or flagged as analysis-only and excluded from default model feature lists.
+base tableに含める場合、analysis-onlyであることを明示し、default model feature listから除外する。
 
 ## Validation Gates
 
-No processed table should be considered valid unless:
+以下を満たさないprocessed tableはvalidとみなさない。
 
 - all required columns exist
 - row count matches raw source row count

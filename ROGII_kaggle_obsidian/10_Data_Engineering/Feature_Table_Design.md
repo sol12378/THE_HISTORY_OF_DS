@@ -1,14 +1,14 @@
 # Feature Table Design
 
-## Design
+## 設計
 
-Use additive feature families with stable keys:
+stable keysを持つ加算型のfeature familyを使う。
 
 ```text
 key: split, well_id, row_idx
 ```
 
-Each feature family should be independently buildable:
+各feature familyは独立にbuildできるようにする。
 
 ```text
 anchor_features
@@ -18,7 +18,7 @@ typewell_features
 alignment_features
 ```
 
-This enables ablation:
+これによりablationがしやすくなる。
 
 ```text
 basic
@@ -30,7 +30,7 @@ basic + anchor + trajectory + GR + typewell
 
 ## Anchor Features
 
-Computed per well using only rows before Prediction Start:
+Prediction Start以前の行だけを使い、wellごとに計算する。
 
 - last known TVT
 - last known MD/X/Y/Z
@@ -40,7 +40,7 @@ Computed per well using only rows before Prediction Start:
 
 ## Trajectory Features
 
-Computed from current and neighboring positions:
+現在位置と近傍位置から計算する。
 
 - local direction
 - displacement from PS
@@ -52,7 +52,7 @@ Computed from current and neighboring positions:
 
 ## GR Features
 
-Computed within a well:
+well内で計算する。
 
 - raw GR
 - missing flag
@@ -64,7 +64,7 @@ Computed within a well:
 
 ## Typewell Features
 
-Computed from the paired typewell:
+対応するtypewellから計算する。
 
 - GR stats over full typewell
 - GR at last known TVT
@@ -73,7 +73,7 @@ Computed from the paired typewell:
 
 ## Alignment Features
 
-Computed by comparing horizontal GR windows to typewell GR windows:
+horizontal GR window と typewell GR window を比較して計算する。
 
 - best correlation score
 - best matching TVT
@@ -83,7 +83,7 @@ Computed by comparing horizontal GR windows to typewell GR windows:
 
 ## Storage
 
-Prefer parquet:
+parquetを推奨する理由:
 
 - faster load
 - preserves dtypes
@@ -92,13 +92,13 @@ Prefer parquet:
 
 ## Feature Registry
 
-Maintain a lightweight feature registry:
+軽量なfeature registryを維持する。
 
 ```text
 data/processed/feature_registry_v001.json
 ```
 
-For each feature family, record:
+各feature familyについて記録するもの:
 
 - feature table path
 - version
@@ -111,20 +111,20 @@ For each feature family, record:
 
 ## Feature Stability Rule
 
-Once a feature table is used by an experiment, do not mutate it in place.
+一度実験で使ったfeature tableは上書きしない。
 
-Instead:
+代わりにversionを上げる。
 
 ```text
 features_gr_v001.parquet
 features_gr_v002.parquet
 ```
 
-Experiments should reference exact feature versions in config.
+experimentsはconfig内で正確なfeature versionを参照する。
 
 ## Matrix Assembly
 
-Training matrices should be assembled from:
+training matrixは以下から組み立てる。
 
 ```text
 base table
@@ -133,17 +133,17 @@ base table
 + target transform
 ```
 
-The resulting matrix can be cached as:
+生成されたmatrixはcacheしてよい。
 
 ```text
 data/cache/matrix_exp003_lgb_anchor_trajectory.parquet
 ```
 
-Cache files are disposable. Base tables and versioned feature tables are not.
+cache filesは捨ててもよい。base tablesとversioned feature tablesは捨てない。
 
 ## Target Transform Contract
 
-Supported target modes should be explicit:
+supported target modesは明示する。
 
 ```text
 direct:
@@ -156,14 +156,14 @@ slope_from_anchor:
   y = (TVT - last_known_TVT) / max(delta_MD_from_PS, eps)
 ```
 
-Evaluation always converts back to absolute `TVT` and computes RMSE.
+evaluationでは必ずabsolute `TVT` に戻してRMSEを計算する。
 
 ## Train/Test Feature Parity
 
-Before training, assert:
+training前に以下を検証する。
 
 ```text
 set(train_features) == set(test_features)
 ```
 
-Exceptions must be documented and handled in code, not silently ignored.
+例外は必ず文書化し、codeで明示的に扱う。黙って無視しない。

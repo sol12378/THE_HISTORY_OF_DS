@@ -1,20 +1,20 @@
 # Week XX Review
 
-## Summary
+## 要約
 
 
-## Best Experiments
+## 良かった実験
 
 
-## Failed Experiments
+## 失敗した実験
 
 
-## What We Learned
+## 学び
 
 
-## Risks
+## リスク
 
 
-## Next Week Focus
+## 次週の重点
 
 - 

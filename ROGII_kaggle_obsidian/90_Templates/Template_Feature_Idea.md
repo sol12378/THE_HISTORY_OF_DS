@@ -5,13 +5,13 @@ tags: [feature, idea]
 status: proposed
 ---
 
-## Hypothesis
+## 仮説
 
 
-## Construction
+## 作り方
 
 
-## Expected Signal
+## 期待される信号
 
 
 ## Leakage Risk

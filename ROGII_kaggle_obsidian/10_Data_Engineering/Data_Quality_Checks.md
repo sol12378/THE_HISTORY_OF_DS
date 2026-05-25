@@ -2,40 +2,40 @@
 
 ## Raw Inventory Checks
 
-- train horizontal count equals train typewell count
-- every train well has a PNG
-- test horizontal count equals test typewell count
-- sample submission IDs map to test wells and row indices
+- train horizontal count と train typewell count が一致する。
+- すべてのtrain wellにPNGがある。
+- test horizontal count と test typewell count が一致する。
+- sample submission IDs が test wells と row indices に対応する。
 
 ## Horizontal Checks
 
-- required columns exist
-- `MD` monotonic increasing
-- no duplicate `row_idx`
-- `TVT_input` missing tail is contiguous
-- train `TVT_input` equals `TVT` before PS
-- target rows are non-empty
-- GR missingness is recorded
+- required columnsが存在する。
+- `MD` が単調増加している。
+- `row_idx` が重複しない。
+- `TVT_input` の欠損tailが連続している。
+- trainではPrediction Start以前の `TVT_input` が `TVT` と一致する。
+- target rowsが空ではない。
+- GR missingnessを記録する。
 
 ## Typewell Checks
 
-- required columns exist
-- `TVT` and `GR` are non-null
-- `TVT` range overlaps relevant horizontal well TVT range
-- duplicate TVT values are handled
+- required columnsが存在する。
+- `TVT` と `GR` がnon-nullである。
+- `TVT` range が関連するhorizontal wellのTVT rangeと重なる。
+- duplicate TVT valuesを明示的に扱う。
 
 ## Train/Test Parity Checks
 
-- model feature columns must exist in both splits
-- no target column in test matrix
-- submission IDs exactly match `test_base[is_target]`
+- model feature columns がtrain/test両方に存在する。
+- test matrixにtarget columnを入れない。
+- submission IDs が sample submission と完全一致する。
 
-## Experiment Artifact Checks
+## 実験artifact checks
 
-Before trusting an experiment:
+実験を信頼する前に確認すること:
 
-- OOF row count equals training target row count
-- fold column has expected folds
-- no validation well appears in training within same fold
-- submission row count equals sample submission row count
-- submission IDs exactly match sample submission
+- OOF row count が training target row count と一致する。
+- fold column が期待foldを持つ。
+- 同一fold内でvalidation wellがtrainingに入らない。
+- submission row count が sample submission row count と一致する。
+- submission IDs が sample submission と完全一致する。

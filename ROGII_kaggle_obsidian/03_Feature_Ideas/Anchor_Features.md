@@ -1,10 +1,10 @@
 # Anchor Features
 
-## Hypothesis
+## 仮説
 
-Prediction Start just before missing `TVT_input` contains the strongest information about future TVT.
+Prediction Start直前の `TVT_input` は、未来のTVTを予測するうえで最も強い情報である。
 
-## Candidate Features
+## 候補特徴量
 
 - `last_known_TVT`
 - `last_known_MD`
@@ -20,7 +20,7 @@ Prediction Start just before missing `TVT_input` contains the strongest informat
 
 ## Target Transform
 
-Prefer:
+推奨:
 
 ```text
 target_delta = TVT - last_known_TVT

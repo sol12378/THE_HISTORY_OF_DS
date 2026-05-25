@@ -1,6 +1,6 @@
-# Reproducibility and Artifacts
+# 再現性とArtifacts
 
-## Required Artifacts Per Experiment
+## 実験ごとの必須Artifacts
 
 ```text
 experiments/expXXX/
@@ -16,7 +16,7 @@ experiments/expXXX/
 
 ## Result JSON
 
-Should include:
+含めるべきもの:
 
 - exp_id
 - created_at
@@ -33,7 +33,7 @@ Should include:
 
 ## Data Versioning
 
-Because raw data is immutable, version processed data through filenames or metadata:
+raw dataは不変なので、processed dataはfilenameまたはmetadataでversion管理する。
 
 ```text
 train_base_v001.parquet
@@ -41,4 +41,4 @@ features_anchor_v001.parquet
 folds_group_well_v001.csv
 ```
 
-Record any schema change in this vault and in experiment notes.
+schema changeはObsidianとexperiment notesに必ず記録する。

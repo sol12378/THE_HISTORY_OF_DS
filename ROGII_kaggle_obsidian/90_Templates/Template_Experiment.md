@@ -9,10 +9,10 @@ cv_rmse:
 lb:
 ---
 
-## Hypothesis
+## 仮説
 
 
-## Changes
+## 変更点
 
 
 ## Config
@@ -23,7 +23,7 @@ Code config:
 src/rogii/config/expXXX.yaml
 ```
 
-## Results
+## 結果
 
 | Metric | Value |
 |---|---:|
@@ -31,19 +31,19 @@ src/rogii/config/expXXX.yaml
 | CV std | |
 | LB | |
 
-## OOF Findings
+## OOF所見
 
 - Worst wells:
 - Bias:
 - Error slices:
 
-## Interpretation
+## 解釈
 
 
-## Decision
+## 判断
 
 promote / retry / abandon / blend_candidate / leak_risk
 
-## Next Actions
+## 次アクション
 
 - 

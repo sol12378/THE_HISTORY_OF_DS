@@ -8,6 +8,12 @@ ROGII - Wellbore Geology Prediction
 
 信頼できるCVをもとに、ROGIIのPublic/Private LBを改善する。
 
+## Language Rule
+
+- 思考内容、仮説、変更内容、実験結果、解釈、次アクションなど、人間向けに言語化する内容は原則として日本語で記録する。
+- `ROGII_kaggle_obsidian/` に書く文章も日本語を基本とする。
+- コード、ファイル名、列名、設定キー、Kaggle公式用語、ログ出力は必要に応じて英語のまま残してよい。
+
 ## Non-negotiable Rules
 
 - `data/raw` は絶対に変更しない

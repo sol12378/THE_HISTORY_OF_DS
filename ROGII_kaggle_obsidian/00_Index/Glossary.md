@@ -1,19 +1,19 @@
-# Glossary
+# 用語集
 
-## Core Terms
+## 中核用語
 
-- `MD`: Measured Depth, distance along the well path.
-- `X`, `Y`, `Z`: 3D coordinates of each horizontal well point.
-- `TVT`: True Vertical Thickness, the target geological coordinate.
-- `TVT_input`: observed TVT before Prediction Start; missing after Prediction Start.
-- `GR`: Gamma Ray log, a geological signature signal.
-- `Typewell`: vertical/reference well containing `TVT` and `GR`.
-- `Prediction Start`: first row where `TVT_input` becomes missing.
-- `OOF`: out-of-fold predictions from local validation.
+- `MD`: Measured Depth。井戸に沿って測った距離。
+- `X`, `Y`, `Z`: 水平井の各点の3次元座標。
+- `TVT`: True Vertical Thickness。今回の予測対象となる地質座標。
+- `TVT_input`: Prediction Start以前に観測されているTVT。Prediction Start以降は欠損する。
+- `GR`: Gamma Ray log。地層の指紋のように使えるログ値。
+- `Typewell`: `TVT` と `GR` を持つ参照井。
+- `Prediction Start`: `TVT_input` が初めて欠損する行。
+- `OOF`: out-of-fold prediction。CVで得たvalidation予測。
 
-## Formation Labels
+## 地層ラベル
 
-- `ANCC`, `ASTNU`, `ASTNL`, `EGFDU`, `EGFDL`, `BUDA`: formation marker names present in train horizontal files.
-- `U` / `L`: likely upper/lower qualifier in geological labels.
-- `TGT`: target interval label.
-- `THL`, `BHL`: top/base or landing-related interval labels, treated as labels unless confirmed.
+- `ANCC`, `ASTNU`, `ASTNL`, `EGFDU`, `EGFDL`, `BUDA`: train horizontal fileに含まれるformation marker名。
+- `U` / `L`: geological labelにおけるupper / lower系の修飾と推定される。
+- `TGT`: target interval系のラベル。
+- `THL`, `BHL`: top/baseまたはlanding関連のinterval labelとして扱う。公式に確定できるまではラベル名として扱う。

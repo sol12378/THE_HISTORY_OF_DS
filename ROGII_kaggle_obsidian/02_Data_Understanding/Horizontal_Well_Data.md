@@ -1,19 +1,19 @@
 # Horizontal Well Data
 
-Horizontal well rows are ordered points along the well path.
+Horizontal wellの各行は、井戸パス上の順序付きポイントを表す。
 
-Core columns:
+主要列:
 
-- `MD`: measured depth along the well.
-- `X`, `Y`, `Z`: 3D position.
-- `GR`: gamma ray log, often missing.
-- `TVT_input`: known before Prediction Start, missing after it.
-- `TVT`: train target.
+- `MD`: well pathに沿った距離。
+- `X`, `Y`, `Z`: 3次元位置。
+- `GR`: gamma ray log。欠損が多い。
+- `TVT_input`: Prediction Start以前は既知、以降は欠損。
+- `TVT`: train target。
 
-Training target rows are usually:
+基本的なtraining target rows:
 
 ```text
 TVT_input is NaN
 ```
 
-Prediction Start is the first row where `TVT_input` becomes missing.
+Prediction Startは、`TVT_input` が初めて欠損する行である。

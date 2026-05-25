@@ -1,13 +1,13 @@
 # ROGII Kaggle Home
 
-## Current Status
+## 現在の状態
 
 - Competition: ROGII - Wellbore Geology Prediction
 - Code repository: project root
 - Raw data: `data/raw/`
-- Current priority: build a reliable data engineering and CV foundation.
+- 現在の優先事項: 安定したデータエンジニアリング基盤とCV基盤を作る。
 
-## Navigation
+## ナビゲーション
 
 - [[Competition_Map]]
 - [[Glossary]]
@@ -19,16 +19,16 @@
 - [[Decision_Log]]
 - [[LB_Tracking]]
 
-## Current Best
+## 現在のベスト
 
-| Type | Exp | CV | LB | Notes |
+| 種別 | Exp | CV | LB | Notes |
 |---|---|---:|---:|---|
-| CV | - | - | - | Not established yet |
-| LB | - | - | - | Leak lookup should be isolated |
+| CV | - | - | - | まだ未確立 |
+| LB | - | - | - | leak lookup は隔離して扱う |
 
-## Next Actions
+## 次のアクション
 
-- Build processed base tables.
-- Create GroupKFold by well.
-- Run anchor and slope baselines.
-- Start OOF-based error analysis.
+- base tableを作る。
+- well単位のGroupKFoldを作る。
+- anchor baseline と slope baseline を実行する。
+- OOFベースの誤差分析を始める。

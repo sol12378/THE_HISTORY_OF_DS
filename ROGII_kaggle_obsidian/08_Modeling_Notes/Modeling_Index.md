@@ -1,4 +1,4 @@
-# Modeling Index
+# モデリングノート インデックス
 
 - [[Baseline_Models]]
 - [[LightGBM_Notes]]

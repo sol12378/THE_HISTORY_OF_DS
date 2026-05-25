@@ -1,4 +1,4 @@
-# Important Links
+# 重要リンク
 
 - Kaggle competition: https://www.kaggle.com/competitions/rogii-wellbore-geology-prediction
 - Code repository: project root

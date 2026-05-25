@@ -1,9 +1,14 @@
 # agent.md
 
-See `AGENTS.md` for the canonical agent instructions.
+正規のエージェント指示は `AGENTS.md` を参照する。
 
-Important project-memory rule:
+## 言語ルール
 
-- Update `ROGII_kaggle_obsidian/` whenever you change project understanding, data engineering decisions, feature ideas, CV policy, experiment results, submissions, or next actions.
-- Record not only what changed, but why it changed, what evidence supports it, and what should happen next.
-- Keep large artifacts in the code repository and link to them from Obsidian.
+- 思考内容、仮説、変更内容、実験結果、解釈、次アクションなど、人間向けに言語化する内容は原則として日本語で記録する。
+- コード、ファイル名、列名、設定キー、Kaggleの公式用語は必要に応じて英語のまま残してよい。
+
+## 重要なプロジェクト記憶ルール
+
+- コンペ理解、データエンジニアリング判断、特徴量案、CV方針、実験結果、提出、次アクションが変わったら `ROGII_kaggle_obsidian/` を更新する。
+- 何を変えたかだけでなく、なぜ変えたか、どんな根拠があるか、次に何をするべきかを記録する。
+- 巨大な成果物はコードリポジトリ側に置き、Obsidianからパスで参照する。

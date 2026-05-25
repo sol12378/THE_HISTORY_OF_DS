@@ -1,6 +1,6 @@
 # Competition Map
 
-## Understanding
+## コンペ理解
 
 - [[Competition_Overview]]
 - [[Domain_Understanding]]
@@ -8,7 +8,7 @@
 - [[Data_Structure]]
 - [[Leakage_and_Risks]]
 
-## Engineering
+## データエンジニアリング
 
 - [[Data_Engineering_Overview]]
 - [[Long_Term_Data_Engineering_Plan]]
@@ -17,14 +17,14 @@
 - [[Feature_Table_Design]]
 - [[Data_Quality_Checks]]
 
-## Experiments
+## 実験
 
 - [[EXP_Index]]
 - [[CV_Strategy]]
 - [[LB_Tracking]]
 - [[Decision_Log]]
 
-## Feature Families
+## 特徴量ファミリー
 
 - [[Anchor_Features]]
 - [[Trajectory_Features]]

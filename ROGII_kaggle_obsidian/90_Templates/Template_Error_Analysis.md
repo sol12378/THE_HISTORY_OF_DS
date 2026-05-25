@@ -6,7 +6,7 @@
 ## Symptoms
 
 
-## Evidence
+## 根拠
 
 
 ## Suspected Cause

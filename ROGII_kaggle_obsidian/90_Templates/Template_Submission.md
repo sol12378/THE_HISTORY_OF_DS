@@ -14,7 +14,7 @@ lb:
 data/submissions/
 ```
 
-## Source
+## 元実験
 
 
 ## CV and LB
@@ -25,9 +25,9 @@ data/submissions/
 | LB | |
 | Gap | |
 
-## Notes
+## メモ
 
 
-## Decision
+## 判断
 
 

@@ -1,15 +1,15 @@
 # Typewell Data
 
-Typewell files provide reference curves:
+Typewell filesは参照曲線を与える。
 
 - `TVT`
 - `GR`
-- `Geology` in train only
+- `Geology` はtrainのみ
 
-The key role of typewell data is to map GR signatures onto TVT space.
+typewell dataの主な役割は、GR signatureをTVT空間へ対応づけることである。
 
-Main feature direction:
+主な特徴量方向:
 
 ```text
-Compare horizontal GR windows with typewell GR windows to infer candidate TVT positions.
+horizontal GR window と typewell GR window を比較し、候補TVT位置を推定する。
 ```

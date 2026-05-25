@@ -1,10 +1,10 @@
 # GR Features
 
-## Hypothesis
+## 仮説
 
-GR is a noisy geological fingerprint; local shape matters more than raw value alone.
+GRはノイズを含む地質の指紋であり、単一値よりも局所的な形状が重要である。
 
-## Candidate Features
+## 候補特徴量
 
 - `GR`
 - `GR_isna`

@@ -1,16 +1,16 @@
-# Leakage-Prone Features
+# リークしやすい特徴量
 
-Do not blindly use:
+安易に使わないもの:
 
 - `TVT`
 - future `TVT_input`
 - train-only formation marker columns
-- train-only `Geology` labels as direct test features
-- well IDs that memorize the leaked public test rows
+- train-only `Geology` labels
+- leaked public test rowsを記憶するwell ID
 
-Allowed use:
+許容される用途:
 
-- analysis
+- 分析
 - error slicing
-- target construction in train
-- controlled leak-check submissions clearly marked as `leak_risk`
+- train targetの構築
+- `leak_risk` と明記した管理下のリーク確認submission
