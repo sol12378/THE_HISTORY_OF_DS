@@ -89,3 +89,81 @@ Prefer parquet:
 - preserves dtypes
 - compact
 - stable for repeated experiments
+
+## Feature Registry
+
+Maintain a lightweight feature registry:
+
+```text
+data/processed/feature_registry_v001.json
+```
+
+For each feature family, record:
+
+- feature table path
+- version
+- keys
+- columns
+- dependencies
+- leakage assumptions
+- train/test availability
+- generating script/function
+
+## Feature Stability Rule
+
+Once a feature table is used by an experiment, do not mutate it in place.
+
+Instead:
+
+```text
+features_gr_v001.parquet
+features_gr_v002.parquet
+```
+
+Experiments should reference exact feature versions in config.
+
+## Matrix Assembly
+
+Training matrices should be assembled from:
+
+```text
+base table
++ selected feature family versions
++ fold file
++ target transform
+```
+
+The resulting matrix can be cached as:
+
+```text
+data/cache/matrix_exp003_lgb_anchor_trajectory.parquet
+```
+
+Cache files are disposable. Base tables and versioned feature tables are not.
+
+## Target Transform Contract
+
+Supported target modes should be explicit:
+
+```text
+direct:
+  y = TVT
+
+delta_from_anchor:
+  y = TVT - last_known_TVT
+
+slope_from_anchor:
+  y = (TVT - last_known_TVT) / max(delta_MD_from_PS, eps)
+```
+
+Evaluation always converts back to absolute `TVT` and computes RMSE.
+
+## Train/Test Feature Parity
+
+Before training, assert:
+
+```text
+set(train_features) == set(test_features)
+```
+
+Exceptions must be documented and handled in code, not silently ignored.

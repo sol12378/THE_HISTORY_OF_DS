@@ -11,6 +11,7 @@
 ## Engineering
 
 - [[Data_Engineering_Overview]]
+- [[Long_Term_Data_Engineering_Plan]]
 - [[Raw_to_Processed_Pipeline]]
 - [[Schema_and_Contracts]]
 - [[Feature_Table_Design]]

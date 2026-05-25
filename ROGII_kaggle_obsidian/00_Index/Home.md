@@ -14,6 +14,7 @@
 - [[Data_Structure]]
 - [[CV_Strategy]]
 - [[Data_Engineering_Overview]]
+- [[Long_Term_Data_Engineering_Plan]]
 - [[EXP_Index]]
 - [[Decision_Log]]
 - [[LB_Tracking]]

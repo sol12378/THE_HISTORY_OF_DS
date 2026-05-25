@@ -29,6 +29,27 @@ submission_id = f"{well_id}_{row_idx}"
 
 Never drop `well_id` or `row_idx` from processed data.
 
+## Naming Contracts
+
+Use uppercase raw column names as-is:
+
+```text
+MD, X, Y, Z, GR, TVT, TVT_input
+```
+
+Use snake_case for engineered columns:
+
+```text
+well_id
+row_idx
+ps_idx
+last_known_TVT
+delta_MD_from_PS
+is_target
+```
+
+Do not rename raw columns differently in separate scripts.
+
 ## Target Contract
 
 Training target rows:
@@ -55,3 +76,68 @@ Train-only columns:
 - train typewell `Geology`
 
 Use train-only columns for analysis or auxiliary targets only after explicitly documenting leakage risk.
+
+## Base Schema v001
+
+The first stable base schema is `v001`.
+
+Required well-row columns:
+
+```text
+split
+well_id
+row_idx
+source_path
+MD
+X
+Y
+Z
+GR
+TVT_input
+TVT                  # train only, absent or null in test
+id                   # test submission id, optional/null in train
+is_target
+is_known_tvt
+is_gr_missing
+ps_idx
+n_rows_in_well
+known_length
+hidden_length
+last_known_TVT
+last_known_MD
+last_known_X
+last_known_Y
+last_known_Z
+delta_MD_from_PS
+delta_X_from_PS
+delta_Y_from_PS
+delta_Z_from_PS
+post_ps_step
+row_frac
+```
+
+Optional analysis-only columns:
+
+```text
+ANCC
+ASTNU
+ASTNL
+EGFDU
+EGFDL
+BUDA
+```
+
+If included in a base table, these must be prefixed or flagged as analysis-only and excluded from default model feature lists.
+
+## Validation Gates
+
+No processed table should be considered valid unless:
+
+- all required columns exist
+- row count matches raw source row count
+- `well_id`, `row_idx` is unique within split
+- `ps_idx` is not null for every well
+- `hidden_length > 0`
+- train `TVT` is non-null
+- test `id` exists for all target rows
+- sample submission target IDs match test target IDs exactly
