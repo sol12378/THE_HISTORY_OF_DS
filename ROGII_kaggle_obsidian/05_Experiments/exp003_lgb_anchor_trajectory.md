@@ -23,6 +23,8 @@
 | anchorからのRMSE改善 | 0.854988 |
 | OOF rows | 3,783,989 |
 | submission rows | 14,151 |
+| Public LB | 14.147 |
+| CV-LB gap | -0.908 |
 
 fold別RMSE:
 
@@ -58,6 +60,8 @@ fold別RMSE:
 ## 解釈
 
 LightGBMは全体としてanchorの系統的な下振れbiasをかなり補正している。一方、fold 0 のbest_iterationが8で止まっており、foldごとの分布差がある。`known_length` や `n_rows_in_well` が強いことから、well長や観測区間の違いをモデルが大きく利用している。これは有効だが、private LBへの一般化ではfold設計とwell別error slicingで過信を避ける必要がある。
+
+Public LBは14.147で、OOF CV 15.054865より約0.908良い。testは3 wellsに限られるため、public splitがtrain fold平均より易しい可能性がある。CVより良いこと自体は悪くないが、Public LBだけに合わせるとPrivateで崩れる危険がある。
 
 ## リーク懸念
 

@@ -24,6 +24,7 @@ Secondary checks:
 - typewell similarity holdout
 - GR missingness slices
 - hidden-length slices
+- trajectory-shape slices
 
 ## 推奨 v001 Fold
 
@@ -68,3 +69,26 @@ ROGIIではwellごとのtarget rows数の幅が大きいため、評価行数を
 - 全OOF target rowsに対するweighted overall RMSE
 - well-level RMSEのunweighted mean
 - bias: `mean(pred - TVT)`
+
+## best_iteration の見方
+
+LightGBMの `best_iteration` は、validation foldのRMSEが最も良かった木の本数を表す。
+
+たとえば `n_estimators=600` でも、early stoppingで `best_iteration=124` なら「124本目までが最良で、その先はvalidationを改善しなかった」という意味になる。
+
+解釈のポイント:
+
+- 小さすぎる `best_iteration`
+  - そのfoldでは特徴量が十分に効いていない
+  - train / valid の分布差が大きい
+  - learning_rateが大きすぎる可能性がある
+- 大きすぎる `best_iteration`
+  - まだ学習余地がある
+  - `n_estimators` 上限に張り付いているなら上限不足の可能性がある
+
+ROGIIでの実務ルール:
+
+- foldごとに `best_iteration` を必ず保存する
+- fold間で大きくぶれる場合は「CVの難しさの違い」か「特徴量の効き方の不安定さ」を疑う
+- `best_iteration` 単独ではなく、fold RMSEと一緒に読む
+- 採用判断は `best_iteration` のきれいさではなく、OOF sliceの一貫性で行う
