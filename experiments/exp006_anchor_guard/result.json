@@ -1,0 +1,24 @@
+{
+  "exp_id": "exp006_anchor_guard",
+  "status": "completed",
+  "created_at": "2026-05-27T16:45:12.001710+09:00",
+  "model_exp": "exp003_lgb_anchor_trajectory",
+  "anchor_exp": "exp001_anchor_baseline",
+  "metric": "TVT_abs_RMSE",
+  "lgbm_cv_rmse": 15.054864875405485,
+  "anchor_cv_rmse": 15.909852870734552,
+  "blended_cv_rmse": 14.724541482779323,
+  "rmse_improvement_vs_lgbm": 0.3303233926261626,
+  "rmse_improvement_vs_anchor": 1.1853113879552293,
+  "alphas": {
+    "full_anchor": 0.0,
+    "delta_extreme": 0.0,
+    "strong_guard": 0.7,
+    "mild_guard": 1.0,
+    "no_guard": 1.0
+  },
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "Rule-based guard using hidden_length and final_delta_z_from_ps. Both features are available in test set without leakage. Alpha values tuned on OOF."
+}
