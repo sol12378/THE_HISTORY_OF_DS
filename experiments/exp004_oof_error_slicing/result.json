@@ -1,0 +1,48 @@
+{
+  "exp_id": "exp004_oof_error_slicing",
+  "status": "completed",
+  "analysis_target": "exp003_lgb_anchor_trajectory",
+  "baseline": "exp001_anchor_baseline",
+  "metric": "TVT_abs_RMSE",
+  "overall": {
+    "model_exp": "exp003_lgb_anchor_trajectory",
+    "anchor_exp": "exp001_anchor_baseline",
+    "created_at": "2026-05-27T15:03:57.795435+09:00",
+    "n_rows": 3783989,
+    "n_wells": 773,
+    "model_rmse": 15.054864875405485,
+    "model_mae": 10.6558682815068,
+    "model_bias": -0.10933870174528348,
+    "model_p95_abs_error": 30.6899702090559,
+    "anchor_rmse": 15.909852870734552,
+    "anchor_mae": 11.196479701711619,
+    "anchor_bias": -1.5959871791381777,
+    "anchor_p95_abs_error": 32.340000000000146,
+    "rmse_improvement_vs_anchor": 0.8549879953290667,
+    "mae_improvement_vs_anchor": 0.5406114202048187
+  },
+  "worst_model_rmse_well": {
+    "well_id": "1b1eba53",
+    "fold": 0,
+    "n_rows": 4655,
+    "hidden_length": 4655,
+    "model_rmse": 68.3549366094438,
+    "anchor_rmse": 70.63937461968057,
+    "rmse_improvement_vs_anchor": 2.2844380102367694,
+    "model_mae": 64.06103208569846,
+    "model_bias": -64.06103208569846,
+    "model_p95_abs_error": 93.7005246534276
+  },
+  "reports": [
+    "well_error_report.csv",
+    "hidden_length_error_report.csv",
+    "trajectory_shape_error_report.csv",
+    "vertical_shape_error_report.csv",
+    "curvature_shape_error_report.csv",
+    "fold_error_report.csv",
+    "worst_wells_top30.csv",
+    "trajectory_metrics_by_well.csv"
+  ],
+  "leak_risk": "low",
+  "notes": "OOF predictions and train-base target-row metadata only. No raw data modification."
+}
