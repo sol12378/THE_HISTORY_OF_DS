@@ -1,0 +1,47 @@
+{
+  "thresholds": {
+    "full_anchor_hidden_thr": 8000,
+    "delta_extreme_thr": 30.0,
+    "strong_guard_delta_z_thr": -100.0,
+    "strong_guard_hidden_thr": 4000,
+    "mild_guard_delta_z_thr": -50.0,
+    "mild_guard_hidden_thr": 4000
+  },
+  "alphas": {
+    "full_anchor": 0.0,
+    "delta_extreme": 0.0,
+    "strong_guard": 0.7,
+    "mild_guard": 1.0,
+    "no_guard": 1.0
+  },
+  "alpha_grids": {
+    "strong_guard": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.7,
+      1.0
+    ],
+    "mild_guard": [
+      0.0,
+      0.1,
+      0.2,
+      0.3,
+      0.5,
+      0.7,
+      1.0
+    ]
+  },
+  "train_rule_counts": {
+    "no_guard": 512,
+    "strong_guard": 228,
+    "mild_guard": 15,
+    "full_anchor": 14,
+    "delta_extreme": 4
+  },
+  "test_rule_counts": {
+    "no_guard": 3
+  }
+}

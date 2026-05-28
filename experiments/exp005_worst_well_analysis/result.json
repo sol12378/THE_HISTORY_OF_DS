@@ -1,0 +1,139 @@
+{
+  "exp_id": "exp005_worst_well_analysis",
+  "status": "completed",
+  "created_at": "2026-05-27T16:03:30.799448+09:00",
+  "analysis_target": "exp003_lgb_anchor_trajectory",
+  "baseline": "exp001_anchor_baseline",
+  "focus_wells": [
+    "727a3a10",
+    "0390d174",
+    "b95e7121"
+  ],
+  "thresholds": {
+    "anchor_dominant_rmse": 15.0,
+    "lgbm_kills_diff": -10.0
+  },
+  "summary": {
+    "n_wells_total": 773,
+    "n_anchor_dominant": 561,
+    "n_lgbm_kills": 15,
+    "n_anchor_blown": 11,
+    "pct_anchor_dominant": 72.6,
+    "pct_lgbm_kills": 1.9,
+    "pct_anchor_blown": 1.4
+  },
+  "focus_well_profiles": {
+    "profiles": [
+      {
+        "group": "focus_wells",
+        "n": 3,
+        "hidden_length_mean": 5038.0,
+        "hidden_length_median": 4411.0,
+        "known_length_mean": 1607.0,
+        "known_length_median": 1690.0,
+        "anchor_rmse_mean": 8.100611742800574,
+        "anchor_rmse_median": 8.517417217402954,
+        "model_rmse_mean": 41.83309398712143,
+        "model_rmse_median": 42.380757528843425,
+        "rmse_diff_mean": -33.732482244320856,
+        "rmse_diff_median": -33.86334031144047,
+        "final_delta_z_from_ps_mean": -167.21000000000035,
+        "final_delta_z_from_ps_median": -177.95000000000073,
+        "curvature_proxy_mean": 0.005427020453790394,
+        "curvature_proxy_median": 0.005492145013733823,
+        "mean_abs_dz_step_mean": 0.03524918014537937,
+        "mean_abs_dz_step_median": 0.04094557823129369,
+        "std_dz_step_mean": 0.019656240645283426,
+        "std_dz_step_median": 0.017380079421316776,
+        "mean_abs_dxdy_step_mean": 0.9990792675987517,
+        "mean_abs_dxdy_step_median": 0.9988784443906493,
+        "shape_dist": {
+          "downward_curved": 0.667,
+          "flat_smooth": 0.333
+        }
+      },
+      {
+        "group": "rest",
+        "n": 770,
+        "hidden_length_mean": 4894.642857142857,
+        "hidden_length_median": 4841.0,
+        "known_length_mean": 1692.7857142857142,
+        "known_length_median": 1704.0,
+        "anchor_rmse_mean": 12.830824227853277,
+        "anchor_rmse_median": 10.666562428602282,
+        "model_rmse_mean": 12.0991835063389,
+        "model_rmse_median": 10.26818516115798,
+        "rmse_diff_mean": 0.7316407215143799,
+        "rmse_diff_median": 0.48921086560369886,
+        "final_delta_z_from_ps_mean": 26.818233766233796,
+        "final_delta_z_from_ps_median": 101.08000000000084,
+        "curvature_proxy_mean": 0.005386002605514445,
+        "curvature_proxy_median": 0.0054010329463851005,
+        "mean_abs_dz_step_mean": 0.0351202405986112,
+        "mean_abs_dz_step_median": 0.03458446444945808,
+        "std_dz_step_mean": 0.0201811442399242,
+        "std_dz_step_median": 0.01936816981802485,
+        "mean_abs_dxdy_step_mean": 0.9991745065339176,
+        "mean_abs_dxdy_step_median": 0.9992316989918606,
+        "shape_dist": {
+          "upward_smooth": 0.264,
+          "flat_smooth": 0.222,
+          "downward_smooth": 0.186,
+          "upward_curved": 0.134,
+          "flat_curved": 0.108,
+          "downward_curved": 0.087
+        }
+      },
+      {
+        "group": "anchor_blown",
+        "n": 11,
+        "hidden_length_mean": 4703.181818181818,
+        "hidden_length_median": 4411.0,
+        "known_length_mean": 1691.0,
+        "known_length_median": 1690.0,
+        "anchor_rmse_mean": 9.045031766580633,
+        "anchor_rmse_median": 8.517417217402954,
+        "model_rmse_mean": 30.999463756802516,
+        "model_rmse_median": 29.65151923131872,
+        "rmse_diff_mean": -21.954431990221885,
+        "rmse_diff_median": -22.69368417755997,
+        "final_delta_z_from_ps_mean": -80.83545454545425,
+        "final_delta_z_from_ps_median": -161.10000000000036,
+        "curvature_proxy_mean": 0.0054394347831599145,
+        "curvature_proxy_median": 0.005489968917036927,
+        "mean_abs_dz_step_mean": 0.04150184805632125,
+        "mean_abs_dz_step_median": 0.04207569346497409,
+        "std_dz_step_mean": 0.019758220690267513,
+        "std_dz_step_median": 0.019155992554624694,
+        "mean_abs_dxdy_step_mean": 0.9988880060079967,
+        "mean_abs_dxdy_step_median": 0.998916558494701,
+        "shape_dist": {
+          "downward_curved": 0.455,
+          "upward_smooth": 0.182,
+          "flat_smooth": 0.182,
+          "downward_smooth": 0.091,
+          "upward_curved": 0.091
+        }
+      }
+    ]
+  },
+  "longtail_bins": [
+    "1-199",
+    "200-499",
+    "500-999",
+    "1000-1999",
+    "2000-2999",
+    "3000-3999",
+    "4000-4999",
+    "5000-5999",
+    "6000-7999",
+    "8000+"
+  ],
+  "reports": [
+    "longtail_finer_report.csv",
+    "anchor_blown_wells.csv",
+    "anchor_dominant_wells.csv",
+    "focus_well_neighbors.csv"
+  ],
+  "leak_risk": "low"
+}
