@@ -1,0 +1,19 @@
+{
+  "exp_id": "exp009b_typewell_gr_well_only",
+  "created_at": "2026-05-28T21:23:18.172950+09:00",
+  "status": "completed",
+  "model": "LightGBMRegressor",
+  "target": "TVT - last_known_TVT",
+  "metric": "TVT_abs_RMSE",
+  "cv_rmse": 13.932154886017592,
+  "cv_mean": 13.924697180916922,
+  "cv_std": 0.4648168687053223,
+  "baseline_exp008_cv": 13.808621,
+  "improvement_vs_exp008": -0.123534,
+  "baseline_exp009_cv": 13.922291,
+  "improvement_vs_exp009": -0.009864,
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "exp009b: per-row E features removed. Kept: tw_known_gr_corr, tw_gr_offset, tw_gr_scale, tw_gr_last20_diff, tw_gr_slope_at_anchor, tw_gr_abs_slope_at_anchor, tw_gr_at_anchor. Removed: gr_dev_from_tw_anchor, tw_tvt_correction, tw_tvt_correction_reliable, tw_gr_extrap_range. Root cause of exp009 failure: correction noise sigma~80 >> target sigma~26."
+}

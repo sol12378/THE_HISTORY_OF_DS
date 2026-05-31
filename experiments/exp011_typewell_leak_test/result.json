@@ -1,0 +1,84 @@
+{
+  "exp_id": "exp011_typewell_leak_test",
+  "created_at": "2026-05-30T20:40:32.306934+09:00",
+  "status": "completed",
+  "purpose": "typewell leak verification via deduped GroupKFold",
+  "n_wells_moved": 18,
+  "fold_scheme": "deduped (shared typewell forced into same fold)",
+  "well_fold": {
+    "baseline_cv": 13.808621,
+    "E_cv": 13.932155,
+    "E_minus_baseline": 0.123534
+  },
+  "deduped_fold": {
+    "baseline_cv": 13.651645,
+    "E_cv": 13.928077,
+    "E_minus_baseline": 0.276432
+  },
+  "gap_change_dedup_minus_well": 0.152898,
+  "baseline_folds": [
+    {
+      "fold": 0,
+      "n_rows": 738474,
+      "rmse": 12.493307906861757,
+      "best_iteration": 587
+    },
+    {
+      "fold": 1,
+      "n_rows": 727453,
+      "rmse": 13.712834015377013,
+      "best_iteration": 380
+    },
+    {
+      "fold": 2,
+      "n_rows": 747931,
+      "rmse": 13.1354601924474,
+      "best_iteration": 243
+    },
+    {
+      "fold": 3,
+      "n_rows": 753077,
+      "rmse": 13.80689021831828,
+      "best_iteration": 574
+    },
+    {
+      "fold": 4,
+      "n_rows": 817054,
+      "rmse": 14.86529363545166,
+      "best_iteration": 1012
+    }
+  ],
+  "E_folds": [
+    {
+      "fold": 0,
+      "n_rows": 738474,
+      "rmse": 13.219213058845877,
+      "best_iteration": 416
+    },
+    {
+      "fold": 1,
+      "n_rows": 727453,
+      "rmse": 13.877111299116152,
+      "best_iteration": 121
+    },
+    {
+      "fold": 2,
+      "n_rows": 747931,
+      "rmse": 13.286750064682849,
+      "best_iteration": 109
+    },
+    {
+      "fold": 3,
+      "n_rows": 753077,
+      "rmse": 13.981801515630101,
+      "best_iteration": 772
+    },
+    {
+      "fold": 4,
+      "n_rows": 817054,
+      "rmse": 15.074512742420792,
+      "best_iteration": 1284
+    }
+  ],
+  "leak_verdict": "LEAK_CONFIRMED: E penalty grows under deduped folds"
+}

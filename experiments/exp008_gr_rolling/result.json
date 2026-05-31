@@ -1,0 +1,83 @@
+{
+  "exp_id": "exp008_gr_rolling",
+  "created_at": "2026-05-28T16:23:06.433835+09:00",
+  "status": "completed",
+  "model": "LightGBMRegressor",
+  "target": "TVT - last_known_TVT",
+  "prediction": "last_known_TVT + pred_delta",
+  "metric": "TVT_abs_RMSE",
+  "cv_rmse": 13.808621262375105,
+  "cv_mean": 13.800707766976359,
+  "cv_std": 0.47433612060038627,
+  "baseline_exp007b_cv": 13.85336,
+  "improvement_vs_exp007b": 0.044739,
+  "baseline_exp007_cv": 13.867054,
+  "improvement_vs_exp007": 0.058433,
+  "feature_groups": {
+    "safe": [
+      "MD",
+      "X",
+      "Y",
+      "Z",
+      "GR",
+      "is_gr_missing",
+      "n_rows_in_well",
+      "known_length",
+      "hidden_length",
+      "last_known_TVT",
+      "last_known_MD",
+      "last_known_X",
+      "last_known_Y",
+      "last_known_Z",
+      "delta_MD_from_PS",
+      "delta_X_from_PS",
+      "delta_Y_from_PS",
+      "delta_Z_from_PS",
+      "post_ps_step",
+      "row_frac"
+    ],
+    "group_a": [
+      "pre_ps_tvt_slope_last20",
+      "pre_ps_tvt_slope_last5",
+      "pre_ps_tvt_curvature",
+      "pre_ps_tvt_delta_last20"
+    ],
+    "group_b_prewell": [
+      "pre_ps_dZ_dMD",
+      "pre_ps_dX_dMD",
+      "pre_ps_dY_dMD",
+      "pre_ps_horiz_dMD",
+      "pre_ps_azimuth"
+    ],
+    "group_b_perrow": [
+      "dZ_dMD_from_ps",
+      "dX_dMD_from_ps",
+      "dY_dMD_from_ps",
+      "horiz_disp_from_ps",
+      "azimuth_from_ps"
+    ],
+    "group_c": [
+      "kh_ratio",
+      "hidden_frac"
+    ],
+    "group_d_well": [
+      "pre_ps_gr_mean",
+      "pre_ps_gr_std",
+      "pre_ps_gr_last20_mean",
+      "pre_ps_gr_trend",
+      "pre_ps_gr_available_frac"
+    ],
+    "group_d_row": [
+      "gr_vs_pre_ps_mean",
+      "gr_z_score",
+      "gr_rolling_mean_w20",
+      "gr_rolling_mean_w50",
+      "gr_rolling_std_w20"
+    ]
+  },
+  "global_gr_mean_train": 87.75241378924947,
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "Group D_well: pre-PS GR mean/std/trend from known rows only. Group D_row: backward-only rolling (center=False), missing GR filled with pre_ps_gr_mean → global train mean. No TVT used in GR calculations."
+}

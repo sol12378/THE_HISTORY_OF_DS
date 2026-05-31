@@ -1,0 +1,19 @@
+{
+  "exp_id": "exp009_typewell_gr_alignment",
+  "created_at": "2026-05-28T17:39:55.882089+09:00",
+  "status": "completed",
+  "model": "LightGBMRegressor",
+  "target": "TVT - last_known_TVT",
+  "metric": "TVT_abs_RMSE",
+  "cv_rmse": 13.922290500029405,
+  "cv_mean": 13.916482384667319,
+  "cv_std": 0.4104562138737175,
+  "baseline_exp008_cv": 13.808621,
+  "improvement_vs_exp008": -0.11367,
+  "baseline_exp007_cv": 13.867054,
+  "improvement_vs_exp007": -0.055237,
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "Group E_well: typewell GR calibration from known portion (corr, offset, scale, slope). Group E_row: tw_tvt_correction = -gr_dev/tw_gr_slope at anchor TVT. Clipped to ±150 TVT. slope < 0.2 → correction zeroed out. test typewell_test_base_v001.parquet used for test wells."
+}

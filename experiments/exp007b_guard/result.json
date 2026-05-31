@@ -1,0 +1,68 @@
+{
+  "exp_id": "exp007b_guard",
+  "created_at": "2026-05-28T16:02:34.149540+09:00",
+  "status": "completed",
+  "model": "LightGBMRegressor + anchor_guard",
+  "target": "TVT - last_known_TVT",
+  "prediction": "alpha * lgbm_pred_tvt + (1-alpha) * anchor_pred_tvt",
+  "metric": "TVT_abs_RMSE",
+  "lgbm_raw_cv_rmse": 13.853360174507499,
+  "blended_cv_rmse": 13.985992618333798,
+  "anchor_cv_rmse": 15.909852870734552,
+  "exp007_cv_rmse": 13.867054,
+  "improvement_vs_exp007": -0.118939,
+  "improvement_vs_lgbm_raw": -0.132632,
+  "guard_rules": {
+    "full_anchor": "|mean_pred_delta| > 30.0 OR hidden_length > 8000.0",
+    "no_guard": "otherwise"
+  },
+  "alphas": {
+    "full_anchor": 0.0,
+    "no_guard": 1.0
+  },
+  "train_rule_counts": {
+    "no_guard": 756,
+    "full_anchor": 17
+  },
+  "test_rule_counts": {
+    "no_guard": 3
+  },
+  "n_estimators_max": 1500,
+  "early_stopping": 50,
+  "fold_results": [
+    {
+      "fold": 0,
+      "n_rows": 757738,
+      "rmse": 13.061988530384642,
+      "best_iteration": 458
+    },
+    {
+      "fold": 1,
+      "n_rows": 756650,
+      "rmse": 13.980589729738995,
+      "best_iteration": 270
+    },
+    {
+      "fold": 2,
+      "n_rows": 756255,
+      "rmse": 13.618236181797645,
+      "best_iteration": 180
+    },
+    {
+      "fold": 3,
+      "n_rows": 757101,
+      "rmse": 14.22897436448098,
+      "best_iteration": 514
+    },
+    {
+      "fold": 4,
+      "n_rows": 756245,
+      "rmse": 14.339237756220543,
+      "best_iteration": 872
+    }
+  ],
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "exp007 の fold4 が n_estimators=600 を使い切ったため 1500 に増加。guard 条件を正負対称 (|mean_pred_delta|>30) に拡張し、hidden_length>8000 との OR 条件で full anchor に切り替え。"
+}
