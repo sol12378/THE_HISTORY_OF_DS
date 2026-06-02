@@ -1,0 +1,21 @@
+{
+  "exp_id": "exp020_typewell_attn",
+  "created_at": "2026-06-02T16:49:40.411508+09:00",
+  "status": "completed",
+  "model": "typewell cross-attention TCN",
+  "grid_L": 1024,
+  "tw_M": 192,
+  "band": 80.0,
+  "nn_cv": 16.489078824888303,
+  "exp018_cv": 13.341598310562574,
+  "blend3_cv": 13.321788831501163,
+  "blend_weights": {
+    "exp018": 0.5775,
+    "exp019": 0.3637,
+    "exp020": 0.0588
+  },
+  "improvement_vs_exp018": 0.019809,
+  "err_corr_020_vs_018": 0.7805,
+  "prev_best": 13.331211,
+  "leak_risk": "low (no hidden TVT, typewell ref only, well-grouped fold)"
+}

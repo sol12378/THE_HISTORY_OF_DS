@@ -1,0 +1,44 @@
+{
+  "exp_id": "exp018_model_blend",
+  "created_at": "2026-06-02T16:13:59.118070+09:00",
+  "status": "completed",
+  "fold": "folds_group_well_v001",
+  "model": "LGBM+XGB+CatBoost blend",
+  "per_model_cv": {
+    "lgbm": 13.517895320563005,
+    "xgb": 13.550757200498616,
+    "cat": 13.581830962409915
+  },
+  "cv_equal_weight": 13.341598310562574,
+  "cv_opt_weight": 13.341008868466218,
+  "opt_weights": {
+    "lgbm": 0.3688,
+    "xgb": 0.3048,
+    "cat": 0.3264
+  },
+  "chosen_blend": "eq",
+  "cv_final_preSmooth": 13.341598310562574,
+  "exp015_best_ref": 13.520383,
+  "exp014_ref": 13.525189,
+  "improvement_vs_exp014": 0.183591,
+  "fold_opt_consistent": false,
+  "error_corr": {
+    "lgbm": {
+      "lgbm": 1.0,
+      "xgb": 0.9601,
+      "cat": 0.951
+    },
+    "xgb": {
+      "lgbm": 0.9601,
+      "xgb": 1.0,
+      "cat": 0.9515
+    },
+    "cat": {
+      "lgbm": 0.951,
+      "xgb": 0.9515,
+      "cat": 1.0
+    }
+  },
+  "leak_risk": "low (geom features only, well-grouped fold leak-free; blend weights from OOF)",
+  "note": "run exp015_seq_smooth --model-exp exp018_model_blend for final smoothed CV"
+}

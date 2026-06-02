@@ -1,0 +1,23 @@
+{
+  "exp_id": "exp015_seq_smooth",
+  "created_at": "2026-06-02T16:55:07.601632+09:00",
+  "status": "completed",
+  "model_exp": "exp020_typewell_attn",
+  "metric": "TVT_abs_RMSE",
+  "baseline_cv_rmse": 13.32178883150116,
+  "best_cv_rmse": 13.32096356472288,
+  "improvement": 0.0008252667782784329,
+  "best_method": "mean",
+  "best_window": 71,
+  "fold_deltas": {
+    "0": 0.0007098274111836389,
+    "1": 0.000919773881530972,
+    "2": 0.0010662288830598499,
+    "3": 0.0008277075635074738,
+    "4": 0.0006139382750518507
+  },
+  "fold_consistent": true,
+  "n_test_rows_changed": 14151,
+  "leak_risk": "none (post-process on existing preds, no label)",
+  "notes": "Per-well row_idx-ordered smoothing. Swept median/mean/savgol over windows."
+}

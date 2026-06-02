@@ -1,0 +1,25 @@
+{
+  "exp_id": "exp021_beam_track",
+  "created_at": "2026-06-03T00:53:32.114852+09:00",
+  "status": "completed",
+  "method": "Beam Search GR-typewell tracker (14-config ensemble), leak-free",
+  "beam_configs": 14,
+  "cv_rmse_faithful": 15.697192454900355,
+  "cv_rmse_offset": 15.752609292027431,
+  "anchor_rmse": 15.909852870734552,
+  "best_cv": 15.697192454900355,
+  "n_wells": 773,
+  "n_beam_beats_anchor": 432,
+  "test_well_rmse_vs_train_truth": {
+    "000d7d20": 8.377914295751859,
+    "00bbac68": 14.77802092368537,
+    "00e12e8b": 8.493247446036515
+  },
+  "leak_risk": "none (no hidden TVT used; GR+typewell+anchor only)",
+  "compare": {
+    "exp014_geom": 13.525189,
+    "best_blend_exp020": 13.320964,
+    "anchor": 15.909852870734552
+  },
+  "notes": "Faithful port of reference beam_search. Tracks typewell index ±2/row with motion cost + GR error cost; 14-config mean. GR interpolated full-well first."
+}

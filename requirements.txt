@@ -12,3 +12,4 @@ tqdm
 xgboost
 lightgbm
 catboost
+torch

@@ -1,0 +1,68 @@
+{
+  "exp_id": "exp013_gr_match_go_nogo",
+  "created_at": "2026-05-31T17:08:01.469175+09:00",
+  "status": "completed",
+  "method": "leak-free GR-typewell matching (no label, no fold)",
+  "window": 110.0,
+  "grid_step": 0.5,
+  "cont_lambda": 0.15,
+  "smooth_w": 25,
+  "global_rmse": {
+    "anchor": 15.909852870734552,
+    "variantA_nearest": 43.07578730633231,
+    "variantA_smooth": 24.163441746970147,
+    "variantB_sequential": 46.23471185228892,
+    "exp008_ref": 13.8086212623751,
+    "blendB_corr>=0.0": 46.23471185228892,
+    "blendB_corr>=0.3": 46.223355566263876,
+    "blendB_corr>=0.5": 45.959577624041465,
+    "blendB_corr>=0.7": 43.57568007147053
+  },
+  "n_wells": 773,
+  "n_B_beats_anchor": 15,
+  "n_As_beats_anchor": 62,
+  "corr_bin_breakdown": [
+    {
+      "corr_bin": "<0.3",
+      "n_wells": 1,
+      "anchor": 7.849172504180856,
+      "A": 38.32576236647813,
+      "As": 22.848310453106595,
+      "B": 40.54494989278064
+    },
+    {
+      "corr_bin": "0.3-0.5",
+      "n_wells": 7,
+      "anchor": 16.474462505919952,
+      "A": 42.75513616336267,
+      "As": 22.49654668084533,
+      "B": 51.35499120315501
+    },
+    {
+      "corr_bin": "0.5-0.7",
+      "n_wells": 84,
+      "anchor": 13.258023037098573,
+      "A": 43.19627921613655,
+      "As": 21.730842050258815,
+      "B": 46.00753095996149
+    },
+    {
+      "corr_bin": "0.7-0.85",
+      "n_wells": 437,
+      "anchor": 12.59181805805497,
+      "A": 42.234007942254344,
+      "As": 21.81239756708477,
+      "B": 42.51820578902159
+    },
+    {
+      "corr_bin": ">0.85",
+      "n_wells": 244,
+      "anchor": 12.9695395661619,
+      "A": 41.507988451795775,
+      "As": 22.160128603027285,
+      "B": 41.96953262706049
+    }
+  ],
+  "leak_risk": "none (no label used in estimation)",
+  "go_nogo_note": "GO if any GR-match variant or blend approaches exp008 (13.81) or clearly beats anchor (15.91) in high-corr wells. NO-GO/redesign if GR-match >= anchor everywhere."
+}

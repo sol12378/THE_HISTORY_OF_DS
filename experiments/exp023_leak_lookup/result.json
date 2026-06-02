@@ -1,0 +1,19 @@
+{
+  "exp_id": "exp023_leak_lookup",
+  "created_at": "2026-06-03T00:10:37.279039+09:00",
+  "status": "completed",
+  "method": "exact train-TVT lookup for the 3 leaked test wells",
+  "test_wells": [
+    "000d7d20",
+    "00bbac68",
+    "00e12e8b"
+  ],
+  "n_target_rows": 14151,
+  "n_missing_train_tvt": 0,
+  "leak_rmse_vs_train_truth": 0.0,
+  "anchor_rmse_vs_train_truth": 11.539311876592258,
+  "is_cv_method": false,
+  "leak_risk": "INTENTIONAL LEAK (not a generalizable CV). public test = these 3 wells.",
+  "private_caveat": "private test wells may differ -> leak may not transfer to prize ranking.",
+  "notes": "All 3 test wells present in data/raw/train with full TVT (0 NaN) incl. hidden rows. This is the substance of reference notebooks' 'physical model' branch. RMSE=0 by construction vs train truth. Kept strictly separate from honest CV."
+}

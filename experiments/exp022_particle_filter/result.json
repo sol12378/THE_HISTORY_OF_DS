@@ -1,0 +1,22 @@
+{
+  "exp_id": "exp022_particle_filter",
+  "created_at": "2026-06-03T00:53:37.455697+09:00",
+  "status": "completed",
+  "method": "Particle Filter (128seed x 500part, lik-weighted scale=8.0), leak-free",
+  "cv_rmse": 11.024014426002738,
+  "anchor_rmse": 15.909852870734552,
+  "n_wells": 773,
+  "n_pf_beats_anchor": 587,
+  "test_well_rmse_vs_train_truth": {
+    "000d7d20": 3.987143547065871,
+    "00bbac68": 4.442564014492326,
+    "00e12e8b": 6.515138744804958
+  },
+  "leak_risk": "none (no hidden TVT used; GR+typewell+anchor+Z+MD only)",
+  "compare": {
+    "exp014_geom": 13.525189,
+    "best_blend_exp020": 13.320964,
+    "anchor": 15.909852870734552
+  },
+  "notes": "Faithful PF port. State pos=TVT+Z, smooth motion along MD, GR likelihood vs typewell. Full-well GR interpolation. ProcessPoolExecutor over wells."
+}

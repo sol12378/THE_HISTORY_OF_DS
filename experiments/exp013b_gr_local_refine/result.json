@@ -1,0 +1,53 @@
+{
+  "exp_id": "exp013b_gr_local_refine",
+  "created_at": "2026-05-31T17:11:00.115606+09:00",
+  "status": "completed",
+  "method": "GR local refinement around geometric prior (leak-free)",
+  "grid_step": 0.25,
+  "windows": [
+    10.0,
+    20.0,
+    30.0
+  ],
+  "rmse": {
+    "anchor": 15.909852870734552,
+    "exp008": 13.8086212623751,
+    "matchA_anchor_w10": 16.414182364295485,
+    "matchE_anchor_w10_smooth": 16.010147806372284,
+    "blend_anchor_w10_bw0.3": 15.918632414120891,
+    "blend_anchor_w10_bw0.5": 15.993277855583058,
+    "blend_anchor_w10_bw1.0": 16.414182364295485,
+    "matchA_anchor_w20": 17.550267332886765,
+    "matchE_anchor_w20_smooth": 16.09934620391648,
+    "blend_anchor_w20_bw0.3": 15.97384013588705,
+    "blend_anchor_w20_bw0.5": 16.229398573136585,
+    "blend_anchor_w20_bw1.0": 17.550267332886765,
+    "matchA_anchor_w30": 18.771289598247513,
+    "matchE_anchor_w30_smooth": 16.275925243991818,
+    "blend_anchor_w30_bw0.3": 16.070188842922523,
+    "blend_anchor_w30_bw0.5": 16.534947473737784,
+    "blend_anchor_w30_bw1.0": 18.771289598247513,
+    "matchA_exp008_w10": 14.407844444337009,
+    "matchE_exp008_w10_smooth": 13.905224957125137,
+    "blend_exp008_w10_bw0.3": 13.825924824177667,
+    "blend_exp008_w10_bw0.5": 13.916274692257895,
+    "blend_exp008_w10_bw1.0": 14.407844444337009,
+    "matchA_exp008_w20": 15.694794699428183,
+    "matchE_exp008_w20_smooth": 14.032872754153376,
+    "blend_exp008_w20_bw0.3": 13.894574276123612,
+    "blend_exp008_w20_bw0.5": 14.193750220340064,
+    "blend_exp008_w20_bw1.0": 15.694794699428183,
+    "matchA_exp008_w30": 17.013794592542943,
+    "matchE_exp008_w30_smooth": 14.150411763477683,
+    "blend_exp008_w30_bw0.3": 14.000647179607547,
+    "blend_exp008_w30_bw0.5": 14.530943185941137,
+    "blend_exp008_w30_bw1.0": 17.013794592542943
+  },
+  "best": {
+    "key": "exp008",
+    "rmse": 13.8086212623751
+  },
+  "exp008_ref": 13.8086212623751,
+  "anchor_ref": 15.909852870734552,
+  "verdict_hint": "GO if any variant < exp008; partial-GO if < anchor; NO-GO if all >= exp008"
+}

@@ -20,6 +20,16 @@ experiments/*/submission.csv
 experiments/*/*.pkl
 experiments/*/*.model
 experiments/*/*.joblib
+# large per-row derived prediction dumps (OOF-like; keep out of public repo)
+experiments/*/row_predictions.csv
+experiments/*/rows.csv
+experiments/*/*_rows.csv
+experiments/*/*.parquet
+*.log
+
+# tool/runtime artifacts
+catboost_info/
+.claude/scheduled_tasks.lock
 
 !data/raw/.gitkeep
 !data/interim/.gitkeep

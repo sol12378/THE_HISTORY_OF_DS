@@ -1,0 +1,30 @@
+{
+  "exp_id": "exp016_struct_plane",
+  "created_at": "2026-05-31T19:44:34.312269+09:00",
+  "status": "completed",
+  "model": "LightGBMRegressor",
+  "target": "TVT - last_known_TVT",
+  "metric": "TVT_abs_RMSE",
+  "cv_rmse": 13.88779437782845,
+  "cv_mean": 13.884011003636967,
+  "cv_std": 0.33358627510245176,
+  "baseline_exp014_cv": 13.525189,
+  "improvement_vs_exp014": -0.362605,
+  "baseline_exp008_cv": 13.808621,
+  "improvement_vs_exp008": -0.079173,
+  "group_g_well": [
+    "g_plane_full_r2",
+    "g_plane_cz",
+    "g_plane_choriz",
+    "g_plane_local_r2"
+  ],
+  "group_g_row": [
+    "g_plane_full_delta",
+    "g_plane_local_delta",
+    "g_plane_disagree"
+  ],
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "Group G: 3D structural plane TVT~X,Y,Z fit on known region, applied to known hidden coords. Centered/scaled for stability, delta clipped ±200. No hidden TVT."
+}

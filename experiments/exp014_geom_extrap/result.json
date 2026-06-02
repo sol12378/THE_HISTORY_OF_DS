@@ -1,0 +1,91 @@
+{
+  "exp_id": "exp014_geom_extrap",
+  "created_at": "2026-05-31T17:27:32.579933+09:00",
+  "status": "completed",
+  "model": "LightGBMRegressor",
+  "target": "TVT - last_known_TVT",
+  "metric": "TVT_abs_RMSE",
+  "cv_rmse": 13.525189459235126,
+  "cv_mean": 13.518280441320062,
+  "cv_std": 0.4412013452936679,
+  "baseline_exp008_cv": 13.808621,
+  "improvement_vs_exp008": 0.283432,
+  "feature_groups": {
+    "safe": [
+      "MD",
+      "X",
+      "Y",
+      "Z",
+      "GR",
+      "is_gr_missing",
+      "n_rows_in_well",
+      "known_length",
+      "hidden_length",
+      "last_known_TVT",
+      "last_known_MD",
+      "last_known_X",
+      "last_known_Y",
+      "last_known_Z",
+      "delta_MD_from_PS",
+      "delta_X_from_PS",
+      "delta_Y_from_PS",
+      "delta_Z_from_PS",
+      "post_ps_step",
+      "row_frac"
+    ],
+    "group_a": [
+      "pre_ps_tvt_slope_last20",
+      "pre_ps_tvt_slope_last5",
+      "pre_ps_tvt_curvature",
+      "pre_ps_tvt_delta_last20"
+    ],
+    "group_b_well": [
+      "pre_ps_dZ_dMD",
+      "pre_ps_dX_dMD",
+      "pre_ps_dY_dMD",
+      "pre_ps_horiz_dMD",
+      "pre_ps_azimuth"
+    ],
+    "group_b_row": [
+      "dZ_dMD_from_ps",
+      "dX_dMD_from_ps",
+      "dY_dMD_from_ps",
+      "horiz_disp_from_ps",
+      "azimuth_from_ps"
+    ],
+    "group_c": [
+      "kh_ratio",
+      "hidden_frac"
+    ],
+    "group_d_well": [
+      "pre_ps_gr_mean",
+      "pre_ps_gr_std",
+      "pre_ps_gr_last20_mean",
+      "pre_ps_gr_trend",
+      "pre_ps_gr_available_frac"
+    ],
+    "group_d_row": [
+      "gr_vs_pre_ps_mean",
+      "gr_z_score",
+      "gr_rolling_mean_w20",
+      "gr_rolling_mean_w50",
+      "gr_rolling_std_w20"
+    ],
+    "group_f_well": [
+      "f_dtvt_dmd_l50",
+      "f_dtvt_dz_pre",
+      "f_dtvt_dz_r2"
+    ],
+    "group_f_row": [
+      "f_extrap_slope20_dMD",
+      "f_extrap_slope5_dMD",
+      "f_extrap_quad_dMD",
+      "f_extrap_z",
+      "f_extrap_disagree"
+    ]
+  },
+  "n_oof_rows": 3783989,
+  "n_submission_rows": 14151,
+  "leak_risk": "low",
+  "notes": "Group F: geometric extrapolation from known structural dip. X/Y/Z/MD fully known in hidden region; only TVT hidden. No typewell, no hidden-TVT used. Same folds as exp008."
+}

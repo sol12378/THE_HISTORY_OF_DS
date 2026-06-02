@@ -1,0 +1,31 @@
+{
+  "exp_id": "exp017_gr_align_features",
+  "created_at": "2026-06-02T15:36:20.134636+09:00",
+  "status": "completed",
+  "fold": "folds_group_typewell_v001 (leak-safe)",
+  "base_cv_typewell_fold": 13.762345505992089,
+  "exp017_cv_typewell_fold": 13.829806856546064,
+  "group_h_gain": -0.067461,
+  "note_exp008_wellfold_ref": 13.808621,
+  "exp015_best_wellfold": 13.520383,
+  "group_h_features": [
+    "h_align_offset",
+    "h_align_gain",
+    "h_tw_corr",
+    "h_cal_a",
+    "h_cal_b",
+    "h_gr_resid_at_geom",
+    "h_local_offset"
+  ],
+  "group_h_importance_rank": {
+    "h_align_offset": 43,
+    "h_align_gain": 22,
+    "h_tw_corr": 29,
+    "h_cal_a": 25,
+    "h_cal_b": 16,
+    "h_gr_resid_at_geom": 55,
+    "h_local_offset": 60
+  },
+  "leak_risk": "low (typewell-grouped fold; H uses only obs GR+typewell+geom, no hidden TVT)",
+  "conclusion_ref": "[[gr-offset-ceiling]] oracle ceiling ~8.2; GR offset corr 0.155"
+}

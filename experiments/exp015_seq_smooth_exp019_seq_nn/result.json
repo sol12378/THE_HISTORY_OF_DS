@@ -1,0 +1,23 @@
+{
+  "exp_id": "exp015_seq_smooth",
+  "created_at": "2026-06-02T16:29:29.402914+09:00",
+  "status": "completed",
+  "model_exp": "exp019_seq_nn",
+  "metric": "TVT_abs_RMSE",
+  "baseline_cv_rmse": 13.332072292984362,
+  "best_cv_rmse": 13.331210709997148,
+  "improvement": 0.0008615829872145042,
+  "best_method": "mean",
+  "best_window": 71,
+  "fold_deltas": {
+    "0": 0.0007434041805165492,
+    "1": 0.0009803344276662074,
+    "2": 0.0010922905610684097,
+    "3": 0.0008623083960337397,
+    "4": 0.0006404289872072866
+  },
+  "fold_consistent": true,
+  "n_test_rows_changed": 14151,
+  "leak_risk": "none (post-process on existing preds, no label)",
+  "notes": "Per-well row_idx-ordered smoothing. Swept median/mean/savgol over windows."
+}
