@@ -1,0 +1,108 @@
+{
+  "exp_id": "exp024_multistage_blend",
+  "created_at": "2026-06-03T08:47:17.102515+09:00",
+  "status": "completed",
+  "method": "NNLS multi-stage blend (delta scale) of pf/geom/trees/nn/attn + smoothing",
+  "base_learners": [
+    "pf",
+    "geom",
+    "trees",
+    "nn",
+    "attn"
+  ],
+  "individual_cv": {
+    "pf": 11.02401442600274,
+    "geom": 13.525189459235134,
+    "trees": 13.341598310562574,
+    "nn": 13.332072292984362,
+    "attn": 13.32178883150116
+  },
+  "anchor_cv": 15.909852870734552,
+  "error_corr": {
+    "pf": {
+      "pf": 1.0,
+      "geom": 0.426,
+      "trees": 0.433,
+      "nn": 0.439,
+      "attn": 0.438
+    },
+    "geom": {
+      "pf": 0.426,
+      "geom": 1.0,
+      "trees": 0.985,
+      "nn": 0.984,
+      "attn": 0.983
+    },
+    "trees": {
+      "pf": 0.433,
+      "geom": 0.985,
+      "trees": 1.0,
+      "nn": 0.999,
+      "attn": 0.999
+    },
+    "nn": {
+      "pf": 0.439,
+      "geom": 0.984,
+      "trees": 0.999,
+      "nn": 1.0,
+      "attn": 0.999
+    },
+    "attn": {
+      "pf": 0.438,
+      "geom": 0.983,
+      "trees": 0.999,
+      "nn": 0.999,
+      "attn": 1.0
+    }
+  },
+  "nested_fold_cv": 10.0896529109755,
+  "full_data_cv_optimistic": 10.059010688459963,
+  "nested_plus_smooth_cv": 10.076887267783103,
+  "full_weights": {
+    "pf": 0.6649771299907726,
+    "geom": 0.0,
+    "trees": 0.0,
+    "nn": 0.0,
+    "attn": 0.4665779856148544
+  },
+  "fold_weights": {
+    "0": {
+      "pf": 0.657110039501892,
+      "geom": 0.007279628397601094,
+      "trees": 0.0,
+      "nn": 0.0,
+      "attn": 0.4308532325477843
+    },
+    "1": {
+      "pf": 0.6695928091679124,
+      "geom": 0.06354661896738426,
+      "trees": 0.3349423821742923,
+      "nn": 0.0,
+      "attn": 0.05359377755798583
+    },
+    "2": {
+      "pf": 0.6590657240701948,
+      "geom": 0.01844989365544175,
+      "trees": 0.0,
+      "nn": 0.0,
+      "attn": 0.482261323446894
+    },
+    "3": {
+      "pf": 0.6577787467934897,
+      "geom": 0.0,
+      "trees": 0.0,
+      "nn": 0.0,
+      "attn": 0.485105105864457
+    },
+    "4": {
+      "pf": 0.6828664585005139,
+      "geom": 0.0,
+      "trees": 0.06884820945914905,
+      "nn": 0.0,
+      "attn": 0.36343764979272164
+    }
+  },
+  "prev_best_blend": 13.320964,
+  "pf_alone": 11.024014,
+  "leak_risk": "none (all leak-free OOF; weights nested-fold validated)"
+}
