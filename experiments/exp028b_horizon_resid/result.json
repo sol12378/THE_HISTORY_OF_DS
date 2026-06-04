@@ -1,0 +1,75 @@
+{
+  "ANCC": {
+    "n_valid": 5046621,
+    "abs_rmse": 39.16689361302725,
+    "abs_r2": 0.9962267865342231,
+    "abs_y_std": 637.6222162828831,
+    "resid_rmse": 36.23744202690342,
+    "resid_r2": 0.9445743536354568,
+    "resid_y_std": 153.92251481318576,
+    "resid_baseline_rmse": 153.9580007597902,
+    "improvement_over_baseline": 117.72055873288677
+  },
+  "ASTNU": {
+    "n_valid": 5092255,
+    "abs_rmse": 39.88679544264821,
+    "abs_r2": 0.9961383603838746,
+    "abs_y_std": 641.8643799398438,
+    "resid_rmse": 36.69292677486977,
+    "resid_r2": 0.9450182837683462,
+    "resid_y_std": 156.48517798596987,
+    "resid_baseline_rmse": 156.5308094171072,
+    "improvement_over_baseline": 119.83788264223745
+  },
+  "ASTNL": {
+    "n_valid": 5092255,
+    "abs_rmse": 38.56492132987338,
+    "abs_r2": 0.9962154298353647,
+    "abs_y_std": 626.8796460540003,
+    "resid_rmse": 36.68261595702269,
+    "resid_r2": 0.9416796343656587,
+    "resid_y_std": 151.89734397843563,
+    "resid_baseline_rmse": 151.92301138607834,
+    "improvement_over_baseline": 115.24039542905565
+  },
+  "EGFDU": {
+    "n_valid": 5092255,
+    "abs_rmse": 36.413102280200484,
+    "abs_r2": 0.9965727856673887,
+    "abs_y_std": 621.9952216524719,
+    "resid_rmse": 34.725008165344626,
+    "resid_r2": 0.9462867057893379,
+    "resid_y_std": 149.8309255865884,
+    "resid_baseline_rmse": 149.84880275092902,
+    "improvement_over_baseline": 115.12379458558439
+  },
+  "EGFDL": {
+    "n_valid": 5086188,
+    "abs_rmse": 36.34376254392405,
+    "abs_r2": 0.9965882936644584,
+    "abs_y_std": 622.2201415592348,
+    "resid_rmse": 34.494514007240596,
+    "resid_r2": 0.9471912087238648,
+    "resid_y_std": 150.1056076628489,
+    "resid_baseline_rmse": 150.1245156378384,
+    "improvement_over_baseline": 115.63000163059782
+  },
+  "BUDA": {
+    "n_valid": 5092255,
+    "abs_rmse": 36.98416948033713,
+    "abs_r2": 0.9966227138144707,
+    "abs_y_std": 636.4025905232481,
+    "resid_rmse": 35.50128280814349,
+    "resid_r2": 0.9445183336643433,
+    "resid_y_std": 150.71944911786144,
+    "resid_baseline_rmse": 150.7322432913346,
+    "improvement_over_baseline": 115.23096048319113
+  },
+  "TVT_cv": {
+    "baseline_rmse": 14.60515672011011,
+    "with_horizon_rmse": 14.692772636202367,
+    "delta": 0.0876159160922576,
+    "n_base_feats": 17,
+    "n_hz_feats": 6
+  }
+}

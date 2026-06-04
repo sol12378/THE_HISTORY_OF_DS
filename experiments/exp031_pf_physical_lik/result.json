@@ -1,0 +1,16 @@
+{
+  "exp_id": "exp031_pf_physical_lik",
+  "cv_rmse": 20.37920316338964,
+  "anchor_rmse": 15.909852870734552,
+  "n_wells": 773,
+  "n_pf_beats_anchor": 375,
+  "n_broken": 175,
+  "wall_time_sec": 1778.235993862152,
+  "params": {
+    "S": 32,
+    "N": 500,
+    "K_CAND": 3,
+    "W_DERIV": 0.5,
+    "DERIV_WINDOW": 5
+  }
+}

@@ -1,0 +1,18 @@
+{
+  "exp_id": "exp025_pf_tuned",
+  "created_at": "2026-06-03T11:49:12.438092+09:00",
+  "status": "completed",
+  "config": {
+    "n_seeds": 128,
+    "n_particles": 500,
+    "scale": 8.0,
+    "init_spread": 4.0,
+    "pn": 0.01,
+    "vn": 0.002
+  },
+  "cv_rmse": 10.983861172482207,
+  "baseline_exp022": 11.024014,
+  "anchor": 15.909852870734552,
+  "leak_risk": "none",
+  "notes": "Full-773 PF with tuned config (init_spread=4,pn=0.01); feed into exp026 re-blend."
+}

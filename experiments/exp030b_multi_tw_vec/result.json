@@ -1,0 +1,14 @@
+{
+  "exp_id": "exp030b_multi_tw_vec",
+  "cv_rmse": 12.146430647819619,
+  "anchor_rmse": 15.909852870734552,
+  "n_wells": 773,
+  "n_pf_beats_anchor": 573,
+  "n_broken": 53,
+  "best_cand_dist": {
+    "0": 293,
+    "1": 227,
+    "2": 253
+  },
+  "wall_time_sec": 1307.3667650222778
+}

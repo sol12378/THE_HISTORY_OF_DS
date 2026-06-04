@@ -1,0 +1,101 @@
+{
+  "exp_id": "exp025_pf_tune",
+  "created_at": "2026-06-03T09:18:19.736279+09:00",
+  "mode": "tune",
+  "n_subset_wells": 129,
+  "results": [
+    {
+      "config": "baseline",
+      "subset_cv": 10.726030735414597,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 8.0,
+      "init_spread": 2.0,
+      "pn": 0.005,
+      "vn": 0.002
+    },
+    {
+      "config": "ispr1",
+      "subset_cv": 10.728221720290385,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 8.0,
+      "init_spread": 1.0,
+      "pn": 0.005,
+      "vn": 0.002
+    },
+    {
+      "config": "ispr4",
+      "subset_cv": 10.768719091049753,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 8.0,
+      "init_spread": 4.0,
+      "pn": 0.005,
+      "vn": 0.002
+    },
+    {
+      "config": "pn0.01",
+      "subset_cv": 10.796191782540024,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 8.0,
+      "init_spread": 2.0,
+      "pn": 0.01,
+      "vn": 0.002
+    },
+    {
+      "config": "pn0.02",
+      "subset_cv": 10.560413394683438,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 8.0,
+      "init_spread": 2.0,
+      "pn": 0.02,
+      "vn": 0.002
+    },
+    {
+      "config": "scale5",
+      "subset_cv": 10.762334393837973,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 5.0,
+      "init_spread": 2.0,
+      "pn": 0.005,
+      "vn": 0.002
+    },
+    {
+      "config": "scale12",
+      "subset_cv": 10.783390861098981,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 12.0,
+      "init_spread": 2.0,
+      "pn": 0.005,
+      "vn": 0.002
+    },
+    {
+      "config": "ispr4_pn0.01",
+      "subset_cv": 10.467913942581491,
+      "n_seeds": 64,
+      "n_particles": 500,
+      "scale": 8.0,
+      "init_spread": 4.0,
+      "pn": 0.01,
+      "vn": 0.002
+    },
+    {
+      "config": "np800",
+      "subset_cv": 10.564432707664334,
+      "n_seeds": 64,
+      "n_particles": 800,
+      "scale": 8.0,
+      "init_spread": 2.0,
+      "pn": 0.005,
+      "vn": 0.002
+    }
+  ],
+  "best_config": "ispr4_pn0.01",
+  "best_subset_cv": 10.467913942581491,
+  "baseline_subset_cv": 10.726030735414597
+}

@@ -8,6 +8,7 @@ Untitled
 __pycache__/
 *.py[cod]
 .ipynb_checkpoints/
+docs/*
 
 data/raw/*
 data/interim/*
@@ -44,3 +45,9 @@ catboost_info/
 !outputs/oof/.gitkeep
 !outputs/predictions/.gitkeep
 !outputs/blends/.gitkeep
+
+# exp034 leak hybrid local outputs (sensitive prediction data)
+kaggle_notebooks/exp034_hybrid_leak/local_test_submission.csv
+experiments/exp034_hybrid_leak/diagnostic.csv
+experiments/exp034_hybrid_leak/submission.csv
+experiments/exp023_leak_lookup/submission.csv

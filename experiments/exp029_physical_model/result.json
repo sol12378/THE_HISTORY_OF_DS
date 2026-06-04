@@ -1,0 +1,32 @@
+{
+  "exp": "exp029_physical_model",
+  "n_wells": 773,
+  "n_target_rows": 3783989,
+  "anchor_baseline_rmse": 15.909852870734552,
+  "methods": {
+    "physA_tvtMD": {
+      "pooled_rmse": 124.0010654038137
+    },
+    "physB_tvtZ_all": {
+      "pooled_rmse": 124.23194687746741
+    },
+    "physC_tvtZ_local": {
+      "pooled_rmse": 146.48538844429515
+    },
+    "physD_plane": {
+      "pooled_rmse": 86.19849583005491
+    },
+    "phys_mean": {
+      "pooled_rmse": 63.67574854360139
+    }
+  },
+  "phys_mean_per_well_rmse": {
+    "median": 35.95160714475813,
+    "p25": 20.424579351414224,
+    "p75": 59.417686137292314,
+    "p90": 89.05876935330214,
+    "max": 445.9565370205823,
+    "n_broken_gt20": 588
+  },
+  "wall_time_sec": 3.937664031982422
+}

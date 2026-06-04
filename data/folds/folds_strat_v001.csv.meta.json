@@ -1,0 +1,33 @@
+{
+  "strategy": "StratifiedGroupKFold(spatial_kmeans6 x tvt_q4 x updip3)",
+  "n_splits": 5,
+  "n_wells": 773,
+  "seed": 42,
+  "fold_distribution": [
+    {
+      "fold": 0,
+      "n_wells": 155,
+      "target_rows": 766521
+    },
+    {
+      "fold": 1,
+      "n_wells": 155,
+      "target_rows": 759483
+    },
+    {
+      "fold": 2,
+      "n_wells": 155,
+      "target_rows": 775402
+    },
+    {
+      "fold": 3,
+      "n_wells": 154,
+      "target_rows": 735744
+    },
+    {
+      "fold": 4,
+      "n_wells": 154,
+      "target_rows": 746839
+    }
+  ]
+}

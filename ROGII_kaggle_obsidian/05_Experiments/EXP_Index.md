@@ -25,4 +25,8 @@
 | exp021_beam_track | completed | Beam Search(DTW型) | GR-typewell系列照合 | 15.697 (≈anchor, 失敗) | - | [[exp021_beam_track]] |
 | exp022_particle_filter | completed | Particle Filter | GR-typewell尤度トラッキング | **11.024 (最良単体)** | - | [[exp022_particle_filter]] |
 | exp023_leak_lookup | completed | リーク参照 | train真TVT lookup | 0.000 (賞転移せず見込み) | - | [[exp023_leak_lookup]] |
-| (PF×geom blend) | analysis | post(0.6PF+0.4geom)+平滑 | — | **10.16 (現best)** | - | [[exp022_particle_filter]] |
+| (PF×geom blend) | analysis | post(0.6PF+0.4geom)+平滑 | — | 10.16 | - | [[exp022_particle_filter]] |
+| exp024_multistage_blend | completed | NNLS blend+平滑 | PF×geom×trees×nn×attn | **10.077** | - | [[exp024_multistage_blend]] |
+| exp025_pf_tune | completed | PF param grid(subset) | init_spread/PN/scale | subset best 10.468 | - | [[exp025_pf_tune]] |
+| exp025_pf_tuned (full) | completed | tuned PF full773 | init_spread=4,PN=0.01 | 10.984 | - | [[exp025_pf_tune]] |
+| exp026_final_blend | completed | NNLS blend+平滑 | tunedPF×geom×trees×nn×attn | **10.062 (現best)** | - | [[exp026_final_blend]] |
