@@ -1,0 +1,25 @@
+{
+  "exp_id": "exp038_dp_viterbi",
+  "created_at": "2026-06-05T13:08:23.258658+09:00",
+  "status": "completed",
+  "method": "DP/Viterbi (bins=50, TVT range=±50.0ft, transition_sigma=1.0)",
+  "cv_rmse": 16.615024636539925,
+  "anchor_rmse": 15.909852870734552,
+  "n_wells": 773,
+  "n_viterbi_beats_anchor": 394,
+  "n_broken_wells": 141,
+  "wall_time_sec": 15361.626093864441,
+  "test_well_rmse_vs_train_truth": {
+    "000d7d20": 7.400555884414396,
+    "00bbac68": 22.393294854108156,
+    "00e12e8b": 15.240336349887203
+  },
+  "leak_risk": "none (no hidden TVT used; GR+typewell+anchor+Z+MD only)",
+  "compare": {
+    "exp022_pf": 11.02,
+    "exp014_geom": 13.525189,
+    "best_blend_exp020": 13.320964,
+    "anchor": 15.909852870734552
+  },
+  "notes": "Discrete state DP/Viterbi: state=TVT_bin(50 bins ±50ft), transition=gaussian penalty on dTVT from prior, emission=GR likelihood. Globally optimal path. Complementary to exp022 PF (local stochastic search). ProcessPoolExecutor over wells."
+}

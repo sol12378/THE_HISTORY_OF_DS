@@ -1,0 +1,8 @@
+well_id,pf_rmse,category,pf_rmse_bracket,observation
+86454a6f,56.34,broken_top5,high,曲がった軌道 + ノイズ多い GR. formation crossing 複数. TVT matching が不安定.
+efe96181,55.46,broken_top5,high,激しいノイズ + 複数層交差. 軌道が複雑で偏向大. sequence matching 破綻.
+1b1eba53,53.54,broken_top5,high,非常に高い偏向角 (ほぼ水平井戸). 測深値-垂直深度対応が大きくズレ. GR ノイズあり.
+91b301ce,47.10,broken_top5,high,激しい GR ノイズ + スパイク. 複雑な軌道. 層推定が多点で失敗.
+708caea9,44.84,broken_top5,high,高周波 GR ノイズ + formation crossing 多数. 赤の密集で観測尤度低下.
+42c538a1,0.584,success_low,low,クリーン GR + 中程度偏向. formation lines が明確で分離. TVT matching が tight.
+ed6436d6,0.670,success_low,low,シャープな GR + 均等な formation 分布. 中程度偏向. 層間対応が uniform.
