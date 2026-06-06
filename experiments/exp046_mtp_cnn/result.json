@@ -1,0 +1,20 @@
+{
+  "cv_rmse": 10.739386851215107,
+  "fold_rmses": {
+    "0": 8.27351931408413,
+    "1": 9.198390810489332,
+    "2": 8.842236546317126,
+    "3": 8.321086023347984,
+    "4": 8.988637871436923
+  },
+  "mtp_modes": 5,
+  "pred_steps": 1,
+  "error_corr_vs_exp041": -0.002192,
+  "blend_cv_with_exp041": 10.734882,
+  "nnls_weights": {
+    "exp046": 0.9997,
+    "exp041": 0.0003
+  },
+  "recommendations": "Do not adopt: error correlation -0.002 indicates no complementarity. NNLS weights collapse to exp041 alone. No improvement over exp041 single (10.531).",
+  "timing": "full (approx 8 min per fold)"
+}
