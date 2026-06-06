@@ -1,0 +1,127 @@
+{
+  "timestamp": "20260605_comprehensive",
+  "oof_paths": [
+    "experiments/exp041_pf_residual_gbdt/oof.csv",
+    "experiments/exp014_geom_extrap/oof.csv",
+    "experiments/exp020_typewell_attn/oof.csv",
+    "experiments/exp018_model_blend/oof.csv"
+  ],
+  "component_names": [
+    "exp041_pf_residual_gbdt",
+    "exp014_geom_extrap",
+    "exp020_typewell_attn",
+    "exp018_model_blend"
+  ],
+  "n_rows": 3783989,
+  "n_components": 4,
+  "nested_cv": 10.152569948276978,
+  "fold_cvs": [
+    10.004439330760594,
+    9.777330136404693,
+    9.174317716210982,
+    10.336368734508225,
+    11.343969980738288
+  ],
+  "final_weights": {
+    "exp041_pf_residual_gbdt": 0.7532104203056279,
+    "exp014_geom_extrap": 0.0581629428102933,
+    "exp020_typewell_attn": 0.0,
+    "exp018_model_blend": 0.1886266368840789
+  },
+  "filtered_weights": {
+    "exp041_pf_residual_gbdt": 0.7532104203056277,
+    "exp014_geom_extrap": 0.058162942810293286,
+    "exp018_model_blend": 0.18862663688407885
+  },
+  "weight_stability": {
+    "exp041_pf_residual_gbdt": {
+      "mean_weight": 0.7531684694120077,
+      "std_weight": 0.011620382761258943,
+      "cv_weight": 0.015428663351150214,
+      "is_stable": true
+    },
+    "exp014_geom_extrap": {
+      "mean_weight": 0.06600704816950423,
+      "std_weight": 0.044507404523614895,
+      "cv_weight": 0.6742826070531308,
+      "is_stable": false
+    },
+    "exp020_typewell_attn": {
+      "mean_weight": 0.0,
+      "std_weight": 0.0,
+      "cv_weight": 0.0,
+      "is_stable": true
+    },
+    "exp018_model_blend": {
+      "mean_weight": 0.18082448241848809,
+      "std_weight": 0.04050977209769669,
+      "cv_weight": 0.2240281379815792,
+      "is_stable": true
+    }
+  },
+  "consistency_gate": {
+    "component_fold_improvements": {
+      "exp041_pf_residual_gbdt": 0,
+      "exp014_geom_extrap": 5,
+      "exp020_typewell_attn": 5,
+      "exp018_model_blend": 5
+    },
+    "passed_components": {
+      "exp041_pf_residual_gbdt": false,
+      "exp014_geom_extrap": true,
+      "exp020_typewell_attn": true,
+      "exp018_model_blend": true
+    }
+  },
+  "per_fold_detail": {
+    "fold_0": {
+      "cv": 10.004439330760594,
+      "weights": [
+        0.7535412788536731,
+        0.09425795524830394,
+        0.0,
+        0.15220076589802292
+      ]
+    },
+    "fold_1": {
+      "cv": 9.777330136404693,
+      "weights": [
+        0.7529107431840756,
+        0.08657854473031942,
+        0.0,
+        0.16051071208560505
+      ]
+    },
+    "fold_2": {
+      "cv": 9.174317716210982,
+      "weights": [
+        0.738270375883913,
+        0.12030855251943207,
+        0.0,
+        0.14142107159665476
+      ]
+    },
+    "fold_3": {
+      "cv": 10.336368734508225,
+      "weights": [
+        0.747450070295065,
+        0.0,
+        0.0,
+        0.25254992970493506
+      ]
+    },
+    "fold_4": {
+      "cv": 11.343969980738288,
+      "weights": [
+        0.7736698788433115,
+        0.0288901883494657,
+        0.0,
+        0.1974399328072227
+      ]
+    }
+  },
+  "confidence": "low",
+  "predicted_lb": 8.752569948276978,
+  "predicted_lb_range": "8.253 \u00b1 0.500",
+  "gap_assumption": 1.4
+}

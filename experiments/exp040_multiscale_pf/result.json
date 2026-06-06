@@ -1,0 +1,29 @@
+{
+  "exp_id": "exp040_multiscale_pf",
+  "created_at": "2026-06-05T21:32:46.868517+09:00",
+  "status": "completed",
+  "method": "Multi-scale Temperature PF (128seed x 500part, scales=[3.0, 5.0, 8.0, 12.0]), leak-free",
+  "cv_rmse": 10.979086263528561,
+  "anchor_rmse": 15.909852870734552,
+  "n_wells": 773,
+  "n_pf_beats_anchor": 574,
+  "n_broken": 48,
+  "scales": [
+    3.0,
+    5.0,
+    8.0,
+    12.0
+  ],
+  "test_well_rmse_vs_train_truth": {
+    "000d7d20": 4.16189048735931,
+    "00bbac68": 4.669893332464251,
+    "00e12e8b": 8.634512395983288
+  },
+  "leak_risk": "none (no hidden TVT used; GR+typewell+anchor+Z+MD only)",
+  "compare": {
+    "exp022_single_scale": 11.024,
+    "anchor": 15.909852870734552
+  },
+  "wall_time_sec": 2155.9069888591766,
+  "notes": "Multi-scale temperature ensemble. Per-seed (preds, log_liks) from 128 seeds, re-weighted at 4 scales (3.0, 5.0, 8.0, 12.0) and averaged. Full-well GR interpolation. ProcessPoolExecutor over wells."
+}

@@ -1,0 +1,32 @@
+{
+  "p2_features": [
+    "tort_3d",
+    "tort_xy",
+    "tort_vert",
+    "dls_mean",
+    "dls_last30",
+    "inclination_last",
+    "azimuth_change",
+    "knn_surface",
+    "knn_surface_minus_Z"
+  ],
+  "tort_3d_range": [
+    1.0178413209222292,
+    1.2922836093731285
+  ],
+  "dls_mean_range": [
+    0.003963674009035405,
+    0.005076430586405035
+  ],
+  "knn_surface_minus_Z_vs_TVT_corr": 0.9674908142033276,
+  "train_shape": [
+    5092255,
+    11
+  ],
+  "test_shape": [
+    19221,
+    11
+  ],
+  "null_count_in_target_rows": 0,
+  "knn_surface_points": 100000
+}

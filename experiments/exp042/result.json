@@ -1,0 +1,45 @@
+{
+  "exp_id": "exp042",
+  "method": "postproc_validation",
+  "baseline_cv_rmse": 10.530996918230503,
+  "baseline_method": "mean_smoothing",
+  "savgol_best": {
+    "window": 151,
+    "polyorder": 2,
+    "cv_rmse": 10.493060329656904,
+    "fold_cvs": [
+      10.312990795238692,
+      10.184936668927064,
+      9.388530007526406,
+      10.656990509375577,
+      11.921853667216785
+    ],
+    "fold_std": 0.8265199290169541
+  },
+  "selector_best": {
+    "cv_rmse": 10.495829891290274,
+    "fold_cvs": [
+      10.315466694975912,
+      10.187958785189704,
+      9.391466283425117,
+      10.659927684640433,
+      11.924330008220199
+    ],
+    "fold_std": 0.8263746303928343,
+    "best_per_regime": {
+      "mid_steep": {
+        "window": 101,
+        "fold_mean": 10.49727971883036
+      },
+      "long_steep": {
+        "window": 151,
+        "fold_mean": 10.497168126878424
+      }
+    }
+  },
+  "recommended_method": "mean_smooth",
+  "improvement_vs_baseline": 0.0,
+  "final_cv_rmse": 10.530996918230503,
+  "fold_consistency_savgol": false,
+  "fold_consistency_selector": false
+}

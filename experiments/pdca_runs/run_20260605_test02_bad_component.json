@@ -1,0 +1,110 @@
+{
+  "timestamp": "20260605_test02_bad_component",
+  "oof_paths": [
+    "experiments/exp022_particle_filter/oof.csv",
+    "experiments/exp014_geom_extrap/oof.csv",
+    "experiments/exp001_anchor_baseline/oof.csv"
+  ],
+  "component_names": [
+    "exp022_particle_filter",
+    "exp014_geom_extrap",
+    "exp001_anchor_baseline"
+  ],
+  "n_rows": 3783989,
+  "n_components": 3,
+  "nested_cv": 10.1322277272235,
+  "fold_cvs": [
+    9.73419393318038,
+    9.642758687015252,
+    9.809581206549499,
+    10.19689466577143,
+    11.1976655863369
+  ],
+  "final_weights": {
+    "exp022_particle_filter": 0.6740503026594004,
+    "exp014_geom_extrap": 0.3259496973405996,
+    "exp001_anchor_baseline": 0.0
+  },
+  "filtered_weights": {
+    "exp022_particle_filter": 0.6740503026594004,
+    "exp014_geom_extrap": 0.3259496973405996
+  },
+  "weight_stability": {
+    "exp022_particle_filter": {
+      "mean_weight": 0.6741186398905377,
+      "std_weight": 0.010312843404088612,
+      "cv_weight": 0.015298261750725652,
+      "is_stable": true
+    },
+    "exp014_geom_extrap": {
+      "mean_weight": 0.3258813601094624,
+      "std_weight": 0.010312843404088569,
+      "cv_weight": 0.03164600577530584,
+      "is_stable": true
+    },
+    "exp001_anchor_baseline": {
+      "mean_weight": 0.0,
+      "std_weight": 0.0,
+      "cv_weight": 0.0,
+      "is_stable": true
+    }
+  },
+  "consistency_gate": {
+    "component_fold_improvements": {
+      "exp022_particle_filter": 0,
+      "exp014_geom_extrap": 5,
+      "exp001_anchor_baseline": 5
+    },
+    "passed_components": {
+      "exp022_particle_filter": false,
+      "exp014_geom_extrap": true,
+      "exp001_anchor_baseline": true
+    }
+  },
+  "per_fold_detail": {
+    "fold_0": {
+      "cv": 9.73419393318038,
+      "weights": [
+        0.6690172747744221,
+        0.3309827252255778,
+        0.0
+      ]
+    },
+    "fold_1": {
+      "cv": 9.642758687015252,
+      "weights": [
+        0.669678667344179,
+        0.3303213326558209,
+        0.0
+      ]
+    },
+    "fold_2": {
+      "cv": 9.809581206549499,
+      "weights": [
+        0.6681364552810197,
+        0.3318635447189803,
+        0.0
+      ]
+    },
+    "fold_3": {
+      "cv": 10.19689466577143,
+      "weights": [
+        0.6690398401244727,
+        0.33096015987552724,
+        0.0
+      ]
+    },
+    "fold_4": {
+      "cv": 11.1976655863369,
+      "weights": [
+        0.6947209619285943,
+        0.3052790380714057,
+        0.0
+      ]
+    }
+  },
+  "confidence": "high",
+  "predicted_lb": 8.7322277272235,
+  "predicted_lb_range": "8.532 \u00b1 0.200",
+  "gap_assumption": 1.4
+}

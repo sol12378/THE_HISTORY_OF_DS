@@ -1,0 +1,19 @@
+{
+  "exp_id": "exp041",
+  "method": "pf_residual_gbdt",
+  "pf_base_source": "exp040",
+  "pf_base_cv_rmse": 10.97908626352856,
+  "residual_model_cv_rmse": 10.536139139892317,
+  "cv_rmse": 10.530996918230501,
+  "n_folds": 5,
+  "n_features": 28,
+  "n_samples_train": 3783989,
+  "n_samples_test": 19221,
+  "improvement_vs_pf": 0.4480893452980581,
+  "smoke_test": false,
+  "models_trained": {
+    "lgb": 5,
+    "xgb": 5,
+    "cb": 5
+  }
+}

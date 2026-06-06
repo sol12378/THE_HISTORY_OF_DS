@@ -1,0 +1,94 @@
+{
+  "timestamp": "20260605_exp041_geom",
+  "oof_paths": [
+    "experiments/exp041_pf_residual_gbdt/oof.csv",
+    "experiments/exp014_geom_extrap/oof.csv"
+  ],
+  "component_names": [
+    "exp041_pf_residual_gbdt",
+    "exp014_geom_extrap"
+  ],
+  "n_rows": 3783989,
+  "n_components": 2,
+  "nested_cv": 10.157917426235139,
+  "fold_cvs": [
+    10.021908212703545,
+    9.796816702982438,
+    9.198610788428143,
+    10.29856338357338,
+    11.35040037328915
+  ],
+  "final_weights": {
+    "exp041_pf_residual_gbdt": 0.7606523289540211,
+    "exp014_geom_extrap": 0.23934767104597887
+  },
+  "filtered_weights": {
+    "exp041_pf_residual_gbdt": 0.7606523289540211,
+    "exp014_geom_extrap": 0.23934767104597887
+  },
+  "weight_stability": {
+    "exp041_pf_residual_gbdt": {
+      "mean_weight": 0.7606388818050714,
+      "std_weight": 0.012695895048580605,
+      "cv_weight": 0.016691093963605946,
+      "is_stable": true
+    },
+    "exp014_geom_extrap": {
+      "mean_weight": 0.23936111819492858,
+      "std_weight": 0.012695895048580614,
+      "cv_weight": 0.053040757598071774,
+      "is_stable": true
+    }
+  },
+  "consistency_gate": {
+    "component_fold_improvements": {
+      "exp041_pf_residual_gbdt": 0,
+      "exp014_geom_extrap": 5
+    },
+    "passed_components": {
+      "exp041_pf_residual_gbdt": false,
+      "exp014_geom_extrap": true
+    }
+  },
+  "per_fold_detail": {
+    "fold_0": {
+      "cv": 10.021908212703545,
+      "weights": [
+        0.7594107575416605,
+        0.24058924245833946
+      ]
+    },
+    "fold_1": {
+      "cv": 9.796816702982438,
+      "weights": [
+        0.7587204752641539,
+        0.24127952473584613
+      ]
+    },
+    "fold_2": {
+      "cv": 9.198610788428143,
+      "weights": [
+        0.7431723699492235,
+        0.25682763005077647
+      ]
+    },
+    "fold_3": {
+      "cv": 10.29856338357338,
+      "weights": [
+        0.7590455631720623,
+        0.24095443682793766
+      ]
+    },
+    "fold_4": {
+      "cv": 11.35040037328915,
+      "weights": [
+        0.7828452430982569,
+        0.2171547569017431
+      ]
+    }
+  },
+  "confidence": "high",
+  "predicted_lb": 8.757917426235139,
+  "predicted_lb_range": "8.558 \u00b1 0.200",
+  "gap_assumption": 1.4
+}
