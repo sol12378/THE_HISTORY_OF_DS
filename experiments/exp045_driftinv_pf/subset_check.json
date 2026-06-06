@@ -1,0 +1,9 @@
+{
+  "subset_wells": 30,
+  "broken_subset_size": 15,
+  "good_subset_size": 15,
+  "broken_rescued": 1,
+  "good_degraded_count": 15,
+  "good_median_delta": 81.04129371419272,
+  "should_run_full": false
+}
