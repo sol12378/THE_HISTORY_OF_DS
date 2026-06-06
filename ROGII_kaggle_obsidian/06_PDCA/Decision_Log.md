@@ -32,3 +32,8 @@
 | 2026-06-02 | 多井戸空間モデル(diag_spatial)を棄却 | TVT~f(X,Y,Z)はhidden RMSE149-186。well間隔~6400でTVTは±185しか拘束できずanchor±16に完敗。wellが疎すぎてoffset回収不能 | diag_spatial | [[gr-offset-ceiling]] |
 | 2026-06-02 | **1位LB(6.8)接近の本命=typewell-aware NN(exp020)を検証→offset回収不能を最終確認** | lateral GR↔typewell profileのcross-attention(微分可能DTW)でもNN単体16.5と悪化。GR照合/空間/NN/attentionの全paradigmでoffset取れず。public LB6.8は3本分散要因が大きい | exp020 NN16.5/blend13.322 | [[exp020_typewell_attn]] |
 | 2026-06-02 | **現best CV=13.320964**(exp018+exp019+exp020 3-blend+平滑)。次は実LB提出でgap測定 | 全fold一貫leak-free。exp015(13.520)から+0.199。グローバルCVでの大幅改善は情報限界で頭打ち | exp020 3-blend平滑 | [[exp020_typewell_attn]] |
+| 2026-06-06 | **leak路線 完全終了**。採点test=train非存在のhidden well群と確定 | exp044純leak提出が"submission incorrect format"エラー=hidden wellはtrainに無くleak lookup全NaN。exp034/036/037が全10.794だったのも整合(leak不適用、壊れ4-comp model支配) | exp044 format error | [[exp034_hybrid_leak]] |
+| 2026-06-06 | **SaintLouis 5.986はleak-free確定**。leak仮説を完全棄却 | 構造的leak(3 test wellがtrain存在)は採点対象外のサンプルwellのみ。実採点はhidden well | exp044 | [[exp034_hybrid_leak]] |
+| 2026-06-06 | **5.986への律速=broken well 47本のPF追跡ロスト**と特定 | PF per-well RMSE中央値5.66(既に5.986並)。47 broken(>20)がpooled CV 11.02に押上げ。broken→good修正でpooled概算6.0。4-offset/well oracle 4.39が裏付け。offsetはGR逐次追跡で可(中央値5.7)、特徴回帰では不能(corr-0.028) | per_well分布 + diag_gr_ceiling | [[exp022_particle_filter]] |
+| 2026-06-06 | **P0-P4はexp026未超え**。exp026(LB8.672)が唯一の検証済best維持 | exp040 multi-scale PF CV10.979(+0.045)、exp041 residual GBDT CV10.53だがexp026の10.06に劣る。multi-tw/physical-lik(全体適用)は有害確定 | exp040/041, pdca_blend | [[exp026_final_blend]] |
+| 2026-06-06 | **次戦略=broken well救済に全集中**。blend/特徴でなくPF追跡頑健性が勝負 | P-A診断→P-B再初期化/P-C Beam hybrid/P-D観測物理化(broken限定)。各LB検証(gap1.4転移実証済) | 戦略策定 | [[exp022_particle_filter]] |

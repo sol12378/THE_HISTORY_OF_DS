@@ -51,3 +51,4 @@ kaggle_notebooks/exp034_hybrid_leak/local_test_submission.csv
 experiments/exp034_hybrid_leak/diagnostic.csv
 experiments/exp034_hybrid_leak/submission.csv
 experiments/exp023_leak_lookup/submission.csv
+kaggle_notebooks/exp044_pure_leak/local_test_submission.csv
