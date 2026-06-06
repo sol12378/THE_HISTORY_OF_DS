@@ -1,0 +1,21 @@
+{
+  "exp022_pooled_cv": 11.02,
+  "oracle_pooled_cv": 5.0,
+  "best_method": "exp022",
+  "best_cv": 11.02,
+  "gate_auc_mean": 0.5018171558958107,
+  "gate_auc_std": 0.00958282347074249,
+  "n_broken_wells": 47,
+  "assessment": "LOW SEPARATION POWER - AUC 0.6 < 0.7 threshold. Broken wells cannot be reliably identified from leak-free signals. Selective rescue infeasible.",
+  "feature_importance": {
+    "gr_drift": 0.165408687288284,
+    "hidden_length": 0.15910734134001128,
+    "gr_missing_hidden": -0.22749176156684103,
+    "dip_change": 0.0
+  },
+  "correlation_with_broken": {
+    "gr_drift": 0.033599591729464695,
+    "hidden_length": 0.03595602299515286,
+    "gr_missing_hidden": -0.05029015141207291
+  }
+}

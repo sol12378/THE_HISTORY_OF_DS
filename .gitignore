@@ -52,3 +52,11 @@ experiments/exp034_hybrid_leak/diagnostic.csv
 experiments/exp034_hybrid_leak/submission.csv
 experiments/exp023_leak_lookup/submission.csv
 kaggle_notebooks/exp044_pure_leak/local_test_submission.csv
+experiments/*/test_pred.csv
+experiments/*/oof_best.csv
+experiments/*/blend_candidates/
+experiments/*/subset_check_details.csv
+experiments/*_smoke/
+final_kernel_check.py
+run_kernel_local_verify.sh
+.claude/

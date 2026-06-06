@@ -1,0 +1,107 @@
+{
+  "date": "2026-06-06T13:38:23.305765",
+  "broken_wells_count": 47,
+  "good_wells_count": 20,
+  "broken_rmse_range": [
+    20.052793819009636,
+    56.34240986814434
+  ],
+  "good_rmse_range": [
+    1.7264159178953904,
+    4.741728483354682
+  ],
+  "pattern_distribution": {
+    "B": 47
+  },
+  "comparison_stats": {
+    "hidden_length": {
+      "broken_median": 2361.0,
+      "broken_mean": 2476.808510638298,
+      "good_median": 859.5,
+      "good_mean": 1983.5,
+      "broken_n": 47,
+      "good_n": 20,
+      "label": "Hidden length (rows)"
+    },
+    "gr_drift": {
+      "broken_median": 1.2255250312192487,
+      "broken_mean": 1.0384933288232658,
+      "good_median": 0.37016565326293005,
+      "good_mean": -0.07270050692174834,
+      "broken_n": 40,
+      "good_n": 13,
+      "label": "GR drift"
+    },
+    "gr_missing_hidden": {
+      "broken_median": 0.25158831003811943,
+      "broken_mean": 0.25559012727631186,
+      "good_median": 0.16012152836603077,
+      "good_mean": 0.2436781022796514,
+      "broken_n": 47,
+      "good_n": 20,
+      "label": "GR missing rate (hidden)"
+    },
+    "dip_change": {
+      "broken_median": 0.41609385842883373,
+      "broken_mean": 0.40866911114831267,
+      "good_median": 0.4113087945589666,
+      "good_mean": 0.41402478298486733,
+      "broken_n": 40,
+      "good_n": 13,
+      "label": "Dip change (dTVT/dMD)"
+    },
+    "tw_gr_corr": {
+      "broken_median": 0.7756554522832515,
+      "broken_mean": 0.7408290375462839,
+      "good_median": 0.8420590692477481,
+      "good_mean": 0.8017206545854723,
+      "broken_n": 47,
+      "good_n": 20,
+      "label": "TypeWell GR correlation"
+    },
+    "z_span": {
+      "broken_median": 753.3400000000001,
+      "broken_mean": 728.4406382978725,
+      "good_median": 746.4949999999999,
+      "good_mean": 699.1315000000001,
+      "broken_n": 47,
+      "good_n": 20,
+      "label": "Z span (deviation)"
+    },
+    "error_ratio": {
+      "broken_median": 0.0,
+      "broken_mean": 0.0,
+      "good_median": 0.0,
+      "good_mean": 0.0,
+      "broken_n": 47,
+      "good_n": 20,
+      "label": "Initial/Max error ratio"
+    },
+    "lost_fraction": {
+      "broken_median": 0.0,
+      "broken_mean": 0.0,
+      "good_median": 0.0,
+      "good_mean": 0.0,
+      "broken_n": 47,
+      "good_n": 20,
+      "label": "Lost fraction (MD%)"
+    }
+  },
+  "key_differentiators": [
+    {
+      "metric": "gr_drift",
+      "label": "GR drift",
+      "ratio": 2.310747554281471
+    },
+    {
+      "metric": "hidden_length",
+      "label": "Hidden length (rows)",
+      "ratio": 1.7469458987783595
+    },
+    {
+      "metric": "gr_missing_hidden",
+      "label": "GR missing rate (hidden)",
+      "ratio": 0.5712335037359849
+    }
+  ]
+}

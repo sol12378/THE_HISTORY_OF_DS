@@ -1,0 +1,77 @@
+{
+  "timestamp": "20260606_exp041_solo",
+  "oof_paths": [
+    "experiments/exp041_pf_residual_gbdt/oof.csv"
+  ],
+  "component_names": [
+    "exp041_pf_residual_gbdt"
+  ],
+  "n_rows": 3783989,
+  "n_components": 1,
+  "nested_cv": 10.530996918230503,
+  "fold_cvs": [
+    10.318365360114269,
+    10.190937158025394,
+    9.394070646680369,
+    10.662761907177856,
+    11.926953776359502
+  ],
+  "final_weights": {
+    "exp041_pf_residual_gbdt": 1.0
+  },
+  "filtered_weights": {
+    "exp041_pf_residual_gbdt": 1.0
+  },
+  "weight_stability": {
+    "exp041_pf_residual_gbdt": {
+      "mean_weight": 1.0,
+      "std_weight": 0.0,
+      "cv_weight": 0.0,
+      "is_stable": true
+    }
+  },
+  "consistency_gate": {
+    "component_fold_improvements": {
+      "exp041_pf_residual_gbdt": 0
+    },
+    "passed_components": {
+      "exp041_pf_residual_gbdt": false
+    }
+  },
+  "per_fold_detail": {
+    "fold_0": {
+      "cv": 10.318365360114269,
+      "weights": [
+        1.0
+      ]
+    },
+    "fold_1": {
+      "cv": 10.190937158025394,
+      "weights": [
+        1.0
+      ]
+    },
+    "fold_2": {
+      "cv": 9.394070646680369,
+      "weights": [
+        1.0
+      ]
+    },
+    "fold_3": {
+      "cv": 10.662761907177856,
+      "weights": [
+        1.0
+      ]
+    },
+    "fold_4": {
+      "cv": 11.926953776359502,
+      "weights": [
+        1.0
+      ]
+    }
+  },
+  "confidence": "high",
+  "predicted_lb": 9.130996918230503,
+  "predicted_lb_range": "8.931 \u00b1 0.200",
+  "gap_assumption": 1.4
+}
