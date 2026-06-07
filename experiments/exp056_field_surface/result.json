@@ -1,0 +1,23 @@
+{
+  "formation_names": [
+    "ANCC",
+    "ASTNU",
+    "ASTNL",
+    "EGFDU",
+    "EGFDL",
+    "BUDA"
+  ],
+  "lowo_rmse_per_formation": {
+    "ANCC": 0.3143062779808471,
+    "ASTNU": 0.3054221299358073,
+    "ASTNL": 0.3170778139330617,
+    "EGFDU": 0.31271857580450874,
+    "EGFDL": 0.32072171746870554,
+    "BUDA": 0.3090152949753168
+  },
+  "best_formation": "ASTNU",
+  "tvt_cv": 0.13075590179470287,
+  "blend_cv": null,
+  "n_wells": 773,
+  "timestamp": "2026-06-07T17:40:25.022848"
+}
