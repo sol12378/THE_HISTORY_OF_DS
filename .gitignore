@@ -60,3 +60,13 @@ experiments/*_smoke/
 final_kernel_check.py
 run_kernel_local_verify.sh
 .claude/
+_exp051_components/
+submission.csv
+test_kernel_features.py
+verify_exp043_p2.py
+experiments/exp051_local_verify/
+experiments/exp051_artifact_pf_blend/
+experiments/exp_broken_diagnosis/broken_wells.csv
+experiments/exp_selective_rescue/broken_signals.csv
+experiments/exp_selective_rescue/oof_selective.csv
+kaggle_notebooks/exp043_pipeline/
