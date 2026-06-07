@@ -1,0 +1,22 @@
+{
+  "formation": "ASTNU",
+  "K": 12,
+  "cv_surface_LOWO": 29.27576777877568,
+  "cv_pf": 11.02401442600274,
+  "error_corr_surf_pf": 0.03718210321652838,
+  "best_linear_blend": {
+    "cv": 10.451578805634677,
+    "w_surf": 0.1
+  },
+  "nnls_blend_cv": 10.067659113296088,
+  "nnls_w": [
+    0.10217695871464871,
+    0.7130930169297239
+  ],
+  "broken_wells": {
+    "n_rows": 238711,
+    "pf_rmse": 32.087933389265096,
+    "surf_rmse": 30.529910723412275
+  },
+  "leak_check": "LOWO: well's own formation points excluded (WID!=wid); const from known TVT_input only"
+}

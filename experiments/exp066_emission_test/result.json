@@ -1,0 +1,43 @@
+{
+  "note": "Localization MAE: |argmax-score TVT - true TVT| over hidden rows. lower=better emission. truth used for grid center+eval only (leak-free model).",
+  "window_halfwidth": 15,
+  "grid_halfwidth_ft": 60,
+  "results": {
+    "raw": {
+      "broken_localization_MAE_ft": 29.74247491638796,
+      "good_localization_MAE_ft": 28.270903010033443,
+      "n_broken": 598,
+      "n_good": 598
+    },
+    "norm": {
+      "broken_localization_MAE_ft": 31.471571906354516,
+      "good_localization_MAE_ft": 34.66053511705686,
+      "n_broken": 598,
+      "n_good": 598
+    },
+    "deriv": {
+      "broken_localization_MAE_ft": 30.066889632107024,
+      "good_localization_MAE_ft": 28.622073578595316,
+      "n_broken": 598,
+      "n_good": 598
+    },
+    "hilbert": {
+      "broken_localization_MAE_ft": 32.40468227424749,
+      "good_localization_MAE_ft": 33.31605351170568,
+      "n_broken": 598,
+      "n_good": 598
+    },
+    "wasserstein": {
+      "broken_localization_MAE_ft": 33.46321070234114,
+      "good_localization_MAE_ft": 35.99498327759197,
+      "n_broken": 598,
+      "n_good": 598
+    },
+    "wavelet": {
+      "broken_localization_MAE_ft": 32.48327759197324,
+      "good_localization_MAE_ft": 33.98160535117057,
+      "n_broken": 598,
+      "n_good": 598
+    }
+  }
+}
