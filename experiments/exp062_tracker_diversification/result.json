@@ -1,0 +1,56 @@
+{
+  "exp_id": "exp062_tracker_diversification",
+  "created_at": "2026-06-07T20:05:28.278801+09:00",
+  "subset_size": 20,
+  "subset_wells": [
+    "86454a6f",
+    "efe96181",
+    "1b1eba53",
+    "91b301ce",
+    "708caea9",
+    "5f4d2a52",
+    "91db7070",
+    "70e1788b",
+    "4c2208f5",
+    "1fdbba44",
+    "ed6436d6",
+    "af7a59ce",
+    "25fd32b3",
+    "593876b6",
+    "10b89021",
+    "3bbe1f5d",
+    "24d8997e",
+    "1a518997",
+    "404c4384",
+    "23b9beb0"
+  ],
+  "baseline_exp022_cv": 11.024,
+  "proposals": {
+    "proposal7_annealed_pf": {
+      "cv_rmse": 122.11874924093745,
+      "n_wells": 20,
+      "improvement_vs_baseline": 111.09474924093745,
+      "description": "\u6e29\u5ea6\u30b9\u30b1\u30b8\u30e5\u30fc\u30eb (\u9ad8\u6e29\u63a2\u7d22\u2192\u4f4e\u6e29\u53ce\u675f)"
+    },
+    "proposal8_replica_exchange_pf": {
+      "cv_rmse": 114.2318037967912,
+      "n_wells": 20,
+      "improvement_vs_baseline": 103.2078037967912,
+      "description": "\u8907\u6570\u6e29\u5ea6\u4e26\u8d70+\u7c92\u5b50\u4ea4\u63db"
+    },
+    "proposal9_viterbi_dp": {
+      "cv_rmse": 403.24751478773743,
+      "n_wells": 20,
+      "improvement_vs_baseline": 392.22351478773743,
+      "description": "CRF with emission=GR, transition=\u9023\u7d9a\u6027"
+    },
+    "proposal10_uncertainty_pf": {
+      "cv_rmse": NaN,
+      "n_wells": 20,
+      "improvement_vs_baseline": NaN,
+      "description": "\u7c92\u5b50\u5206\u6563\u306b\u3088\u308b\u4e0d\u78ba\u5b9f\u6027\u63a8\u5b9a+anchor\u5bc4\u305b"
+    }
+  },
+  "best_proposal": "proposal8",
+  "leak_risk": "none (no hidden TVT used; GR+typewell+Z+MD only)"
+}

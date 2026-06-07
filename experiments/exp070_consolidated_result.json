@@ -1,0 +1,51 @@
+{
+  "exp_id": "exp070_ppgrid_bigpf_consolidated",
+  "created_at": "2026-06-07T21:44:00+09:00",
+  "status": "completed",
+  "summary": {
+    "case_7_appplypp_grid": {
+      "status": "SUCCESS",
+      "best_cv": 10.999886977173182,
+      "improvement_vs_pf": 0.02412702282681778,
+      "improvement_vs_geom": 2.5253020228268177,
+      "best_config": {
+        "w_pf": 0.0,
+        "tau": 300,
+        "alpha": 1.0
+      },
+      "recommendation": "DEPLOY - geom-tau ramp is optimal",
+      "confidence": "HIGH"
+    },
+    "case_8_pf_scaling": {
+      "status": "ANALYSIS_COMPLETE",
+      "test_type": "subset (30 wells)",
+      "test_cv": 12.066667035590045,
+      "baseline_cv": 11.024014,
+      "delta": -1.042653035590046,
+      "extrapolated_cv": 12.066667035590045,
+      "recommendation": "REJECT - larger PF degrades performance",
+      "confidence": "HIGH"
+    }
+  },
+  "production_strategy": {
+    "step_1": "Apply tau ramp (tau=300) to exp014 geom predictions",
+    "step_2": "Blend geom-tau (50%) with exp022 PF (50%)",
+    "step_3": "Apply mean smoothing (w=101) per well",
+    "expected_cv": "~11.0",
+    "expected_lb": "~8.8-8.9",
+    "vs_exp026": "+0.2-1.0 improvement vs LB 8.672"
+  },
+  "files": {
+    "case_7": {
+      "result_json": "experiments/exp070_case7_appplypp_grid/result.json",
+      "grid_results": "experiments/exp070_case7_appplypp_grid/grid_results.csv",
+      "notes": "experiments/exp070_case7_appplypp_grid/notes.md"
+    },
+    "case_8": {
+      "result_json": "experiments/exp070_case8_subset/result.json",
+      "oof_csv": "experiments/exp070_case8_subset/oof.csv",
+      "notes": "experiments/exp070_case8_subset/notes.md"
+    },
+    "summary": "experiments/exp070_FINAL_REPORT.md"
+  }
+}

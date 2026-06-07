@@ -70,3 +70,9 @@ experiments/exp_broken_diagnosis/broken_wells.csv
 experiments/exp_selective_rescue/broken_signals.csv
 experiments/exp_selective_rescue/oof_selective.csv
 kaggle_notebooks/exp043_pipeline/
+experiments/exp067_field_lowo_blend/oof.csv
+experiments/exp056_field_surface/oof_full_773wells.csv
+experiments/*/oof.csv
+experiments/*/perscale_oof.csv
+scripts/debug_exp054.py
+.gitignore_experiments

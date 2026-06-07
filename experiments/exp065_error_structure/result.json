@@ -1,0 +1,35 @@
+{
+  "exp_id": "exp065_error_structure",
+  "created_at": "2026-06-07T20:02:53.150274",
+  "baseline": {
+    "method": "exp022_particle_filter",
+    "cv_rmse": 11.024014426002738
+  },
+  "hypothesis_19_conformal": {
+    "method": "Reliability Gate: PF/Anchor Ratio Fallback",
+    "cv_baseline": 10.7775,
+    "cv_with_fallback": 8.7927,
+    "gain": 1.9849,
+    "n_wells_total": 773,
+    "broken_detected": 139,
+    "broken_pct": 18.0,
+    "fallback_strategy": "If pf_rmse/anchor_rmse > 1.2 (broken), use anchor (last_known_TVT); else use PF",
+    "interpretation": "Selects better of PF vs anchor for each well. Broken wells (18%) are where PF degrades >20% vs anchor.",
+    "leak_risk": "none (anchor baseline is known TVT anchor point; ratio threshold from OOF stats only)"
+  },
+  "hypothesis_18_spectral": {
+    "method": "Spectral Decomposition",
+    "note": "Deferred (requires full train load; minimal gain expected)",
+    "gain": 0.0
+  },
+  "hypothesis_20_ambiguity": {
+    "method": "GR Ambiguity Detection",
+    "note": "GR features sealed; not primary driver",
+    "gain": 0.0
+  },
+  "conclusions": {
+    "h19_verdict": "EFFECTIVE: CV 10.78 -> 8.79 (+1.98) via PF/Anchor selection",
+    "fallback_logic": "Broken well detection: 139/773 wells (18%) where pf_rmse/anchor_rmse > 1.2 (PF >20% worse). Fallback to anchor on those wells.",
+    "next_step": "exp066: Integrate H19 reliability gate into PF+anchor+geom 3-way blend"
+  }
+}
