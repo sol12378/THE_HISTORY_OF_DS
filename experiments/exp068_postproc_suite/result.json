@@ -1,0 +1,67 @@
+{
+  "baseline_artifact+exp026 (nested)": 9.2725,
+  "proj_U_deg3": 9.2914,
+  "proj_U_deg5": 9.1723,
+  "proj_U_deg7": 9.1693,
+  "proj_raw_deg3": 9.9682,
+  "proj_raw_deg5": 9.6718,
+  "ramp_tau85": 9.2703,
+  "ramp_tau300": 9.2832,
+  "proj_each_then_blend": 9.1926,
+  "+surface": 9.261,
+  "+residual_gbdt": 9.2118,
+  "+surf+resid+pf (all)": 9.1975,
+  "all + proj_U_deg5": 9.0858,
+  "blend_weight_sweep_artifact": [
+    [
+      0.0,
+      10.1077
+    ],
+    [
+      0.1,
+      9.8321
+    ],
+    [
+      0.2,
+      9.6223
+    ],
+    [
+      0.3,
+      9.4827
+    ],
+    [
+      0.4,
+      9.4164
+    ],
+    [
+      0.5,
+      9.425
+    ],
+    [
+      0.6,
+      9.5083
+    ],
+    [
+      0.7,
+      9.6643
+    ],
+    [
+      0.8,
+      9.8896
+    ],
+    [
+      0.9,
+      10.1796
+    ],
+    [
+      1.0,
+      10.529
+    ]
+  ],
+  "solo_artifact": 10.529,
+  "solo_exp026": 10.1077,
+  "solo_pf022": 11.024,
+  "solo_geom014": 13.5252,
+  "solo_surface": 29.2758,
+  "solo_residual": 10.531
+}
