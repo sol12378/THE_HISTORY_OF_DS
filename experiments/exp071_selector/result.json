@@ -1,0 +1,8 @@
+{
+  "cv_selector_nested": 10.4712,
+  "cv_pf_scale8": 10.9083,
+  "cv_pf_scales_avg": 10.9044,
+  "n_regimes": 6,
+  "leak_check": "variant chosen by fold-TRAIN hidden RMSE only; fold-eval gets config only",
+  "wall_sec": 3294.9
+}
