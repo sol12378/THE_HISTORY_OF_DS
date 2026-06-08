@@ -1,0 +1,15 @@
+{
+  "exp_id": "exp070_case7_appplypp_grid",
+  "created_at": "2026-06-07T21:38:31.468207+09:00",
+  "best_w_pf": 0.0,
+  "best_tau": 300,
+  "best_alpha": 1.0,
+  "best_cv": 10.999886977173182,
+  "baseline_pf_cv": 11.024014,
+  "baseline_geom_cv": 13.525189,
+  "improvement_vs_pf": 0.02412702282681778,
+  "improvement_vs_geom": 2.5253020228268177,
+  "tau_ramp_effective": true,
+  "grid_size": 75,
+  "status": "completed"
+}

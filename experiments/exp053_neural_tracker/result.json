@@ -1,0 +1,27 @@
+{
+  "exp_id": "exp053_neural_tracker",
+  "created_at": "2026-06-07T16:42:30.263079+09:00",
+  "status": "completed",
+  "model": "simple-offset-tracker (dilated TCN)",
+  "device": "mps",
+  "fold": "folds_group_well_v001",
+  "config": {
+    "sequence_length": 128,
+    "epochs": 25,
+    "batch_size": 32,
+    "learning_rate": 0.001
+  },
+  "fold_rmses": [
+    15.398294337062286,
+    16.608457855852272,
+    16.236200361048102,
+    16.359343390631107,
+    17.331638830304858
+  ],
+  "nn_cv": 16.21691504804581,
+  "vs_pf": 5.19291504804581,
+  "vs_anchor": 0.3079150480458086,
+  "best_prev_cv": 10.062,
+  "target": "blend素材・誤差相関確認",
+  "leak_risk": "low"
+}

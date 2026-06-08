@@ -1,0 +1,14 @@
+{
+  "pooled_cv_rmse": 1217.7497670109412,
+  "fold_rmses": [
+    1297.9901919939023,
+    1242.8389002802426,
+    1262.4084115311111,
+    1250.602352491987,
+    1012.5344031217064
+  ],
+  "n_wells": 773,
+  "n_broken_wells": 47,
+  "n_broken_rescued": 0,
+  "method": "geology_gr_nearest_classification"
+}

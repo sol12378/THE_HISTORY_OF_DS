@@ -1,0 +1,14 @@
+{
+  "exp_id": "exp070_case8_subset",
+  "created_at": "2026-06-07T21:44:00.705878+09:00",
+  "subset_n_wells": 30,
+  "subset_n_rows": 155071,
+  "cv_rmse": 12.066667035590045,
+  "baseline_exp022_cv": 11.024014,
+  "improvement_delta": -1.042653035590046,
+  "n_particles": 600,
+  "n_seeds": 150,
+  "n_workers": 9,
+  "status": "completed",
+  "notes": "Subset test (30 wells). Scaling test: if CV improves, do full 773-well run."
+}

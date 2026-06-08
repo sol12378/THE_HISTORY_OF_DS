@@ -1,0 +1,36 @@
+{
+  "baseline_pf_rmse_global": 11.02401442600274,
+  "baseline_pf_cv_mean": 10.99893948470061,
+  "baseline_pf_cv_std": 0.747507123831895,
+  "baseline_pf_cv_scores": [
+    10.414756841802626,
+    10.525185420203233,
+    10.628355193656837,
+    10.981608093332628,
+    12.444791874507722
+  ],
+  "case1_error": "Insufficient known data",
+  "case2_reverse_rmse": 10.992569047216971,
+  "case2_cv_mean": 10.966198545327083,
+  "case2_cv_scores": [
+    10.378723752073482,
+    10.475586506235572,
+    10.522961738989846,
+    11.024363241740597,
+    12.429357487595917
+  ],
+  "case2_leak_check": "\u2713 Reverse fit only on forward PF predictions (no true TVT in fit)",
+  "case3_cycle_correlation": 0.0009533827260280982,
+  "case3_cycle_threshold": 21.74233214898402,
+  "case3_broken_wells_detected": 773,
+  "case3_fallback_rmse": 13.525189459235134,
+  "case3_cv_mean": 13.52083989586266,
+  "case3_cv_scores": [
+    12.878405250297705,
+    13.468235455453321,
+    13.600807577517166,
+    13.785940239120041,
+    13.870810956925052
+  ],
+  "case3_leak_check": "\u2713 Cycle-consistency computed from typewell (non-target), broken detection from cycle error (non-TVT)"
+}
