@@ -60,3 +60,13 @@
 - 新決定: 主戦略は **exp073 公開資産統合**。公開notebook監査 (5本) の結果、fleongg fle3n-v4 (LB 7.572) は全て公開データセット (ravaghi artifacts / fleongg models) で構成され、GroupKFold OOF内蔵のTrainer pickleから正直なOOFを構築できる。我々のexp026 (PF×geom) は彼らに無い直交成分であり、nested NNLS blendでCV 9.086更新を狙う。
 - リーク判断: 彼らのtrain TVT lookup分岐は採点時に発火しない死にコード (exp044の知見と整合)。public LB 7.572は正味性能で信頼可。ただしblend重み・selector閾値はLB probing由来の可能性があるため自前OOFで再決定する。
 - 詳細: [[Strategy_2026-06-10_LB7419_plan]]
+
+# 2026-06-10: exp073 公開資産統合で新best CV 8.690 (leak-free, -0.396)
+
+- **結果**: 公開資産(ravaghi artifacts / pilkwang package)の正直OOFと我々の直交成分(exp026 PF×geom, exp075b TCN)をnested NNLS blend + 後処理(projection deg4 β0.75 + mean101 + warmup85) → **nested CV 8.690**(現best exp072 9.086から−0.396、全fold一貫改善8.16〜9.52)。
+- **重み**: pf 0.428(我々PF=最大重み)+ pilk_tcn 0.255 + rav_lgb3 0.251 + pilk_cat 0.154 + tcn_resid 0.112。公開stack(10.04)と我々stack(10.03)の誤差相関0.611=直交が源泉。著者の「改善には非相関な第3ソースが必要」を我々のPFが実証。
+- **leak検証**: PF OOF 10.984 = exp025と完全一致(再現性確認)。外部OOFはtrainer.overall_scoreと一致(GroupKFold by well, self-well除外)。全成分well単位OOF。
+- **subset別CV**: ours-only 9.78 / ours+rav 8.98 / **ours+pilk 8.76** / joint 8.69。pilkwangパッケージ単体が最強外部。
+- **CUDA活用**: exp075 GPU-TCN(RTX 2080 SUPER, torch cu124)。v1直接14.87→residual版(exp075b)13.39。blend寄与は小(0.11)だが正。NN単体は弱い従来知見を再確認しつつ、residual化で初めて微寄与。
+- **提出方針**: pilkwang notebook(rav+pilk全成分を採点時計算)をfork + 我々exp026(pf+geom)注入 + joint重み + projection。我々TCN_residはtorch同梱回避でドロップ(8.697)。目標LB<=7.419。CV→LB転移: 公開pipeline CV9.21→LB7.572、我々は8.69でそれを上回る → LB 7.0〜7.4圏を期待。
+- 詳細: [[exp073_public_assets_integration]]

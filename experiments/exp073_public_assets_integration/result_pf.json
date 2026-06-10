@@ -1,0 +1,38 @@
+{
+  "exp": "exp073_task_b_pf_oof",
+  "pooled_rmse": 10.983861172482264,
+  "per_well_stats": {
+    "mean": 8.060706394570623,
+    "median": 5.804691736358624,
+    "std": 7.220099790942966,
+    "min": 0.7073058743285524,
+    "max": 55.90137554442904,
+    "n_wells": 773
+  },
+  "n_rows": 3783989,
+  "n_wells": 773,
+  "runtime_min": 106.51332566738128,
+  "pf_config": {
+    "PF_SEEDS": 128,
+    "PF_PARTICLES": 500,
+    "PF_SCALE": 8.0,
+    "PF_INIT_SPREAD": 4.0,
+    "PF_PN": 0.01,
+    "PF_VN": 0.002,
+    "PF_MOM": 0.998,
+    "PF_RP": 0.1,
+    "PF_RR": 0.001,
+    "PF_RESAMP": 0.5,
+    "MAX_WORKERS": 12
+  },
+  "leak_notes": "LEAK-FREE: hidden rows TVT (TVT column in train_base) is NOT used in payload construction. pf_build_payload only reads: TVT_input (known rows only), GR (all rows via interpolation), typewell GR-TVT profile. The TVT column is only merged AFTER prediction for RMSE evaluation. is_target rows are selected by is_known_tvt==False, which is derived from TVT_input being NaN, not from the TVT column. GR interpolation across all rows uses positional GR values (no TVT). pos = last_tvt + last_Z uses last KNOWN TVT_input (anchor), not hidden TVT.",
+  "gate_check": {
+    "expected_rmse_range": [
+      10.4,
+      11.6
+    ],
+    "passed": true,
+    "expected_rows": 3783989,
+    "rows_match": true
+  }
+}

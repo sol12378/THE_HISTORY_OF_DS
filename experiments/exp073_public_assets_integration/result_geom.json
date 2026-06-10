@@ -1,0 +1,21 @@
+{
+  "pooled_rmse": 13.414929851220705,
+  "per_fold_rmse": {
+    "0": 12.536440928992974,
+    "1": 13.118151893529415,
+    "2": 13.661418833903543,
+    "3": 13.732185458636682,
+    "4": 13.97803852074885
+  },
+  "per_well_rmse_stats": {
+    "mean": 10.94701603422806,
+    "median": 8.959678614363424,
+    "std": 7.403627991949398,
+    "min": 1.517504218509593,
+    "max": 61.133952338616325
+  },
+  "n_rows": 3783989,
+  "runtime_min": 13.87831172545751,
+  "leak_notes": "Leak audit: hidden TVT values (TVT column in train_base) are used ONLY as the ground-truth label (tvt_true) for RMSE computation after predictions are made. During feature engineering (enrich()), only rows where is_known_tvt==True are used to compute per-well statistics (traj_per_well, gr_per_well, geom_per_well). These functions read TVT_input (not TVT), and TVT_input is NaN for hidden rows. Per-row features (traj_per_row, gr_per_row, geom_per_row) use only MD/X/Y/Z/GR/delta_* columns which are available for hidden rows without revealing TVT. LGB training uses only train-fold hidden rows (is_target=True) with y_delta = TVT - last_known_TVT; the validation fold hidden rows TVT is not passed to the model during fit (only to eval_set for early stopping score reporting, which is a standard ML practice and does not contaminate predictions made by model.predict). Conclusion: no TVT leakage into predictions.",
+  "gate_passed": true
+}

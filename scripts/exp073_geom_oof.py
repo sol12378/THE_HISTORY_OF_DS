@@ -72,14 +72,17 @@ LGB_PARAMS = {
     "lambda_l2": 1.0,
     "verbosity": -1,
     "seed": 42,
-    "num_threads": 4,   # limit to 4 to overlap with PF (12 workers) without oversubscription
+    "num_threads": 14,  # PF done -> use full cores for fast rerun
 }
 
 
 def log(msg: str) -> None:
     ts = time.strftime("%H:%M:%S")
     line = f"[{ts}] {msg}"
-    print(line, flush=True)
+    try:
+        print(line, flush=True)
+    except UnicodeEncodeError:
+        print(line.encode("ascii", "replace").decode("ascii"), flush=True)
     with open(LOG_FILE, "a", encoding="utf-8") as f:
         f.write(line + "\n")
 

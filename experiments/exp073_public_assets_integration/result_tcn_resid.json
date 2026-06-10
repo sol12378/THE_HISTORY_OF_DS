@@ -1,0 +1,33 @@
+{
+  "exp": "exp075b_gpu_tcn_residual",
+  "pooled_rmse": 13.386214213347175,
+  "fold_val_rmses": [
+    12.607181376093916,
+    12.91899832360017,
+    12.730911165587408,
+    13.816277563542618,
+    14.773422472187377
+  ],
+  "n_rows": 3783989,
+  "n_valid": 3783989,
+  "features": [
+    "_gr",
+    "_gr_d1",
+    "_gr_rm",
+    "_gr_rs",
+    "Z",
+    "delta_Z_from_PS",
+    "delta_X_from_PS",
+    "delta_Y_from_PS",
+    "_md_since",
+    "row_frac",
+    "_tvt_in_rel",
+    "_is_known",
+    "_dxy",
+    "_dz_dmd",
+    "_geom_rel"
+  ],
+  "runtime_min": 2.4143156449000043,
+  "device": "cuda",
+  "leak_notes": "residual on geom OOF (out-of-fold); GroupKFold by well; loss on hidden only."
+}

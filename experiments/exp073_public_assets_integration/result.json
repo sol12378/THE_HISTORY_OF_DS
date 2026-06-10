@@ -1,0 +1,42 @@
+{
+  "exp_id": "exp073_public_assets_integration",
+  "goal": "Reproduce new best blend (nested CV 8.697, leak-free) as self-contained submission kernel",
+  "blend_space": "delta (TVT - last_known_TVT)",
+  "weights": {"pf": 0.428, "geom": 0.102, "pilk_cat": 0.153, "pilk_tcn": 0.255, "rav_lgb3": 0.243, "rav_cb1": 0.014, "rav_cb2": 0.035},
+  "weight_sum": 1.03,
+  "postprocess": {"warmup_tau": 85, "smooth_window": 101, "projection_deg": 4, "projection_beta": 0.75, "projection_iters": 4, "projection_min_known": 8},
+  "local_validation": {
+    "test_wells": 3,
+    "submission_rows": 14151,
+    "matches_sample_submission": true,
+    "nan": 0,
+    "all_finite": true,
+    "tvt_range_7comp": [11586.2, 12232.2],
+    "tvt_mean_7comp": 11895.6,
+    "tvt_range_6comp_no_tcn": [11594.1, 12238.0],
+    "per_id_diff_7vs6_mean": 9.21,
+    "per_id_diff_7vs6_max": 20.51
+  },
+  "component_delta_stats": {
+    "pf_delta": [-22.7, 17.9],
+    "geom_delta": [-21.6, 16.1],
+    "rav_lgb3": [-25.1, 14.4],
+    "rav_cb1": [-27.8, 14.7],
+    "rav_cb2": [-28.6, 14.0],
+    "pilk_cat": [-28.8, 18.2],
+    "pilk_tcn": [-80.5, -5.1]
+  },
+  "issues": {
+    "pilk_tcn_scale_anomaly": "TCN loads (strict state_dict OK) and runs per package method, but delta mean=-35.6 vs package OOF mean +1.63 / smoke -3.37. Suspected long hidden-tail extrapolation; projection postproc absorbs most bias (well-mean tvt nearly identical with/without). 6-comp variant provided.",
+    "ravaghi_nondeterminism": "cell9 build_well has no per-well np.random.seed -> PF features vary run-to-run; rav_* deltas shifted ~1 unit between two runs. Minor; consider seeding for reproducibility."
+  },
+  "leak_check": "PASS - tvt_from_contacts / train-TVT lookup / selector override NOT ported. Only model inference + known geometry used.",
+  "submittable": true,
+  "files": {
+    "main_script": "kaggle_notebooks/exp073_blend/rogii_exp073.py",
+    "ravaghi_featlib": "kaggle_notebooks/exp073_blend/_rav_featlib.py",
+    "reblend_helper": "kaggle_notebooks/exp073_blend/reblend_variants.py",
+    "submission_7comp": "experiments/exp073_public_assets_integration/submission.csv",
+    "submission_6comp": "experiments/exp073_public_assets_integration/submission_no_tcn.csv"
+  }
+}

@@ -76,6 +76,8 @@ def load_components():
 
     add_ours(OUT / "oof_geom.csv", "geom")
     add_ours(OUT / "oof_pf.csv", "pf")
+    add_ours(OUT / "oof_tcn.csv", "tcn")
+    add_ours(OUT / "oof_tcn_resid.csv", "tcn_resid")
 
     ext_path = OUT / "external_oof.parquet"
     if ext_path.exists():
@@ -100,7 +102,7 @@ def load_components():
     # attach, converting our TVT-space preds to delta
     for name, s in comps.items():
         df[name] = s
-        if name in ("geom", "pf"):
+        if name in ("geom", "pf", "tcn", "tcn_resid"):
             df[name] = df[name] - df["last_known_TVT"]
 
     comp_names = list(comps.keys())
