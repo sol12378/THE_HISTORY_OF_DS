@@ -1,0 +1,9 @@
+{
+  "n_wells": 207,
+  "surf_pooled": 835.1270862287231,
+  "pf_pooled": 18.084503132446585,
+  "surf_better_than_pf": 4,
+  "corr_surf_minus_pf_vs_true_minus_pf": -0.13538174412594156,
+  "blend_5050_pooled": 418.4948662411255,
+  "runtime_min": 0.6453914761543273
+}

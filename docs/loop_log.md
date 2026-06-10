@@ -7,7 +7,7 @@
 | 0 | 06-10 | exp073 公開資産統合blend (pf+geom+ravaghi+pilk_cat+proj) | 8.79 | **8.630** | **棄却(LB悪化, best=exp072 8.280)** | 外部OOF膨張で負の転移。方向転換 |
 | 1 | 06-10 | Phase1 forensics + per-well routing予測可能性テスト | 8.69(分析) | - | 棄却(routing単純版8.36止まり) | Phase2: tracker改修(lik-PF+selector) |
 | 2 | 06-10 | MHT multi-restart PF (offset{-40..40}尤度選択, subset207) | 22.73 vs single17.98 | - | **棄却(悪化-4.7, 悪化53本)** | LB着地待ち→較正後に枝選択の非尤度信号(空間prior/NN ranker)を検討 |
-| 3 | 06-10 | **方向転換(幾何)**: 空間formation surface offsetがtrue offsetを尤度(corr0.155)超えで予測できるか診断 | TBD | - | 進行中 | 効けばPF事前分布に空間prior注入(Phase4) |
+| 3 | 06-10 | **方向転換(幾何)**: 空間formation surface offsetで枝選択できるか診断 | surf 835/corr-0.135 | - | **棄却(corr負, 枝ランク不能)** | offset壁を尤度+空間の両面で確定(9回目)。後処理(proven-transfer)へ |
 
 ---
 
@@ -22,6 +22,28 @@
 - 原因: 外部OOF(rav/pilk)が「imputerをfold毎に再構築しない」(pilkwang manifest明記)で**楽観的に膨張**。我々のPF/geom/v11/projectionが持つfavorable transfer(gap+0.8)を希釈。
 - **教訓再確認**: OOFの強さ≠デプロイ性能(pilk_tcn事故と同根)。**借り物の外部OOFはCV-LB転移を破壊しうる**。今後の採用は「我々が推論経路まで管理できる成分」+「favorable transfer実績のある成分」に限定。
 - loop#1/2 + exp073 = 3連続非改善 → **方向転換**(blend/stacking exhausted、offset-tracking walled)。残る未踏=非尤度の枝選択(空間prior=幾何方向)。
+
+---
+
+## ★ 中間総括 (2026-06-10, loop#3後): offsetの壁を多面確定
+
+確定best = **exp072 LB 8.280**(top ~3%, leak-free)。LB1位 SaintLouis 5.986 とは2.3ft差。
+
+**per-well offset(=どの地層枝にいるか)は leak-free信号で予測不能** を、独立した複数角度で確認(計9回):
+- GR直接照合 (exp009/011/013/013b/017): 全滅
+- GR尤度PF枝選択 (loop#2 MHT): corr事実上0、悪化
+- 空間formation surface枝選択 (loop#3): corr **-0.135**(逆相関)
+- self-calibration (diag_self_calib): corr -0.028
+- 空間TVT補間 (diag_spatial): well疎すぎ
+- NN回帰 (exp019/020/039/046/053/075): 全敗
+- 外部GBM stack OOF (exp073): CV良→LB悪化(膨張)
+
+**含意**: LB 5台は「offsetを当てる/枝を選ぶ」の改良では到達しない(情報が無い)。残る可能性:
+1. **後処理(proven-transfer)**: projection系の精緻化。歴史的に+0.0xだが唯一positive transfer。
+2. SaintLouis 5.986 が使う未知技術(別データ/別定式化)の発見 — 公開情報に手掛かり乏しい。
+3. broken/bad wellの根本原因(データ品質・typewell対応)の個別調査 — 高コスト低確度。
+
+**方針**: 闇雲な offset実験は停止(EV低)。loop#4以降は (1)後処理 に絞り、proven base(exp026/exp072)上でCV→LB転移を確認しながら小幅改善を積む。それも頭打ちなら、新規公開notebook/discussionの再監査で技術発見を待つ。
 
 ---
 
