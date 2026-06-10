@@ -1,0 +1,10 @@
+{
+  "n_wells": 773,
+  "blend_pooled": 8.689678673025508,
+  "broken_count": 19,
+  "bad_count": 188,
+  "broken_pooled2_contrib": 0.329,
+  "bad_pooled2_contrib": 0.447,
+  "rescue_geom_for_pf_broken": 16,
+  "oracle_per_well_pick": 7.094389844560204
+}
