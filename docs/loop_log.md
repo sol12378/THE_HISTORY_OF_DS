@@ -4,9 +4,24 @@
 
 | # | 日付 | 手法(1変更) | CV | LB | 採否 | 次の一手 |
 |---|---|---|---:|---:|---|---|
-| 0 | 06-10 | exp073 公開資産統合blend (pf+geom+ravaghi+pilk_cat+proj) | 8.79 | 提出待ち(UI) | 提出中 | LB着地でgap較正 |
+| 0 | 06-10 | exp073 公開資産統合blend (pf+geom+ravaghi+pilk_cat+proj) | 8.79 | **8.630** | **棄却(LB悪化, best=exp072 8.280)** | 外部OOF膨張で負の転移。方向転換 |
 | 1 | 06-10 | Phase1 forensics + per-well routing予測可能性テスト | 8.69(分析) | - | 棄却(routing単純版8.36止まり) | Phase2: tracker改修(lik-PF+selector) |
 | 2 | 06-10 | MHT multi-restart PF (offset{-40..40}尤度選択, subset207) | 22.73 vs single17.98 | - | **棄却(悪化-4.7, 悪化53本)** | LB着地待ち→較正後に枝選択の非尤度信号(空間prior/NN ranker)を検討 |
+| 3 | 06-10 | **方向転換(幾何)**: 空間formation surface offsetがtrue offsetを尤度(corr0.155)超えで予測できるか診断 | TBD | - | 進行中 | 効けばPF事前分布に空間prior注入(Phase4) |
+
+---
+
+## ★ 重大: exp073 LB 8.630 = 負の転移 (2026-06-10)
+
+| 実験 | CV | LB | gap(CV-LB) |
+|---|---:|---:|---:|
+| exp072 (確定best) | 9.086 | **8.280** | +0.81 (LBがCVより良い) |
+| exp073 (公開資産blend) | 8.79 | 8.630 | +0.16 (転移消失) |
+
+- **CV改善(9.086→8.79)なのにLB悪化(8.280→8.630)**。確定best LBは **exp072 8.280** のまま。
+- 原因: 外部OOF(rav/pilk)が「imputerをfold毎に再構築しない」(pilkwang manifest明記)で**楽観的に膨張**。我々のPF/geom/v11/projectionが持つfavorable transfer(gap+0.8)を希釈。
+- **教訓再確認**: OOFの強さ≠デプロイ性能(pilk_tcn事故と同根)。**借り物の外部OOFはCV-LB転移を破壊しうる**。今後の採用は「我々が推論経路まで管理できる成分」+「favorable transfer実績のある成分」に限定。
+- loop#1/2 + exp073 = 3連続非改善 → **方向転換**(blend/stacking exhausted、offset-tracking walled)。残る未踏=非尤度の枝選択(空間prior=幾何方向)。
 
 ---
 

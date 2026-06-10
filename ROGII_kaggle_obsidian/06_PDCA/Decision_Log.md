@@ -70,3 +70,11 @@
 - **CUDA活用**: exp075 GPU-TCN(RTX 2080 SUPER, torch cu124)。v1直接14.87→residual版(exp075b)13.39。blend寄与は小(0.11)だが正。NN単体は弱い従来知見を再確認しつつ、residual化で初めて微寄与。
 - **提出方針**: pilkwang notebook(rav+pilk全成分を採点時計算)をfork + 我々exp026(pf+geom)注入 + joint重み + projection。我々TCN_residはtorch同梱回避でドロップ(8.697)。目標LB<=7.419。CV→LB転移: 公開pipeline CV9.21→LB7.572、我々は8.69でそれを上回る → LB 7.0〜7.4圏を期待。
 - 詳細: [[exp073_public_assets_integration]]
+
+# 2026-06-10: exp073 LB 8.630 = 負の転移で棄却。best=exp072 8.280維持
+
+- **結果**: exp073 (公開資産blend, nested CV 8.79) を提出 → **LB 8.630**。CV改善(9.086→8.79)にもかかわらず**LB悪化(8.280→8.630)**。CV-LB gapがexp072の+0.81から+0.16へ縮小=favorable transfer消失。
+- **原因**: 外部OOF(ravaghi/pilkwang)が pilkwang manifest明記の「OOF imputerをfold毎に再構築しない」により**楽観的に膨張**していた。我々のPF/geom/v11/projectionは「LB<CV」のfavorable transferを持つが、膨張した外部成分(重み~0.66)がそれを希釈・破壊。
+- **判断**: exp073を棄却。**確定best LB = exp072 8.280**。今後の成分採用は「我々が推論経路まで管理」+「favorable transfer実績あり」に限定。借り物外部OOFは不採用。
+- **方向転換トリガー**: loop#1(routing棄却)+loop#2(MHT棄却)+exp073(LB悪化)=3連続非改善。blend/stacking exhausted、GR尤度ベースのoffset-tracking walled(8回確認)。残る未踏=**非尤度の枝選択(空間formation prior=幾何方向)**。
+- 詳細: [[loop_log]] (docs/)
