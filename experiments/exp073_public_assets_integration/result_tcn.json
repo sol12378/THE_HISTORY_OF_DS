@@ -1,0 +1,32 @@
+{
+  "exp": "exp075_gpu_tcn",
+  "pooled_rmse": 14.87437003896082,
+  "fold_val_rmses": [
+    13.656528184427318,
+    13.837395856076508,
+    13.953415030675728,
+    15.488574869820463,
+    17.201656351679706
+  ],
+  "n_rows": 3783989,
+  "n_valid": 3783989,
+  "features": [
+    "_gr",
+    "_gr_d1",
+    "_gr_rm",
+    "_gr_rs",
+    "Z",
+    "delta_Z_from_PS",
+    "delta_X_from_PS",
+    "delta_Y_from_PS",
+    "_md_since",
+    "row_frac",
+    "_tvt_in_rel",
+    "_is_known",
+    "_dxy",
+    "_dz_dmd"
+  ],
+  "runtime_min": 2.926595107714335,
+  "device": "cuda",
+  "leak_notes": "GroupKFold by well; loss on hidden rows only; hidden TVT never fed; bidirectional convs valid (geometry fully observed)."
+}

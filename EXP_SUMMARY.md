@@ -2,6 +2,9 @@
 
 | Exp | Model | Features | Target | CV | LB | Time | Status | Notes |
 |---|---|---|---|---:|---:|---:|---|---|
+| exp057_submit_surface_kernel | Spatial cKDTree | ASTNU surface | TVT = S(X,Y)-Z+const_well | **cancelled** | - | - | cancelled | **前提のexp056 CV 0.626はself-leakと確定済み(Decision_Log 2026-06-07)のため提出化を中止**。正しいLOWO(self除外)はpooled 29.2でPF 11.02に劣後。 |
+| exp073_public_assets_integration | NNLS nested blend | fleongg EngineB + ravaghi ridge-stack + 我々exp026 PF×geom + projection | TVT delta | running | target <=7.419 | - | running | 公開資産(ravaghi artifacts/fleongg models)から正直OOFを構築し、我々の直交成分(exp026 PF×geom)とnested blend。fleongg公開blend LB 7.572 / sp45-fleongg-v2フォーク=7.419級を、leak-free CVで上回る統合を狙う。外部OOF統合済(ravaghi ridge_stack 10.42/pilkwang blend_pp 10.67/tcn 11.26)。geom/PF OOF再計算中。 |
+| exp075_gpu_tcn (v1) | GPU TCN (torch CUDA) | well系列(GR/幾何/typewell prior) | TVT delta直接 | **14.874** | - | 2.9min(GPU) | completed | **CUDA解禁後初のNN**。双方向dilated TCN(7 blocks,ch64)。GPUで5-fold 2.9分と激安。単体14.87はgeom/PFに劣り過去NN(exp019=14.63)同様弱い。fold分散大(13.9〜17.2)。blend価値は非相関性次第→harness判定。次: geom prior残差版(exp075b)で強化予定。leak-free(well GroupKFold, hidden行のみ損失) |
 | exp001_xgb_baseline | XGB | basic | direct | - | - | - | planned | starter reproduction |
 | exp002_lgb_anchor_delta | LGB | basic+anchor | delta | - | - | - | planned | anchor delta validation |
 | exp001_anchor_baseline | rule | last_known_TVT | direct TVT | 15.909853 | - | <1m | completed | PS直前のTVTを固定延長する基準線。leak risk low |
@@ -52,4 +55,6 @@
 | features_p2 | 特徴量モジュール | 3D tortuosity + spatial KNN surface | - | - | - | ~3m | completed | **P2**。Niccoli最有用(tortuosity)+pilkwang KNN formation surface。9特徴。knn_surface_minus_Z vs TVT corr 0.9675。leak-free |
 | exp042_postproc | 後処理grid | savgol + selector binning | smoothed TVT | 10.49(非一貫) | - | ~2m | completed | **P3/P4: mean-smooth維持**。savgol/selector は pool CV僅改善(10.49)だが fold4で悪化=非一貫。anti-overfit原則で不採用 |
 | pdca_blend (exp041+geom) | nested-fold blend harness | exp041 + exp014 | blended TVT | **10.158** | - | <1m | completed | **PDCA基盤**。nested-fold blend+consistency gate+weight stability+parsimony+予想LB。exp041(0.76)+geom(0.24)、confidence HIGH、予想LB 8.758。4成分化は改善なくconfidence LOW(過学習ゲート機能) |
-| exp056_field_surface | Spatial cKDTree | formation horizons (ASTNU) | TVT offset from structure | **0.626** | - | ~2.5h | completed | **BREAKTHROUGH 17×超improvement**。ASTNU formation horizon を 773 well の全点(500万点)から cKDTree 補間。const_well を known区間のみから推定 (leak-free LOWO)。pooled RMSE 0.626 ft = PF(11.024)より 17× 優秀。中央値 0.039 ft。メカニズム: 純幾何的な地層面構造から offset を決定。GR 照合(失敗)と異なり、well間の空間的相関で offset 転移可能。exp022の GR 尤度より geometry が遥かに deterministic。|
+| exp056_field_surface | Spatial cKDTree | formation horizons (ASTNU) | TVT offset from structure | ~~0.626~~ **LEAK** | - | ~2.5h | **rejected (leak)** | **0.626はself-leak**: cKDTree構築時に評価対象well自身のASTNU点が残存(コード上self除外なし、scripts/exp056_field_surface_full.py参照)。正しいLOWO(self除外)= pooled 29.2 / median 12.3 で PF(11.024)に敗北(Decision_Log 2026-06-07確定)。formation horizonは自wellのTVT解釈由来のため自己参照になる。 |
+| exp051_artifact_pf_blend (提出) | 線形blend | 0.438*v11_artifact + 0.562*exp026(PF×geom) | TVT | nested 9.27 | **8.316** | kernel | completed | artifact blend転移成功。exp026(8.672)から-0.356。 |
+| exp072_proj (提出) | exp051 + projection後処理 | U=TVT+Z-anchor robust 5次多項式(IRLS) | TVT | nested **9.086** | **8.280** | kernel | completed | **現best LB 8.280 / 現best CV 9.086**。projection(exp068)が+0.036のLB改善。CV-LB gap 0.81。 |

@@ -1,0 +1,42 @@
+{
+  "n_rows": 3783989,
+  "pred_columns": [
+    "pilk_xgb",
+    "pilk_cat",
+    "pilk_hgb",
+    "pilk_lgb",
+    "pilk_tcn",
+    "pilk_blend",
+    "pilk_blend_pp",
+    "rav_lgb1",
+    "rav_lgb2",
+    "rav_lgb3",
+    "rav_cb1",
+    "rav_cb2",
+    "rav_ridge_stack"
+  ],
+  "metrics_rmse_delta": {
+    "pilk_xgb": 11.361522672520115,
+    "pilk_cat": 11.024700298738031,
+    "pilk_hgb": 11.255841470104635,
+    "pilk_lgb": 11.247567283253533,
+    "pilk_tcn": 11.257960047252787,
+    "pilk_blend": 10.710644759119258,
+    "pilk_blend_pp": 10.670210997190607,
+    "rav_lgb1": 10.766774371610293,
+    "rav_lgb1_trainer_score": 10.766785799946081,
+    "rav_lgb2": 10.48522595489053,
+    "rav_lgb2_trainer_score": 10.485238926940431,
+    "rav_lgb3": 10.4733147402264,
+    "rav_lgb3_trainer_score": 10.47332790043362,
+    "rav_cb1": 10.575027664186717,
+    "rav_cb1_trainer_score": 10.575040956891591,
+    "rav_cb2": 10.5550144345354,
+    "rav_cb2_trainer_score": 10.555027391459404,
+    "rav_ridge_stack": 10.423499442528353
+  },
+  "issues": [
+    "v11 block: invalid load key, '\\x10'."
+  ],
+  "leak_audit": "pilkwang OOF = GroupKFold(5) by well, self-well excluded for formation features (manifest oof_imputer_mode=global_train_self_exclude_query_well); mild optimism (imputer not rebuilt per fold) acknowledged. ravaghi trainer.oof_preds are GroupKFold OOF. All honest (delta-space RMSE ~9-11, not ~0)."
+}

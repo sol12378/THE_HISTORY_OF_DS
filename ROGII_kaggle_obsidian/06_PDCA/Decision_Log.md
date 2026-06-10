@@ -53,3 +53,10 @@
 | 2026-06-07 | **projection(構造座標robust多項式)が genuine leak-free改善**。nested 9.27→9.086 | exp068: proj_U_deg5/7=9.17(−0.10), 生TVT平滑(proj_raw)は9.67悪化→U=pred+Z−anchor座標が必須。全部入り(artifact+exp026+surface+residual+pf)+proj_U=9.086(−0.19, 予想LB~8.1)。ramp(tau)無効、PF600/150悪化、apply_pp w_pf=0(PF混合無効)。selector workerは未完+fold-train RMSE7.1異常→main再実験 | exp068/070 | [[exp051]] |
 | 2026-06-08 | **selector(main再実験)=genuine改善**。PF 10.91→10.47(−0.44, leak-free) | worker(exp069)の7.1はバグ/leak。exp071厳密版: per-scale PF + regime(n_eval,z_span)6bin、variant(scale/hold)選択をfold内train RMSEのみ(leak-free)。我々の実装。blend価値は要評価 | exp071 | [[exp051]] |
 | 2026-06-08 | **exp072(projection版)提出**(ref53462017)。projection=我々の実装でleak-free | exp051 blend + 構造座標U robust多項式。nested 9.27→9.086。LB反映待ち | exp072 | [[exp068]] |
+# 2026-06-10: LB 7.419 以下狙いの主戦略 (改訂)
+
+- **訂正**: 当初「exp056 field surface (CV 0.626) の提出kernel化」を主戦略としたが、これは**2026-06-07に確定済みのself-leak** (cKDTreeに評価well自身のASTNU点が残存、正しいLOWO=29.2でPF以下) を見落とした誤った計画だった。即日棄却。戦略立案時はDecision_Logの棄却履歴との突合を必須とする。
+- 検証済み現状: **exp072 = LB 8.280 (現best)** (ref 53496203) / nested CV 9.086。目標7.419まで-0.861。
+- 新決定: 主戦略は **exp073 公開資産統合**。公開notebook監査 (5本) の結果、fleongg fle3n-v4 (LB 7.572) は全て公開データセット (ravaghi artifacts / fleongg models) で構成され、GroupKFold OOF内蔵のTrainer pickleから正直なOOFを構築できる。我々のexp026 (PF×geom) は彼らに無い直交成分であり、nested NNLS blendでCV 9.086更新を狙う。
+- リーク判断: 彼らのtrain TVT lookup分岐は採点時に発火しない死にコード (exp044の知見と整合)。public LB 7.572は正味性能で信頼可。ただしblend重み・selector閾値はLB probing由来の可能性があるため自前OOFで再決定する。
+- 詳細: [[Strategy_2026-06-10_LB7419_plan]]

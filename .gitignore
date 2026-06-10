@@ -1,3 +1,14 @@
+# external downloaded Kaggle datasets (large: 7GB train.csv, model pkls) - keep out of public repo
+data/external/*
+!data/external/.gitkeep
+# all OOF-like per-row prediction dumps in experiments (only oof.csv was covered before)
+experiments/*/oof_*.csv
+experiments/*/*_oof.csv
+# pulled external public notebooks (reference only, not redistributed)
+external_notebooks/
+# decoded kernel internals (large embedded/derived code)
+kaggle_notebooks/*/_decoded_*.py
+
 .DS_Store
 .env
 .kaggle/
