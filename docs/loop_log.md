@@ -45,6 +45,12 @@
 
 **方針**: 闇雲な offset実験は停止(EV低)。loop#4以降は (1)後処理 に絞り、proven base(exp026/exp072)上でCV→LB転移を確認しながら小幅改善を積む。それも頭打ちなら、新規公開notebook/discussionの再監査で技術発見を待つ。
 
+| 4 | 06-10 | 外部技術偵察(web/公開notebook) | - | - | 棄却(公開最高9.25、LB5台手法は非公開) | loop#5=我々成分のper-well学習的再重み付け(disagreement信号) |
+
+## Loop 4 (外部偵察)
+- web/Kaggle検索: 公開notebookは全て9+級(DWT 9.251 / hill climbing / better 9.956)。SaintLouis 5.986級の手法は**非公開**。突破の外部手掛かり無し。
+- Act: 外部に答えは無い。残る最有望=**我々の転移成分のper-well学習的再重み付け**。loop#1のdisagreement信号(誤差corr+0.25=全特徴で最強)+ routing oracle 7.09 を狙う。借り物OOF不使用で転移は正直。次loop#5で実装。
+
 ---
 
 ## Loop 1 詳細 (Phase 1 forensics + routing test)
