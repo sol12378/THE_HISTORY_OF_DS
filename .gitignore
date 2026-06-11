@@ -1,6 +1,19 @@
 # external downloaded Kaggle datasets (large: 7GB train.csv, model pkls) - keep out of public repo
 data/external/*
 !data/external/.gitkeep
+# experiment intermediate artifacts (logs / submissions / per-row dumps / kaggle outputs)
+experiments/*/kernel_output/
+experiments/*/*_stdout.txt
+experiments/*/log_*.txt
+experiments/*/log.txt
+experiments/*/*_log.txt
+experiments/*/explore_report.md
+experiments/*/submit_build_log*.txt
+experiments/*/explore_log.txt
+experiments/*/notebook_params.txt
+experiments/*/submission*.csv
+experiments/*/*_per_well.csv
+experiments/*/*_preds.csv
 # all OOF-like per-row prediction dumps in experiments (only oof.csv was covered before)
 experiments/*/oof_*.csv
 experiments/*/*_oof.csv
