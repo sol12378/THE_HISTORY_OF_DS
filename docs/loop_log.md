@@ -45,7 +45,33 @@
 
 **方針**: 闇雲な offset実験は停止(EV低)。loop#4以降は (1)後処理 に絞り、proven base(exp026/exp072)上でCV→LB転移を確認しながら小幅改善を積む。それも頭打ちなら、新規公開notebook/discussionの再監査で技術発見を待つ。
 
+---
+
+## ★★ ループ一旦停止 (2026-06-10, loop#5後): 最終構成と総括
+
+### 確定 best submission (再現手順)
+- **exp072 = LB 8.280** (Public, top ~3% / ~63位相当)。
+- 構成: `0.438 * v11_artifact(GBM meta-stack, thbdh5765/rogii-v11-fresh-artifacts) + 0.562 * exp026(PF×geom自己完結)` + U座標robust多項式 projection(deg5)。
+- kernel: `kaggle_notebooks/exp072_proj/rogii_exp072.py`(base64埋め込み自己完結)。提出はKaggle UIで notebook を "Submit to Competition"(CSV直接提出は400=notebook-only comp)。
+- leak-free。CV(nested 9.086)→LB 8.280、gap +0.81(LBがCVより良いfavorable transfer)。
+
+### なぜ LB 5台に届かないか(6ループ+多数の過去実験の結論)
+- **per-well offset(どの地層枝にいるか)は leak-free信号で予測不能**。約10通りで確認: GR照合/GR尤度PF/空間surface(corr-0.135)/self-calib(-0.028)/空間補間/NN回帰6種/外部GBM stack/学習的per-well再重み付け(過学習)。
+- **固定重みblendが学習的per-well重み付けに勝つ**(loop#5: 10.05 vs 10.80)= 利用できるper-well構造が存在しない。
+- 外部公開に LB5台の手法なし(公開最高9.25)。借り物外部OOFはCV-LB転移を破壊(exp073: CV8.79→LB8.630)。
+- broken/bad well(誤差の78%)は wrong-branch / partial drift だが、枝を正す情報が leak-free データに無い。理論オラクル(4-offset/well=4.39)は到達可能性を示すが、その offset を選ぶ手段が無い。
+
+### 停止判断
+6連続非改善・全探索軸(model/blend/geometry/外部/後処理近傍/reweighting)が頭打ち。闇雲な継続は資源浪費のため**自律ループを一旦停止**。
+
+### 再開する価値がある条件(LB5台への現実的な道)
+1. **新しい公開技術の出現**: コンペ終盤に上位がnotebook公開したら即監査(romantamrazov系の更新等)。
+2. **broken well根本原因のデータ調査**(高コスト): 47 broken wellのtypewell対応・GR品質・PNG画像を個別精査し、データ品質起因なら除外/補正ルール、地質ブロック起因なら専用typewell再選定。
+3. **後処理の専用探索**(小幅・proven-transfer): exp072 base上で projection/平滑の体系的グリッド。期待+0.0x。
+4. Private shake-up待ち(我々はleak-free・fold一貫・重み安定でPrivate耐性は高い設計)。
+
 | 4 | 06-10 | 外部技術偵察(web/公開notebook) | - | - | 棄却(公開最高9.25、LB5台手法は非公開) | loop#5=我々成分のper-well学習的再重み付け(disagreement信号) |
+| 5 | 06-10 | per-well学習的再重み付け(GBMメタスタッカー, pf+geom+leak-free特徴) | 10.80 vs exp026 10.05 | - | **棄却(過学習で悪化-0.76)** | 固定重みが勝つ=利用可能なper-well構造なし。ループ一旦停止(壁確定) |
 
 ## Loop 4 (外部偵察)
 - web/Kaggle検索: 公開notebookは全て9+級(DWT 9.251 / hill climbing / better 9.956)。SaintLouis 5.986級の手法は**非公開**。突破の外部手掛かり無し。
