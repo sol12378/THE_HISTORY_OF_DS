@@ -9,7 +9,9 @@
 |---|---|---|---|---|
 | 1 | Phase B: two-filter PF smoother(逆分散結合, subset257) | smoother 25.06 vs fwd 16.35 | **棄却(生は破綻)** | 後向きPFも壁=偽枝に低分散確信。一致ゲートで救済試行 |
 | 2 | 一致ゲート smoother(\|sm-fwd\|<=T, offline) | **gated T15=16.02 vs fwd 16.35(-0.33)** | **採用(救済成功)** | 全773で検証→PF底上げ |
-| 3 | full-773 gated smoother(64seed) | 実行中(~1.8h) | — | 完了→PF OOF更新→Phase A blend土台 |
+| 3 | full-773 gated smoother(64seed, gate T12) | **PF 10.984→10.796(-0.19)** | **採用(clean leak-free PF底上げ)** | oof_smoother_gated.csv保存。Phase A blend土台 |
+
+**★ fork LB着地 = 7.625 = 新best!**(従来8.280から-0.655)。sp45-fleongg fork(clean、公開datasetのみ)。これが新baseで、以降の全実験の較正点。Phase A2(fork + 我々PF直交blend, w≈0.3)へ。
 
 
 

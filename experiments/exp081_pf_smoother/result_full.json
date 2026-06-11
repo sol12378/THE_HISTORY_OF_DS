@@ -1,0 +1,11 @@
+{
+  "n_wells": 773,
+  "pooled_pf128": 10.983861172482264,
+  "pooled_fwd": 10.921856453636163,
+  "pooled_smoother": 19.373382988016633,
+  "bad_median_fwd": 11.777611792461899,
+  "bad_median_sm": 13.713894670974359,
+  "bad_improved": 85,
+  "good_worsened": 187,
+  "runtime_min": 83.90910876989365
+}
