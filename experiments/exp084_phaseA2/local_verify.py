@@ -25,7 +25,7 @@ ROOT = Path(__file__).parent.parent.parent.resolve()
 sys.path.insert(0, str(ROOT))
 
 FORK_SCRIPT   = ROOT / "kaggle_notebooks" / "exp080_sp45_fork"   / "rogii_sp45_fork.py"
-EXP026_SCRIPT = ROOT / "kaggle_notebooks" / "exp072_proj"         / "_decoded_exp026_b64.py"
+EXP026_SCRIPT = ROOT / "kaggle_notebooks" / "exp026_pf_geom_blend" / "rogii_exp026_pf_geom_blend.py"
 DATA_DIR      = ROOT / "data" / "raw"
 LOG_PATH      = ROOT / "experiments" / "exp084_phaseA2" / "build_log.txt"
 OUT_DIR       = ROOT / "experiments" / "exp084_phaseA2"
@@ -56,7 +56,7 @@ def run_script(script: Path, label: str, out_csv: Path):
         t0 = time.time()
         r = subprocess.run(
             [sys.executable, str(script)],
-            cwd=str(tmp),
+            cwd=str(ROOT),
             env=env,
             capture_output=True,
             text=True,
@@ -75,10 +75,14 @@ def run_script(script: Path, label: str, out_csv: Path):
         if tail: log(f"[{label}] stdout tail:\n{tail}")
         if r.stderr: log(f"[{label}] stderr tail:\n{r.stderr[-1000:]}")
 
-        # locate submission.csv
-        cand = tmp / "submission.csv"
+        # check returncode first
+        if r.returncode != 0:
+            raise RuntimeError(f"[{label}] subprocess failed with rc={r.returncode}")
+
+        # locate submission.csv in ROOT (scripts write to current dir)
+        cand = ROOT / "submission.csv"
         if not cand.exists():
-            raise RuntimeError(f"[{label}] submission.csv not found in {tmp}")
+            raise RuntimeError(f"[{label}] submission.csv not found in {ROOT}")
         shutil.copy2(str(cand), str(out_csv))
         df = pd.read_csv(out_csv)
         log(f"[{label}] -> {out_csv}  rows={len(df)}  nan={df.tvt.isna().sum()}  "

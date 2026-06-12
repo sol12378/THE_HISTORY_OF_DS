@@ -24,7 +24,7 @@ _WORK = Path("/kaggle/working") if Path("/kaggle/working").exists() else Path(".
 _THIS_DIR = Path(__file__).parent.resolve()
 
 FORK_SCRIPT = _THIS_DIR.parent / "exp080_sp45_fork" / "rogii_sp45_fork.py"
-EXP026_SCRIPT = _THIS_DIR.parent / "exp072_proj" / "_decoded_exp026_b64.py"
+EXP026_SCRIPT = _THIS_DIR.parent / "exp026_pf_geom_blend" / "rogii_exp026_pf_geom_blend.py"
 
 FORK_SUB_PATH   = _WORK / "fork_submission.csv"
 EXP026_SUB_PATH = _WORK / "exp026_submission.csv"
