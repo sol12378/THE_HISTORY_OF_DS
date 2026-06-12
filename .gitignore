@@ -14,6 +14,7 @@ experiments/*/notebook_params.txt
 experiments/*/submission*.csv
 experiments/*/*_per_well.csv
 experiments/*/*_preds.csv
+experiments/*/preds*.csv
 # all OOF-like per-row prediction dumps in experiments (only oof.csv was covered before)
 experiments/*/oof_*.csv
 experiments/*/*_oof.csv
